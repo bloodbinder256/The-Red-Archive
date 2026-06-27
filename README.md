@@ -1,53 +1,33 @@
-# The Red Archive — DemonTime Lore Website
+# The Red Archive
 
-A static DemonTime lore-code website using Anime.js. Players enter codes found in-game and unlock DemonTime lore records.
+**The Red Archive** is a companion lore website for the *DemonTime* Minecraft mod.
 
-## Files
+Players can discover hidden codes inside the game, then enter those codes into The Red Archive to unlock forbidden lore, lost records, corrupted memories, and secret fragments from the world of DemonTime.
 
-- `index.html` — page markup
-- `styles.css` — Red Archive styling
-- `app.js` — lore code database, unlock logic, and Anime.js animations
-- `.nojekyll` — helps GitHub Pages serve the site exactly as-is
-- `.gitignore` — keeps OS/editor junk out of the repo
+This site is meant to feel like an old sealed database: part archive, part ritual record, part warning.
 
-## Run locally
+## What it is for
 
-Open `index.html` in a browser.
+The Red Archive gives players a place to uncover DemonTime lore outside of Minecraft.
 
-No build step is required. Anime.js is loaded from jsDelivr:
+Instead of handing the story to the player all at once, the mod can hide pieces of the world behind codes found through:
 
-```html
-<script src="https://cdn.jsdelivr.net/npm/animejs/dist/bundles/anime.umd.min.js"></script>
-```
+* rituals
+* bosses
+* structures
+* rare items
+* contracts
+* sealed locations
+* secret messages
 
-## Add or edit lore codes
+When a player enters the correct code, a new archive entry is revealed.
 
-Open `app.js` and edit the `RED_ARCHIVE_RECORDS` array.
+## How it works
 
-Each record uses this shape:
+Enter a discovered code into the archive terminal.
 
-```js
-{
-  code: "SERAPH-ASH-001",
-  title: "The First Choir",
-  category: "Seraphim / Burned Registry",
-  threat: "Apostate Hymn",
-  body: "Lore text goes here."
-}
-```
+If the code is valid, the archive unlocks a lore record.
 
-Use unique codes. The website treats codes as case-insensitive, and spaces or underscores are normalized into dashes.
+If the code is unknown, the archive refuses access.
 
-## Put it on GitHub
-
-1. Create a new GitHub repository, for example `red-archive`.
-2. Upload all files from this folder to the root of the repository.
-3. Commit the files.
-4. In the repository settings, enable GitHub Pages for the `main` branch and `/root` folder.
-5. Your site will be published as a static website once GitHub Pages finishes deploying.
-
-## Mod integration idea
-
-Use the same code strings inside the DemonTime mod. When a player completes rituals, finds structures, kills bosses, or unlocks archive pages, the mod can display one of these codes in-game.
-
-The website does not need accounts or a server. Unlocks are saved locally in the player's browser with `localStorage`.
+Unlocked records are saved locally in the browser, so players can return later and still see what they have discovered.
