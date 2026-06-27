@@ -1,6 +1,10 @@
 /*
   The Red Archive — DemonTime lore code prototype
   Edit RED_ARCHIVE_RECORDS to add, remove, or change lore codes.
+
+  Lore text supports Minecraft formatting codes:
+  §k obfuscated, §l bold, §o italic, §n underline, §m strikethrough, §r reset,
+  and §0-§f color codes.
 */
 
 const RED_ARCHIVE_RECORDS = [
@@ -83,6 +87,35 @@ const animeApi = window.anime || null;
 const animate = animeApi?.animate || null;
 const stagger = animeApi?.stagger || ((n) => (_, i) => i * n);
 
+const MINECRAFT_COLOR_CLASSES = {
+  "0": "mc-black",
+  "1": "mc-dark-blue",
+  "2": "mc-dark-green",
+  "3": "mc-dark-aqua",
+  "4": "mc-dark-red",
+  "5": "mc-dark-purple",
+  "6": "mc-gold",
+  "7": "mc-gray",
+  "8": "mc-dark-gray",
+  "9": "mc-blue",
+  a: "mc-green",
+  b: "mc-aqua",
+  c: "mc-red",
+  d: "mc-light-purple",
+  e: "mc-yellow",
+  f: "mc-white"
+};
+
+const MINECRAFT_FORMAT_CLASSES = {
+  k: "mc-obfuscated",
+  l: "mc-bold",
+  m: "mc-strikethrough",
+  n: "mc-underline",
+  o: "mc-italic"
+};
+
+const OBFUSCATE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789█▓▒░<>/\\{}[]!?$%#@*&+-=";
+
 const els = {
   input: $("#code-input"),
   submit: $("#submit-code"),
@@ -101,6 +134,7 @@ const els = {
 
 let unlocked = new Set(loadUnlockedCodes());
 let activeRecord = null;
+let obfuscationTimer = null;
 
 boot();
 
@@ -124,7 +158,6 @@ function bindEvents() {
     if (event.key === "Enter") handleSubmit();
   });
 
-
   els.reset.addEventListener("click", () => {
     unlocked = new Set();
     localStorage.removeItem(STORAGE_KEY);
@@ -137,7 +170,7 @@ function bindEvents() {
 
   els.copy.addEventListener("click", async () => {
     if (!activeRecord) return;
-    const text = `${activeRecord.title}\n${activeRecord.code}\n${activeRecord.category}\n\n${activeRecord.body}`;
+    const text = `${stripMinecraftFormatting(activeRecord.title)}\n${activeRecord.code}\n${stripMinecraftFormatting(activeRecord.category)}\n\n${stripMinecraftFormatting(activeRecord.body)}`;
     try {
       await navigator.clipboard.writeText(text);
       setStatus("ENTRY COPIED");
@@ -175,10 +208,10 @@ function revealRecord(record) {
   activeRecord = record;
   setStatus("DECRYPTING");
   els.result.classList.remove("hidden");
-  els.recordTitle.textContent = record.title;
-  els.recordMeta.textContent = `${record.code} // ${record.category}`;
-  els.recordWarning.textContent = record.threat;
-  els.recordBody.textContent = "";
+  setFormattedContent(els.recordTitle, record.title);
+  setFormattedContent(els.recordMeta, `${record.code} // ${record.category}`);
+  setFormattedContent(els.recordWarning, record.threat);
+  els.recordBody.innerHTML = "";
 
   if (animate) {
     animate(els.result, { opacity: [0, 1], translateY: [24, 0], scale: [0.98, 1], duration: 620, ease: "outExpo" });
@@ -191,7 +224,7 @@ function revealRecord(record) {
     });
   }
 
-  typeText(els.recordBody, record.body, 15, () => setStatus("RECORD UNLOCKED"));
+  typeFormattedText(els.recordBody, record.body, 15, () => setStatus("RECORD UNLOCKED"));
 }
 
 function showDenied() {
@@ -210,10 +243,10 @@ function renderGrid() {
     const isUnlocked = unlocked.has(record.code);
     return `
       <article class="archive-card ${isUnlocked ? "" : "locked"}">
-        <div class="code">${isUnlocked ? record.code : "LOCKED-RECORD"}</div>
-        <h3>${isUnlocked ? record.title : "████████████"}</h3>
-        <p>${isUnlocked ? preview(record.body) : "This file is sealed. Recover its code in-game to decrypt the entry."}</p>
-        ${isUnlocked ? `<button class="ghost-button reopen" data-code="${record.code}">Open</button>` : ""}
+        <div class="code">${isUnlocked ? escapeHtml(record.code) : "LOCKED-RECORD"}</div>
+        <h3>${isUnlocked ? renderMinecraftText(record.title) : "████████████"}</h3>
+        <p>${isUnlocked ? escapeHtml(preview(stripMinecraftFormatting(record.body))) : "This file is sealed. Recover its code in-game to decrypt the entry."}</p>
+        ${isUnlocked ? `<button class="ghost-button reopen" data-code="${escapeAttr(record.code)}">Open</button>` : ""}
       </article>
     `;
   }).join("");
@@ -225,6 +258,8 @@ function renderGrid() {
     });
   });
 
+  restartObfuscatedText();
+
   if (animate) {
     animate(".archive-card", {
       opacity: [0, 1],
@@ -235,7 +270,6 @@ function renderGrid() {
     });
   }
 }
-
 
 function startAmbientAnimations() {
   if (!animate) return;
@@ -267,16 +301,189 @@ function startAmbientAnimations() {
   });
 }
 
-function typeText(element, text, speed = 18, done = () => {}) {
+function setFormattedContent(element, text) {
+  element.innerHTML = renderMinecraftText(text);
+  restartObfuscatedText();
+}
+
+function typeFormattedText(element, text, speed = 18, done = () => {}) {
   let index = 0;
+  element.innerHTML = "";
+
   const timer = setInterval(() => {
-    element.textContent += text.charAt(index);
     index += 1;
+
+    // Formatting codes should apply instantly instead of appearing as typed text.
+    while (text.charAt(index - 1) === "§" && index < text.length) {
+      index += 1;
+    }
+
+    element.innerHTML = renderMinecraftText(text.slice(0, index));
+
     if (index >= text.length) {
       clearInterval(timer);
+      restartObfuscatedText();
       done();
     }
   }, speed);
+}
+
+function renderMinecraftText(text) {
+  const state = createFormattingState();
+  let html = "";
+  let buffer = "";
+
+  const flush = () => {
+    if (!buffer) return;
+
+    const classes = [];
+    if (state.colorClass) classes.push(state.colorClass);
+    if (state.obfuscated) classes.push(MINECRAFT_FORMAT_CLASSES.k);
+    if (state.bold) classes.push(MINECRAFT_FORMAT_CLASSES.l);
+    if (state.strikethrough) classes.push(MINECRAFT_FORMAT_CLASSES.m);
+    if (state.underline) classes.push(MINECRAFT_FORMAT_CLASSES.n);
+    if (state.italic) classes.push(MINECRAFT_FORMAT_CLASSES.o);
+
+    const classAttr = classes.length ? ` class="${classes.join(" ")}"` : "";
+    const styleAttr = state.colorStyle ? ` style="color: ${state.colorStyle}"` : "";
+    const originalAttr = state.obfuscated ? ` data-original="${escapeAttr(buffer)}"` : "";
+    html += `<span${classAttr}${styleAttr}${originalAttr}>${escapeHtml(buffer).replace(/\n/g, "<br>")}</span>`;
+    buffer = "";
+  };
+
+  for (let i = 0; i < String(text || "").length; i += 1) {
+    const char = text[i];
+
+    if (char === "§" && i + 1 < text.length) {
+      const code = text[i + 1].toLowerCase();
+      flush();
+
+      if (code === "x") {
+        const hex = readMinecraftHexColor(text, i);
+        if (hex) {
+          applyColor(state, null, `#${hex.value}`);
+          i = hex.endIndex;
+          continue;
+        }
+      }
+
+      if (MINECRAFT_COLOR_CLASSES[code]) {
+        applyColor(state, MINECRAFT_COLOR_CLASSES[code], null);
+        i += 1;
+        continue;
+      }
+
+      if (MINECRAFT_FORMAT_CLASSES[code]) {
+        applyFormat(state, code);
+        i += 1;
+        continue;
+      }
+
+      if (code === "r") {
+        resetFormattingState(state);
+        i += 1;
+        continue;
+      }
+
+      // Unknown § codes stay visible so mistakes are easier to catch while editing.
+      buffer += char;
+      continue;
+    }
+
+    buffer += char;
+  }
+
+  flush();
+  return html;
+}
+
+function readMinecraftHexColor(text, startIndex) {
+  // Supports Java's §x§R§R§G§G§B§B style hex formatting.
+  let cursor = startIndex + 2;
+  let value = "";
+
+  for (let part = 0; part < 6; part += 1) {
+    if (text[cursor] !== "§" || !/[0-9a-fA-F]/.test(text[cursor + 1] || "")) return null;
+    value += text[cursor + 1];
+    cursor += 2;
+  }
+
+  return { value, endIndex: cursor - 1 };
+}
+
+function createFormattingState() {
+  return {
+    colorClass: null,
+    colorStyle: null,
+    obfuscated: false,
+    bold: false,
+    strikethrough: false,
+    underline: false,
+    italic: false
+  };
+}
+
+function resetFormattingState(state) {
+  state.colorClass = null;
+  state.colorStyle = null;
+  state.obfuscated = false;
+  state.bold = false;
+  state.strikethrough = false;
+  state.underline = false;
+  state.italic = false;
+}
+
+function applyColor(state, colorClass, colorStyle) {
+  // Minecraft color codes reset active formatting.
+  resetFormattingState(state);
+  state.colorClass = colorClass;
+  state.colorStyle = colorStyle;
+}
+
+function applyFormat(state, code) {
+  if (code === "k") state.obfuscated = true;
+  if (code === "l") state.bold = true;
+  if (code === "m") state.strikethrough = true;
+  if (code === "n") state.underline = true;
+  if (code === "o") state.italic = true;
+}
+
+function restartObfuscatedText() {
+  if (obfuscationTimer) clearInterval(obfuscationTimer);
+
+  const tick = () => {
+    $$(".mc-obfuscated").forEach((span) => {
+      const original = span.dataset.original || span.textContent || "";
+      span.textContent = randomObfuscatedString(original);
+    });
+  };
+
+  tick();
+  obfuscationTimer = setInterval(tick, 82);
+}
+
+function randomObfuscatedString(original) {
+  return Array.from(original).map((char) => {
+    if (/\s/.test(char)) return char;
+    return OBFUSCATE_CHARS[Math.floor(Math.random() * OBFUSCATE_CHARS.length)];
+  }).join("");
+}
+
+function stripMinecraftFormatting(text) {
+  return String(text || "").replace(/§x(§[0-9a-fA-F]){6}/g, "").replace(/§[0-9a-fk-orA-FK-OR]/g, "");
+}
+
+function escapeHtml(value) {
+  return String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function escapeAttr(value) {
+  return escapeHtml(value).replace(/`/g, "&#096;");
 }
 
 function normalizeCode(code) {

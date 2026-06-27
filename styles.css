@@ -396,6 +396,33 @@ button:active {
   line-height: 1.78;
 }
 
+/* Minecraft § formatting support for lore entries */
+.mc-black { color: #000000; }
+.mc-dark-blue { color: #0000aa; }
+.mc-dark-green { color: #00aa00; }
+.mc-dark-aqua { color: #00aaaa; }
+.mc-dark-red { color: #aa0000; }
+.mc-dark-purple { color: #aa00aa; }
+.mc-gold { color: #ffaa00; }
+.mc-gray { color: #aaaaaa; }
+.mc-dark-gray { color: #555555; }
+.mc-blue { color: #5555ff; }
+.mc-green { color: #55ff55; }
+.mc-aqua { color: #55ffff; }
+.mc-red { color: #ff5555; }
+.mc-light-purple { color: #ff55ff; }
+.mc-yellow { color: #ffff55; }
+.mc-white { color: #ffffff; }
+.mc-bold { font-weight: 900; }
+.mc-italic { font-style: italic; }
+.mc-underline { text-decoration-line: underline; }
+.mc-strikethrough { text-decoration-line: line-through; }
+.mc-underline.mc-strikethrough { text-decoration-line: underline line-through; }
+.mc-obfuscated {
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  letter-spacing: 0.04em;
+}
+
 .record-footer {
   display: flex;
   justify-content: space-between;
