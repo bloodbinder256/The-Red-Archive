@@ -1,76 +1,92 @@
-# The Red Archive — DemonTime Lore Website
+# The Red Archive
 
-A static DemonTime lore-code website using Anime.js. Players enter codes found in-game and unlock DemonTime lore records.
+**The Red Archive** is a companion lore-code website for the *DemonTime* Minecraft mod.
 
-## Files
+Players discover hidden archive codes in-game, enter them here, and unlock lore records from the Heavenly Book / Heaven Archive system.
 
-- `index.html` — page markup
-- `styles.css` — Red Archive styling
-- `app.js` — lore code database, unlock logic, and Anime.js animations
-- `.nojekyll` — helps GitHub Pages serve the site exactly as-is
-- `.gitignore` — keeps OS/editor junk out of the repo
+## What it is for
 
-## Run locally
+The site gives DemonTime players an outside-the-game archive for forbidden records, bestiary notes, ritual clues, item lore, structures, bosses, relics, and Heaven/Fallen Heavens discoveries.
 
-Open `index.html` in a browser.
+Instead of dumping all lore at once, the mod can reveal pieces through:
 
-No build step is required. Anime.js is loaded from jsDelivr:
+- dimensions and biomes
+- bosses and mobs
+- blocks and structures
+- relics and materials
+- rituals and altar clues
+- bestiary progress
+- special item use
 
-```html
-<script src="https://cdn.jsdelivr.net/npm/animejs/dist/bundles/anime.umd.min.js"></script>
+## Current archive data
+
+This version includes **94 Heavenly Book / Heaven Archive entries** imported from `HeavenArchiveUnlocks.java`.
+
+Each website code is the archive entry ID converted to uppercase with hyphens.
+
+Example:
+
+```text
+heaven_dimension -> HEAVEN-DIMENSION
+sky_breach -> SKY-BREACH
+cosmic_demon -> COSMIC-DEMON
 ```
 
-## Add or edit lore codes
+Players can type codes with spaces, underscores, lowercase letters, or hyphens. The site normalizes them before checking.
 
-Open `app.js` and edit the `RED_ARCHIVE_RECORDS` array.
+## Minecraft formatting support
 
-Each record uses this shape:
+Lore body text supports Minecraft `§` formatting codes:
 
-```js
-{
-  code: "SERAPH-ASH-001",
-  title: "The First Choir",
-  category: "Seraphim / Burned Registry",
-  threat: "Apostate Hymn",
-  body: "Lore text goes here."
-}
+```text
+§0-§f = Minecraft colors
+§k = obfuscated / glitch text
+§l = bold
+§m = strikethrough
+§n = underline
+§o = italic
+§r = reset
 ```
 
-Use unique codes. The website treats codes as case-insensitive, and spaces or underscores are normalized into dashes.
+It also supports Java-style hex colors:
 
-## Minecraft formatting codes
+```text
+§x§f§f§0§0§0§0Red hex text§r
+```
 
-Lore entries support Minecraft `§` formatting codes inside `title`, `category`, `threat`, and `body`.
-
-Examples:
+Example entry text in `app.js`:
 
 ```js
-body: "§cThis line is red. §lThis part is bold. §rThis part is normal again."
 body: "The forbidden name was §kUNKNOWN§r, and the archive refused to translate it."
 ```
 
-Supported codes:
+## How it works
 
-- `§0` to `§f` — Minecraft colors
-- `§k` — obfuscated/glitching text
-- `§l` — bold
-- `§m` — strikethrough
-- `§n` — underline
-- `§o` — italic
-- `§r` — reset formatting
+Enter a recovered code into the archive terminal.
 
-Minecraft color codes reset active formatting, just like in Minecraft.
+If the code is valid, the archive reveals the matching record and saves it locally in the browser with `localStorage`.
 
-## Put it on GitHub
+If the code is unknown, the archive refuses access.
 
-1. Create a new GitHub repository, for example `red-archive`.
-2. Upload all files from this folder to the root of the repository.
-3. Commit the files.
-4. In the repository settings, enable GitHub Pages for the `main` branch and `/root` folder.
-5. Your site will be published as a static website once GitHub Pages finishes deploying.
+No account system or server is required.
 
-## Mod integration idea
+## Built with
 
-Use the same code strings inside the DemonTime mod. When a player completes rituals, finds structures, kills bosses, or unlocks archive pages, the mod can display one of these codes in-game.
+- HTML
+- CSS
+- JavaScript
+- Anime.js
 
-The website does not need accounts or a server. Unlocks are saved locally in the player's browser with `localStorage`.
+## GitHub Pages
+
+This is a static site. To publish it with GitHub Pages:
+
+1. Upload the files to the root of the GitHub repo.
+2. Go to the repo settings.
+3. Open **Pages**.
+4. Set the source to the `main` branch and `/root`.
+5. Save and wait for GitHub to deploy it.
+
+## Created for DemonTime
+
+DemonTime is a dark fantasy Minecraft mod about Heaven, Fallen Heavens, rituals, seals, choirs, demons, angels, contracts, forgotten names, and things Heaven tried to erase.
