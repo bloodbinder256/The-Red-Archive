@@ -31,3 +31,5 @@ If the code is valid, the archive unlocks a lore record.
 If the code is unknown, the archive refuses access.
 
 Unlocked records are saved locally in the browser, so players can return later and still see what they have discovered.
+
+The Red Archive is part of the larger DemonTime project: a dark fantasy Minecraft mod about rituals, seals, choirs, demons, angels, contracts, forgotten names, and things Heaven tried to erase.
