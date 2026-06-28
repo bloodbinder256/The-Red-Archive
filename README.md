@@ -2,11 +2,11 @@
 
 **The Red Archive** is a companion lore-code website for the *DemonTime* Minecraft mod.
 
-Players discover hidden archive codes in-game, enter them here, and unlock lore records from the Heavenly Book / Heaven Archive system.
+Players discover hidden lore codes in-game, enter them here, and unlock records inspired by the Heavenly Book entries. The website works on its own and does not require an in-game archive system.
 
 ## What it is for
 
-The site gives DemonTime players an outside-the-game archive for forbidden records, bestiary notes, ritual clues, item lore, structures, bosses, relics, and Heaven/Fallen Heavens discoveries.
+The site gives DemonTime players an outside-the-game lore terminal for forbidden records, bestiary notes, ritual clues, item lore, structures, bosses, relics, and Heaven/Fallen Heavens discoveries.
 
 Instead of dumping all lore at once, the mod can reveal pieces through:
 
@@ -18,11 +18,11 @@ Instead of dumping all lore at once, the mod can reveal pieces through:
 - bestiary progress
 - special item use
 
-## Current archive data
+## Current lore data
 
-This version includes **94 Heavenly Book / Heaven Archive entries** imported from `HeavenArchiveUnlocks.java`.
+This version includes **94 Heavenly Book-inspired entries** built from the existing `HeavenArchiveUnlocks.java` list, rewritten so the records read like standalone website lore instead of in-game archive-system text.
 
-Each website code is the archive entry ID converted to uppercase with hyphens.
+Each website code is the entry ID converted to uppercase with hyphens.
 
 Example:
 
@@ -57,16 +57,16 @@ It also supports Java-style hex colors:
 Example entry text in `app.js`:
 
 ```js
-body: "The forbidden name was §kUNKNOWN§r, and the archive refused to translate it."
+body: "The forbidden name was §kUNKNOWN§r, and the record refused to translate it."
 ```
 
 ## How it works
 
-Enter a recovered code into the archive terminal.
+Enter a recovered code into the terminal.
 
-If the code is valid, the archive reveals the matching record and saves it locally in the browser with `localStorage`.
+If the code is valid, the site reveals the matching record and saves it locally in the browser with `localStorage`.
 
-If the code is unknown, the archive refuses access.
+If the code is unknown, access is refused until the player finds the correct hidden code.
 
 No account system or server is required.
 
