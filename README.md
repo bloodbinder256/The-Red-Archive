@@ -8,31 +8,23 @@ Players discover hidden codes in-game, enter them here, and unlock story records
 
 The site gives DemonTime players an outside-the-game lore terminal without needing an in-game archive system.
 
-The Red Archive is now focused on **storyline records**, not every item, recipe, upgrade, or old archive entry. The goal is to make each code feel meaningful instead of flooding players with filler.
+The Red Archive is focused on **storyline records**, not every item, recipe, upgrade, or old archive entry. Related records are now grouped together so each unlock feels like a meaningful piece of the DemonTime story instead of a tiny checklist item.
 
 ## Current lore data
 
-This version includes **42 curated storyline entries**.
+This version includes **16 grouped storyline entries**.
 
-Removed content includes:
-
-- old in-game archive-system wording
-- duplicate bestiary drop/weakness notes
-- gameplay-only upgrade/catalyst notes
-- individual stabilizer block entries
-- tool-set and material-list filler that did not push the story forward
-- entries that were too mechanical, outdated, or not important enough for the main DemonTime mystery
-
-Each website code is usually the entry ID converted to uppercase with hyphens.
-
-Examples:
+Examples of grouped records:
 
 ```text
-heaven_dimension -> HEAVEN-DIMENSION
-sky_breach -> SKY-BREACH
-cosmic_demon -> COSMIC-DEMON
-fallen_seraph -> FALLEN-SERAPH
+Heaven Dimension + Sky Breach + Heaven Biome -> HEAVEN-SKY-THRESHOLD
+Heavenly Altar + Goblet/Athame + First Light -> HEAVENLY-ALTAR-RITES
+Fallen Heavens + Fringe + Ash + Charred Wood -> FALLEN-HEAVENS-SCAR
+Cosmic Demon Arena + Cosmic Demon -> COSMIC-DEMON-ENCOUNTER
+Blackhole Core + Staffs + Ring + Gravity Offering -> GRAVITY-RELICS
 ```
+
+Old smaller codes still work as aliases where possible. For example, typing `HEAVEN-DIMENSION`, `SKY-BREACH`, or `HEAVEN-BIOME` will unlock the grouped `HEAVEN-SKY-THRESHOLD` record.
 
 Players can type codes with spaces, underscores, lowercase letters, or hyphens. The site normalizes them before checking.
 

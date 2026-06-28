@@ -1,9 +1,9 @@
 /*
   The Red Archive — DemonTime lore code site
-  Curated storyline-only record list. Gameplay-only, duplicate, deprecated, and old in-game archive-style entries were removed.
+  Curated, grouped storyline-only record list. Gameplay-only, duplicate, deprecated, and old in-game archive-style entries were removed.
 
-  Each entry code is the entry id converted to uppercase with hyphens.
-  Example: heaven_dimension -> HEAVEN-DIMENSION
+  Related records are clumped into larger story files so the site feels like a lore terminal instead of a checklist.
+  Old codes can still work through aliases.
 
   Lore text supports Minecraft formatting codes:
   §k obfuscated, §l bold, §o italic, §n underline, §m strikethrough, §r reset,
@@ -12,40 +12,30 @@
 
 const RED_ARCHIVE_RECORDS = [
   {
-    "code": "HEAVEN-DIMENSION",
-    "sourceId": "heaven_dimension",
-    "title": "Heaven Dimension",
-    "hiddenTitle": "Unknown Dimension",
+    "code": "HEAVEN-SKY-THRESHOLD",
+    "aliases": [
+      "HEAVEN-DIMENSION",
+      "SKY-BREACH",
+      "HEAVEN-BIOME",
+      "heaven_dimension",
+      "sky_breach",
+      "heaven_biome"
+    ],
+    "sourceId": "heaven_dimension+sky_breach+heaven_biome",
+    "title": "Heaven and the Sky Threshold",
+    "hiddenTitle": "Unknown Sky Dominion",
     "category": "Heaven",
     "triggerType": "discovery",
-    "triggerId": "demontimessntwo:heavendimension|heavendimension|dimension/heavendimension",
+    "triggerId": "demontimessntwo:heavendimension|heavendimension|dimension/heavendimension|y400|heaven_dimension_transport|demontimessntwo:heavenbiome|heavenbiome",
     "threat": "Story Record // Heaven",
-    "body": "Above the ordinary world is a realm too clean to trust. Its light does not warm; it judges. The first travelers who reached it called it Heaven because they had no better word for a place that looked holy while refusing to feel kind."
+    "body": "The first sign of Heaven is not a gate. It is height. Climb until the sky thins and the world forgets how to keep you, and the breach opens into a realm too clean to trust. Its biome grows from divine light made into weather: pale grass, still trees, beautiful silence, and air that feels like judgment pretending to be peace. Heaven is not merely above the world. It is above consequence, or it believes it is."
   },
   {
-    "code": "SKY-BREACH",
-    "sourceId": "sky_breach",
-    "title": "Sky Breach",
-    "hiddenTitle": "Unknown Sky Threshold",
-    "category": "Heaven",
-    "triggerType": "discovery",
-    "triggerId": "y400|heaven_dimension_transport|demontimessntwo:heavendimension",
-    "threat": "Threshold Record // Heaven",
-    "body": "The sky has a weak point. Climb high enough and the blue begins to thin, not into space, but into permission. The breach is not a door. It is a place where the world forgets to say no."
-  },
-  {
-    "code": "HEAVEN-BIOME",
-    "sourceId": "heaven_biome",
-    "title": "Heaven Biome",
-    "hiddenTitle": "Unknown Heaven Biome",
-    "category": "Heaven",
-    "triggerType": "discovery",
-    "triggerId": "demontimessntwo:heavenbiome|heavenbiome",
-    "threat": "World Record // Heaven",
-    "body": "The Heaven biome grows where divine light settles long enough to become weather. Grass bends toward pale radiance, trees keep their leaves too still, and silence gathers in the branches. It is beautiful in the way a warning can be beautiful."
-  },
-  {
-    "code": "CLOUD-BLOCK",
+    "code": "CLOUD-MATTER",
+    "aliases": [
+      "CLOUD-BLOCK",
+      "cloud_block"
+    ],
     "sourceId": "cloud_block",
     "title": "Cloud Matter",
     "hiddenTitle": "Unknown Cloud Matter",
@@ -53,164 +43,188 @@ const RED_ARCHIVE_RECORDS = [
     "triggerType": "block",
     "triggerId": "demontimessntwo:cloud_block",
     "threat": "Matter Record // Heaven",
-    "body": "Cloud matter can be shaped, but never fully convinced. It remembers being sky and treats solidity like a temporary favor. Walk on it carefully; anything that used to be air may eventually remember how to let go."
+    "body": "Cloud matter can be shaped, but never fully convinced. It remembers being sky and treats solidity like a temporary favor. Heaven builds with things that should not hold weight, then calls the result proof of authority. Walk on it carefully. Anything that used to be air may eventually remember how to let go."
   },
   {
-    "code": "HEAVENLY-ALTAR",
-    "sourceId": "heavenly_altar",
-    "title": "Heavenly Altar",
-    "hiddenTitle": "Unknown Altar",
-    "category": "Rituals",
-    "triggerType": "block",
-    "triggerId": "demontimessntwo:heavenly_altar",
-    "threat": "Ritual Record // Heaven",
-    "body": "The altar listens before it answers. Offerings, tools, distance, and intent all matter, but none of them guarantee mercy. Bring the wrong thing and it may ignore you. Bring the right thing and it may remember your name."
+    "code": "HEAVENLY-WORKS",
+    "aliases": [
+      "HEAVENLY-FORGE",
+      "HEAVENS-WRATH",
+      "DIVINE-HALO",
+      "heavenly_forge",
+      "heavens_wrath",
+      "divine_halo"
+    ],
+    "sourceId": "heavenly_forge+heavens_wrath+divine_halo",
+    "title": "Heavenly Works: Forge, Halo, Wrath",
+    "hiddenTitle": "Unknown Instruments of Judgment",
+    "category": "Relics",
+    "triggerType": "item",
+    "triggerId": "demontimessntwo:heavenly_forge|demontimessntwo:heavens_wrath|demontimessntwo:true_heavens_wrath|demontimessntwo:divine_halo_helmet",
+    "threat": "Relic Record // Judgment",
+    "body": "The Heavenly Forge does not simply improve metal. It teaches material to accept a purpose higher than survival. A halo is not decoration; it is a crown with better public relations, a circle of light making a claim over the wearer. Heaven's Wrath is the same claim sharpened into a blade. The truer form does not strike harder because it is stronger. It strikes harder because mercy has been removed from the calculation."
   },
   {
-    "code": "HEAVENLY-FORGE",
-    "sourceId": "heavenly_forge",
-    "title": "Heavenly Forge",
-    "hiddenTitle": "Unknown Divine Forge",
+    "code": "HEAVENLY-ALTAR-RITES",
+    "aliases": [
+      "HEAVENLY-ALTAR",
+      "RITUAL-CLUE-ALTAR-FOUND",
+      "RITUAL-CLUE-TOOLS",
+      "RITUAL-CLUE-FIRST-LIGHT",
+      "heavenly_altar",
+      "ritual_clue_altar_found",
+      "ritual_clue_tools",
+      "ritual_clue_first_light"
+    ],
+    "sourceId": "heavenly_altar+ritual_clue_altar_found+ritual_clue_tools+ritual_clue_first_light",
+    "title": "Heavenly Altar Rites",
+    "hiddenTitle": "Unknown Altar Instructions",
     "category": "Rituals",
     "triggerType": "block",
-    "triggerId": "demontimessntwo:heavenly_forge",
-    "threat": "Craft Record // Heaven",
-    "body": "The Heavenly Forge does not simply improve metal. It teaches material to accept a purpose higher than survival. Anything shaped in that heat comes out sharper, cleaner, and a little less willing to forgive what it strikes."
+    "triggerId": "demontimessntwo:heavenly_altar|demontimessntwo:goblet|demontimessntwo:athame|demontimessntwo:angelic_feather|demontimessntwo:gildedfeather|demontimessntwo:gilded_feather",
+    "threat": "Ritual Record // Altar",
+    "body": "The altar listens before it answers. Attention is the first offering; the rite begins the moment the player chooses to be noticed. The Goblet receives. The Athame divides. Feather offerings open the first pale paths because softness can still be power. Bring the wrong thing and the altar may ignore you. Bring the right thing and it may remember your name."
   },
   {
-    "code": "PURIFIER",
-    "sourceId": "purifier",
-    "title": "Purifier",
-    "hiddenTitle": "Unknown Purifier",
+    "code": "PURIFIER-LOGIC",
+    "aliases": [
+      "PURIFIER",
+      "PURIFIER-CORES",
+      "RITUAL-CLUE-PURIFIER",
+      "purifier",
+      "purifier_cores",
+      "ritual_clue_purifier"
+    ],
+    "sourceId": "purifier+purifier_cores+ritual_clue_purifier",
+    "title": "Purifier Logic",
+    "hiddenTitle": "Unknown Cleansing Machine",
     "category": "Rituals",
     "triggerType": "block",
-    "triggerId": "demontimessntwo:purifier",
+    "triggerId": "demontimessntwo:purifier|demontimessntwo:basic_purifier_core|demontimessntwo:angelic_core|demontimessntwo:celestial_core|demontimessntwo:abyssal_core|demontimessntwo:blood_core|demontimessntwo:verdant_core|demontimessntwo:infernal_core|demontimessntwo:echo_core",
     "threat": "Ritual Record // Purification",
-    "body": "The Purifier removes corruption, but it cannot erase history. Cleansed things still remember what stained them, and memory has weight. That is why purified relics often feel stronger, stranger, and less innocent than before."
+    "body": "The Purifier removes corruption, but it cannot erase history. Each core teaches the machine a different definition of clean: angelic mercy, abyssal silence, blood memory, verdant repair, infernal hunger, echo persistence. The cleanest result is not the one with no past. It is the one that survived the past without becoming obedient to it."
   },
   {
-    "code": "FALLEN-HEAVENS",
-    "sourceId": "fallen_heavens",
-    "title": "Fallen Heavens",
+    "code": "FALLEN-HEAVENS-SCAR",
+    "aliases": [
+      "FALLEN-HEAVENS",
+      "FALLEN-HEAVENS-FRINGE",
+      "ASH-COVERED-DIRT",
+      "CHARRED-WOOD-FAMILY",
+      "fallen_heavens",
+      "fallen_heavens_fringe",
+      "ash_covered_dirt",
+      "charred_wood_family"
+    ],
+    "sourceId": "fallen_heavens+fallen_heavens_fringe+ash_covered_dirt+charred_wood_family",
+    "title": "The Fallen Heavens Scar",
     "hiddenTitle": "Unknown Fallen Biome",
     "category": "Fallen Heavens",
     "triggerType": "discovery",
-    "triggerId": "demontimessntwo:fallen_heavens|fallen_heavens",
+    "triggerId": "demontimessntwo:fallen_heavens|fallen_heavens|demontimessntwo:fallen_heavens_fringe|fallen_heavens_fringe|fringe|demontimessntwo:ash_covered_dirt|demontimessntwo:charred_log|demontimessntwo:charred_wood|demontimessntwo:stripped_charred_log|demontimessntwo:stripped_charred_wood|demontimessntwo:charred_planks|demontimessntwo:charred_stairs|demontimessntwo:charred_slab|demontimessntwo:charred_fence|demontimessntwo:charred_fence_gate|demontimessntwo:charred_door|demontimessntwo:charred_trapdoor|demontimessntwo:charred_leaves",
     "threat": "Story Record // Fallen Heavens",
-    "body": "Fallen Heavens is the scar left when something holy hit the ground and kept burning. The land did not become cursed overnight; it became accused. Ash, ruin, and impossible light remain where Heaven learned that falling is also a kind of revelation."
-  },
-  {
-    "code": "FALLEN-HEAVENS-FRINGE",
-    "sourceId": "fallen_heavens_fringe",
-    "title": "Fallen Heavens Fringe",
-    "hiddenTitle": "Unknown Fringe",
-    "category": "Fallen Heavens",
-    "triggerType": "discovery",
-    "triggerId": "demontimessntwo:fallen_heavens_fringe|fallen_heavens_fringe|fringe",
-    "threat": "Border Record // Fallen Heavens",
-    "body": "The fringe is where ordinary life tries to grow around the wound. Grass returns in nervous patches, trees lean away from the old light, and the air pretends recovery has begun. It has not. The land is only learning how to breathe beside the damage."
-  },
-  {
-    "code": "ASH-COVERED-DIRT",
-    "sourceId": "ash_covered_dirt",
-    "title": "Ash Covered Dirt",
-    "hiddenTitle": "Unknown Ashen Ground",
-    "category": "Fallen Heavens",
-    "triggerType": "block",
-    "triggerId": "demontimessntwo:ash_covered_dirt",
-    "threat": "Ground Record // Fallen Heavens",
-    "body": "This dirt is not merely covered in ash. It is covered in aftermath. Every footprint disturbs the remains of a place that believed itself untouchable, and every disturbed patch seems to whisper that the fall was not an accident."
-  },
-  {
-    "code": "CHARRED-WOOD-FAMILY",
-    "sourceId": "charred_wood_family",
-    "title": "Charred Wood",
-    "hiddenTitle": "Unknown Burned Wood",
-    "category": "Fallen Heavens",
-    "triggerType": "block",
-    "triggerId": "demontimessntwo:charred_log|demontimessntwo:charred_wood|demontimessntwo:stripped_charred_log|demontimessntwo:stripped_charred_wood|demontimessntwo:charred_planks|demontimessntwo:charred_stairs|demontimessntwo:charred_slab|demontimessntwo:charred_fence|demontimessntwo:charred_fence_gate|demontimessntwo:charred_door|demontimessntwo:charred_trapdoor|demontimessntwo:charred_leaves",
-    "threat": "Material Record // Fallen Heavens",
-    "body": "Charred wood keeps the shape of a tree after surrendering the memory of being alive. It builds shelters, doors, paths, and ruins, but every structure made from it feels like a survivor's apology. Fire ended it. Purpose keeps it standing."
+    "body": "Fallen Heavens is the scar left when something holy hit the ground and kept burning. The fringe is where ordinary life pretends recovery has begun, but ash-covered dirt and charred wood know better. Every path, trunk, plank, and footprint disturbs the remains of a place that believed itself untouchable. The land did not become cursed overnight; it became accused."
   },
   {
     "code": "FALLEN-RUINS-NETWORK",
-    "sourceId": "fallen_ruins_network",
-    "title": "Fallen Ruins Network",
+    "aliases": [
+      "BROKEN-CHURCH",
+      "CHARRED-HOUSE",
+      "SMALL-ALTAR",
+      "fallen_ruins_network",
+      "broken_church",
+      "charred_house",
+      "small_altar"
+    ],
+    "sourceId": "fallen_ruins_network+broken_church+charred_house+small_altar",
+    "title": "The Fallen Ruins Network",
     "hiddenTitle": "Unknown Ruin Network",
     "category": "Ruins",
     "triggerType": "discovery",
-    "triggerId": "demontimessntwo:fallen_heavens_ruins|demontimessntwo:cosmic_demon_ruins|complete_arena_network",
+    "triggerId": "demontimessntwo:fallen_heavens_ruins|demontimessntwo:cosmic_demon_ruins|complete_arena_network|demontimessntwo:fallen_heavens_ruins/broken_church|broken_church|demontimessntwo:fallen_heavens_ruins/charred_house|charred_house|demontimessntwo:fallen_heavens_ruins/small_altar|small_altar",
     "threat": "Structure Record // Ruins",
-    "body": "The ruins are not scattered randomly. Paths, homes, altars, and broken landmarks form a pattern like a village trying to point at its own murderer. Follow the roads and the Fallen Heavens begin to feel less like a biome and more like a crime scene."
+    "body": "The ruins are not scattered randomly. Paths, homes, altars, and a broken church form a pattern like a village trying to point at its own murderer. The church broke before it burned. The houses still frame their last seconds. The small altars prove not every rite needed a temple, only desperate hands and a price. Follow the roads and Fallen Heavens stops feeling like a biome. It starts feeling like a crime scene."
   },
   {
-    "code": "BROKEN-CHURCH",
-    "sourceId": "broken_church",
-    "title": "Broken Church",
-    "hiddenTitle": "Unknown Church",
-    "category": "Ruins",
-    "triggerType": "discovery",
-    "triggerId": "demontimessntwo:fallen_heavens_ruins/broken_church|broken_church",
-    "threat": "Structure Record // Ruins",
-    "body": "The church broke before it burned. Its walls still lean toward the sky, but the sky gives nothing back. Whatever prayed here did not receive an answer, or worse, it did. The pews are gone; the shape of pleading remains."
-  },
-  {
-    "code": "CHARRED-HOUSE",
-    "sourceId": "charred_house",
-    "title": "Charred House",
-    "hiddenTitle": "Unknown Burned House",
-    "category": "Ruins",
-    "triggerType": "discovery",
-    "triggerId": "demontimessntwo:fallen_heavens_ruins/charred_house|charred_house",
-    "threat": "Structure Record // Ruins",
-    "body": "A charred house is worse than an empty one. Empty means someone left. Charred means someone may not have had time. The doorway still frames an invitation, but stepping through it feels like entering the last second of someone else's life."
-  },
-  {
-    "code": "SMALL-ALTAR",
-    "sourceId": "small_altar",
-    "title": "Small Altar",
-    "hiddenTitle": "Unknown Black Altar",
-    "category": "Ruins",
-    "triggerType": "discovery",
-    "triggerId": "demontimessntwo:fallen_heavens_ruins/small_altar|small_altar",
-    "threat": "Structure Record // Ruins",
-    "body": "The small altar is proof that not every rite needed a temple. Candles, skulls, black stone, and ash mark a place where desperate hands asked for a smaller miracle. The silence afterward suggests the answer was expensive."
-  },
-  {
-    "code": "COSMIC-DEMON-ARENA",
-    "sourceId": "cosmic_demon_arena",
-    "title": "Cosmic Demon Arena",
-    "hiddenTitle": "Unknown Arena",
-    "category": "Ruins",
-    "triggerType": "discovery",
-    "triggerId": "demontimessntwo:cosmic_demon_arena|demontimessntwo:cosmic_demon_ruins/arena|cosmic_demon_summoning_altar",
-    "threat": "Structure Record // Boss Site",
-    "body": "The arena was not built for sport. Its paths, offerings, and altar all curve toward a single invitation: bring the Cosmic Demon close enough to fight. The stones know the shape of gravity because something monstrous taught them to kneel."
-  },
-  {
-    "code": "STAR-CLUSTER-STRUCTURE",
-    "sourceId": "star_cluster_structure",
-    "title": "Star Cluster Structure",
-    "hiddenTitle": "Unknown Star Cluster",
-    "category": "Ruins",
-    "triggerType": "discovery",
-    "triggerId": "demontimessntwo:star_cluster_structure|star_cluster",
-    "threat": "Structure Record // Falling Star",
-    "body": "The star cluster does not look built so much as arranged after impact. Pieces of sky gathered there like witnesses after a crash. The place hums at night, suggesting the fallen star did not die when it landed. It learned to wait."
-  },
-  {
-    "code": "ANGELIC-CHICKEN",
-    "sourceId": "angelic_chicken",
-    "title": "Angelic Chicken",
-    "hiddenTitle": "Unknown Angelic Creature",
-    "category": "Creatures",
+    "code": "COSMIC-DEMON-ENCOUNTER",
+    "aliases": [
+      "COSMIC-DEMON-ARENA",
+      "COSMIC-DEMON",
+      "cosmic_demon_arena",
+      "cosmic_demon",
+      "bestiary_cosmic_demon_basic"
+    ],
+    "sourceId": "cosmic_demon_arena+cosmic_demon",
+    "title": "The Cosmic Demon Encounter",
+    "hiddenTitle": "Unknown Collapse Boss",
+    "category": "Bosses",
     "triggerType": "kill",
-    "triggerId": "demontimessntwo:angelicchicken|angelicchicken",
+    "triggerId": "demontimessntwo:cosmic_demon_arena|demontimessntwo:cosmic_demon_ruins/arena|cosmic_demon_summoning_altar|demontimessntwo:cosmicdemon|cosmicdemon|cosmic_demon",
+    "threat": "Boss Record // Collapse",
+    "body": "The arena was not built for sport. Its paths, offerings, and altar curve toward one invitation: bring the Cosmic Demon close enough to fight. The demon is gravity given malice. It rearranges distance, movement, and safety until the battlefield becomes part of its body. Its core is not a trophy. It is the part of collapse that survived being defeated."
+  },
+  {
+    "code": "GRAVITY-RELICS",
+    "aliases": [
+      "BLACKHOLE-CORE",
+      "BLACKHOLE-STAFFS",
+      "BLACK-HOLE-RING",
+      "RITUAL-CLUE-GRAVITY",
+      "blackhole_core",
+      "blackhole_staffs",
+      "black_hole_ring",
+      "ritual_clue_gravity"
+    ],
+    "sourceId": "blackhole_core+blackhole_staffs+black_hole_ring+ritual_clue_gravity",
+    "title": "Gravity Relics",
+    "hiddenTitle": "Unknown Collapse Relics",
+    "category": "Relics",
+    "triggerType": "item",
+    "triggerId": "demontimessntwo:blackholecore|demontimessntwo:blackhole_core_item|demontimessntwo:stabilized_blackhole_staff|demontimessntwo:blackhole_staff|demontimessntwo:event_horizon_staff|demontimessntwo:singularity_staff|demontimessntwo:black_hole_ring|demontimessntwo:celestial_singularity",
+    "threat": "Relic Record // Collapse",
+    "body": "A Blackhole Core is contained disaster. The staff line begins as controlled failure and ends as jurisdiction over gravity. The ring is a private agreement with collapse, teaching nearby things to fall toward the wearer. Black-hole offerings are never cheap, even when the cost is not obvious yet. The safest relic is the one you never forget is hungry."
+  },
+  {
+    "code": "FALLEN-STAR-RECORD",
+    "aliases": [
+      "STAR-CLUSTER-STRUCTURE",
+      "STAR-MATERIALS",
+      "star_cluster_structure",
+      "star_materials"
+    ],
+    "sourceId": "star_cluster_structure+star_materials",
+    "title": "Fallen Star Record",
+    "hiddenTitle": "Unknown Fallen Star",
+    "category": "Relics",
+    "triggerType": "item",
+    "triggerId": "demontimessntwo:star_cluster_structure|star_cluster|demontimessntwo:star_metal_fragment|demontimessntwo:fallen_star_core|demontimessntwo:cracked_star_shell|demontimessntwo:star_metal_ingot|demontimessntwo:celestial_singularity",
+    "threat": "Relic Record // Falling Star",
+    "body": "The star cluster does not look built so much as arranged after impact. Pieces of sky gathered there like witnesses after a crash. Star fragments, fallen cores, cracked shells, ingots, and singularities all belong to the moment the sky stopped being distant and became debris. Every shard feels like it arrived angry and has not cooled enough to forgive the ground."
+  },
+  {
+    "code": "ANGELIC-ECOLOGY",
+    "aliases": [
+      "ANGELIC-CHICKEN",
+      "ANGELIC-FEATHER",
+      "GILDED-FEATHER",
+      "angelic_chicken",
+      "angelic_feather",
+      "gilded_feather"
+    ],
+    "sourceId": "angelic_chicken+angelic_feather+gilded_feather",
+    "title": "Angelic Ecology",
+    "hiddenTitle": "Unknown Angelic Life",
+    "category": "Creatures",
+    "triggerType": "item",
+    "triggerId": "demontimessntwo:angelicchicken|angelicchicken|demontimessntwo:angelic_feather|demontimessntwo:gildedfeather|demontimessntwo:gilded_feather",
     "threat": "Creature Record // Heaven",
-    "body": "Not every holy creature arrives with wings spread and judgment blazing. Some cluck softly in the grass and make Heaven seem harmless. That is the first trick of divine ecology: teach the player to smile before showing them teeth."
+    "body": "Not every holy creature arrives with wings spread and judgment blazing. Some cluck softly in the grass and make Heaven seem harmless. Angelic feathers are the softest proof that Heaven can be touched, while gilded feathers turn softness into a signature. That is the first trick of divine ecology: teach the player to smile before showing them teeth."
   },
   {
     "code": "CHOIR-WISP",
+    "aliases": [
+      "choir_wisp"
+    ],
     "sourceId": "choir_wisp",
     "title": "Choir Wisp",
     "hiddenTitle": "Unknown Choir Light",
@@ -218,260 +232,75 @@ const RED_ARCHIVE_RECORDS = [
     "triggerType": "discovery",
     "triggerId": "demontimessntwo:wisp|wisp|choir_wisp",
     "threat": "Creature Record // Choir",
-    "body": "A Choir Wisp is less an animal than a note that learned to hover. It blesses, flees, pulses, and punishes like a fragment of sacred music trapped in a body. Strike one and the backlash feels personal, as if the song remembers who interrupted it."
-  },
-  {
-    "code": "COSMIC-DEMON",
-    "sourceId": "cosmic_demon",
-    "title": "Cosmic Demon",
-    "hiddenTitle": "Unknown Cosmic Boss",
-    "category": "Bosses",
-    "triggerType": "kill",
-    "triggerId": "demontimessntwo:cosmicdemon|cosmicdemon|cosmic_demon",
-    "threat": "Boss Record // Collapse",
-    "body": "The Cosmic Demon is gravity given malice. It does not merely attack; it rearranges the fight until distance, movement, and safety all begin to fail. Its core is not a trophy. It is the part of collapse that survived being defeated."
+    "body": "A Choir Wisp is less an animal than a note that learned to hover. It blesses, flees, pulses, and punishes like a fragment of sacred music trapped in a body. Strike one and the backlash feels personal, as if the song remembers who interrupted it. Some records describe the true choir as §kUNTRANSLATED§r, which may mean lost, sealed, or still singing somewhere no ear should reach."
   },
   {
     "code": "FALLEN-SERAPH",
+    "aliases": [
+      "bestiary_fallen_seraph_basic",
+      "fallen_seraph"
+    ],
     "sourceId": "bestiary_fallen_seraph_basic",
     "title": "Fallen Seraph",
-    "hiddenTitle": "Unknown Seraph",
+    "hiddenTitle": "Unknown Fallen Seraph",
     "category": "Bosses",
     "triggerType": "kill",
     "triggerId": "demontimessntwo:fallen_seraph|fallen_seraph|fallenseraph",
     "threat": "Boss Record // Fallen Heaven",
-    "body": "The Fallen Seraph is not a monster pretending to be holy. It is holiness after the fall, still convinced its pain is doctrine. Lasers, dives, halos, and gravity pins are not just attacks. They are a sermon delivered by something that no longer knows how to stop preaching."
+    "body": "The Fallen Seraph is not a monster pretending to be holy. It is holiness after the fall, still convinced its pain is doctrine. Lasers, dives, halos, and gravity pins are not just attacks. They are a sermon delivered by something that no longer knows how to stop preaching. Defeating it does not disprove Heaven. It proves Heaven can bleed."
   },
   {
-    "code": "ANGELIC-FEATHER",
-    "sourceId": "angelic_feather",
-    "title": "Angelic Feather",
-    "hiddenTitle": "Unknown Feather",
-    "category": "Relics",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:angelic_feather",
-    "threat": "Relic Record // Heaven",
-    "body": "An Angelic Feather is the softest proof that Heaven can be touched. It is light, warm, and unsettlingly clean, a scrap of mercy that still remembers the wing it came from. Gentle things are often the first keys to dangerous doors."
-  },
-  {
-    "code": "GILDED-FEATHER",
-    "sourceId": "gilded_feather",
-    "title": "Gilded Feather",
-    "hiddenTitle": "Unknown Gilded Feather",
-    "category": "Relics",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:gildedfeather|demontimessntwo:gilded_feather",
-    "threat": "Relic Record // Heaven",
-    "body": "A Gilded Feather is what happens when softness learns value. Gold does not make it holy; it makes the holiness easier to notice and harder to ignore. In ritual work, it feels less like an ingredient and more like a signature."
-  },
-  {
-    "code": "DIVINE-HALO",
-    "sourceId": "divine_halo",
-    "title": "Divine Halo",
-    "hiddenTitle": "Unknown Halo",
-    "category": "Relics",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:divine_halo_helmet",
-    "threat": "Relic Record // Heaven",
-    "body": "A halo is not decoration. It is a crown with better public relations. Wear one and the light gathers above you as if making a claim. The question is whether the claim belongs to you, or whether Heaven has simply found another place to hang its authority."
-  },
-  {
-    "code": "HEAVENS-WRATH",
-    "sourceId": "heavens_wrath",
-    "title": "Heaven's Wrath",
-    "hiddenTitle": "Unknown Heaven Weapon",
-    "category": "Relics",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:heavens_wrath|demontimessntwo:true_heavens_wrath",
-    "threat": "Relic Record // Judgment",
-    "body": "Heaven's Wrath is not a sword that became holy. It is judgment taught how to hold an edge. The truer form does not swing harder because it is stronger; it swings harder because it has stopped asking whether mercy was an option."
-  },
-  {
-    "code": "BLACKHOLE-CORE",
-    "sourceId": "blackhole_core",
-    "title": "Blackhole Core",
-    "hiddenTitle": "Unknown Singularity Core",
-    "category": "Relics",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:blackholecore|demontimessntwo:blackhole_core_item",
-    "threat": "Relic Record // Collapse",
-    "body": "A Blackhole Core is contained disaster. It sits in the hand like an object, but everything around it understands that object is the wrong word. The safest core is the one you never forget is hungry."
-  },
-  {
-    "code": "BLACKHOLE-STAFFS",
-    "sourceId": "blackhole_staffs",
-    "title": "Blackhole Staff Line",
-    "hiddenTitle": "Unknown Gravity Staff",
-    "category": "Relics",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:blackhole_staff|demontimessntwo:stabilized_blackhole_staff|demontimessntwo:event_horizon_staff|demontimessntwo:singularity_staff",
-    "threat": "Relic Record // Collapse",
-    "body": "The staff line begins as a controlled failure and ends as jurisdiction over gravity. Base, stabilized, event-horizon, and singularity forms each ask the wielder to be more precise. Aim poorly and the world may obey anyway."
-  },
-  {
-    "code": "BLACK-HOLE-RING",
-    "sourceId": "black_hole_ring",
-    "title": "Black Hole Ring",
-    "hiddenTitle": "Unknown Black-Hole Ring",
-    "category": "Relics",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:black_hole_ring",
-    "threat": "Relic Record // Collapse",
-    "body": "The Black Hole Ring is a small circle containing a much larger threat. Even dormant, it listens for gravity; awake, it teaches nearby things to fall toward the wearer. It is not protection from collapse. It is a private agreement with it."
-  },
-  {
-    "code": "TITAN-REMNANT",
-    "sourceId": "titan_remnant",
-    "title": "Titan Remnant",
+    "code": "TITAN-REMAINS",
+    "aliases": [
+      "TITAN-REMNANT",
+      "TITAN-REMNANT-VARIANTS",
+      "RITUAL-CLUE-TITAN",
+      "titan_remnant",
+      "titan_remnant_variants",
+      "ritual_clue_titan"
+    ],
+    "sourceId": "titan_remnant+titan_remnant_variants+ritual_clue_titan",
+    "title": "Titan Remains",
     "hiddenTitle": "Unknown Titan Relic",
     "category": "Relics",
     "triggerType": "item",
-    "triggerId": "demontimessntwo:titan_remnant|demontimessntwo:titanremanent",
+    "triggerId": "demontimessntwo:titan_remnant|demontimessntwo:titanremanent|demontimessntwo:controlledtitanremanent|demontimessntwo:permanentlyconcealedtitanremanent|demontimessntwo:blessed_titan_remnant|demontimessntwo:concealed_titan_remnant|demontimessntwo:blood_stabilized_remnant",
     "threat": "Relic Record // Titan",
-    "body": "A Titan Remnant is not dead material. It is leftover enormity with memory, stubbornness, and opinions. Crafting with it feels less like using a resource and more like negotiating with something that used to block out the sun."
+    "body": "A Titan Remnant is not dead material. It is leftover enormity with memory, stubbornness, and opinions. Control, concealment, blessing, blood stabilization, and binding each solve one problem while teaching the relic a new grudge. The altar treats Titan matter like a sleeping witness and tries not to wake too much of it at once."
   },
   {
-    "code": "TITAN-REMNANT-VARIANTS",
-    "sourceId": "titan_remnant_variants",
-    "title": "Altered Titan Remnants",
-    "hiddenTitle": "Unknown Altered Remnant",
-    "category": "Relics",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:controlledtitanremanent|demontimessntwo:permanentlyconcealedtitanremanent|demontimessntwo:blessed_titan_remnant|demontimessntwo:concealed_titan_remnant|demontimessntwo:blood_stabilized_remnant",
-    "threat": "Relic Record // Titan",
-    "body": "Altered remnants reveal the Titan path: control, concealment, blessing, blood stabilization, and binding. Each stage solves one problem while teaching the relic a new grudge. By the end, the power does not feel crafted. It feels captured."
-  },
-  {
-    "code": "PURIFIER-CORES",
-    "sourceId": "purifier_cores",
-    "title": "Purifier Cores",
-    "hiddenTitle": "Unknown Purifier Core",
-    "category": "Relics",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:basic_purifier_core|demontimessntwo:angelic_core|demontimessntwo:celestial_core|demontimessntwo:abyssal_core|demontimessntwo:blood_core|demontimessntwo:verdant_core|demontimessntwo:infernal_core|demontimessntwo:echo_core",
-    "threat": "Relic Record // Purification",
-    "body": "Purifier Cores are moral machinery. Each core decides differently what clean means: angelic mercy, abyssal silence, blood memory, verdant repair, infernal hunger, echo persistence. The machine obeys the core, not the conscience of whoever built it."
-  },
-  {
-    "code": "STAR-MATERIALS",
-    "sourceId": "star_materials",
-    "title": "Fallen Star Materials",
-    "hiddenTitle": "Unknown Fallen Star Material",
-    "category": "Relics",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:star_metal_fragment|demontimessntwo:fallen_star_core|demontimessntwo:cracked_star_shell|demontimessntwo:star_metal_ingot|demontimessntwo:celestial_singularity",
-    "threat": "Relic Record // Falling Star",
-    "body": "Star fragments, fallen cores, cracked shells, ingots, and singularities are pieces of impact. They belong to the moment the sky stopped being distant and became debris. Every shard feels like it arrived angry and has not cooled enough to forgive the ground."
-  },
-  {
-    "code": "GRACE-MATERIALS",
+    "code": "GRACE-OF-MERCY",
+    "aliases": [
+      "GRACE-MATERIALS",
+      "grace_materials"
+    ],
     "sourceId": "grace_materials",
-    "title": "Grace Materials",
-    "hiddenTitle": "Unknown Grace Material",
+    "title": "Grace of Mercy",
+    "hiddenTitle": "Unknown Grace Relic",
     "category": "Relics",
     "triggerType": "item",
     "triggerId": "demontimessntwo:grace_dust|demontimessntwo:bottled_grace|demontimessntwo:grace_apple|demontimessntwo:grace_locket|demontimessntwo:celestial_amulet",
     "threat": "Relic Record // Grace",
-    "body": "Grace looks gentle because mercy knows how to hide its strength. Dust, bottles, apples, lockets, and amulets all carry the same impossible promise: not yet, not here, not this death. The softest relic may be the one that frightens the grave most."
+    "body": "Grace looks gentle because mercy knows how to hide its strength. Dust, bottles, apples, lockets, and amulets carry the same impossible promise: not yet, not here, not this death. In a world where Heaven often feels like judgment, grace is the stranger record. It suggests something holy may still want the player to live."
   },
   {
-    "code": "RITUAL-CLUE-ALTAR-FOUND",
-    "sourceId": "ritual_clue_altar_found",
-    "title": "The Altar Listens",
-    "hiddenTitle": "Unknown Altar Clue",
-    "category": "Rituals",
-    "triggerType": "block",
-    "triggerId": "demontimessntwo:heavenly_altar",
-    "threat": "Ritual Clue // Altar",
-    "body": "Attention is the first offering. Before the altar accepts blood, feathers, cores, or gold, it measures whether the hand approaching it understands the difference between crafting and asking. The rite begins the moment the player chooses to be noticed."
-  },
-  {
-    "code": "RITUAL-CLUE-TOOLS",
-    "sourceId": "ritual_clue_tools",
-    "title": "Cup and Knife",
-    "hiddenTitle": "Unknown Tool Clue",
-    "category": "Rituals",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:goblet|demontimessntwo:athame",
-    "threat": "Ritual Clue // Tools",
-    "body": "The Goblet receives. The Athame divides. Together they tell the altar that this is not ordinary work. One holds the promise; the other decides what must be cut away before the promise can become real."
-  },
-  {
-    "code": "RITUAL-CLUE-FIRST-LIGHT",
-    "sourceId": "ritual_clue_first_light",
-    "title": "First Light",
-    "hiddenTitle": "Unknown Feather Clue",
-    "category": "Rituals",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:angelic_feather|demontimessntwo:gildedfeather|demontimessntwo:gilded_feather",
-    "threat": "Ritual Clue // Heaven",
-    "body": "Feather offerings belong to gentler rites. They open the first pale paths and teach that softness can still be power. Heaven often begins with something light enough to float, then asks why the hand holding it is shaking."
-  },
-  {
-    "code": "RITUAL-CLUE-GRAVITY",
-    "sourceId": "ritual_clue_gravity",
-    "title": "Gravity Offering",
-    "hiddenTitle": "Unknown Gravity Clue",
-    "category": "Rituals",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:blackholecore|demontimessntwo:blackhole_core_item|demontimessntwo:celestial_singularity",
-    "threat": "Ritual Clue // Collapse",
-    "body": "Black-hole offerings are never cheap, even when the cost is not obvious yet. They ask for power by presenting a wound in the shape of a sphere. The altar can use collapse, but it cannot make collapse grateful."
-  },
-  {
-    "code": "RITUAL-CLUE-TITAN",
-    "sourceId": "ritual_clue_titan",
-    "title": "Titan Offering",
-    "hiddenTitle": "Unknown Titan Clue",
-    "category": "Rituals",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:titan_remnant|demontimessntwo:titanremanent",
-    "threat": "Ritual Clue // Titan",
-    "body": "Titan offerings belong to endurance, binding, belts, heavy survival, and boss-tier transformations. The altar does not treat Titan matter like stone. It treats it like a sleeping witness and tries not to wake too much of it at once."
-  },
-  {
-    "code": "RITUAL-CLUE-PURIFIER",
-    "sourceId": "ritual_clue_purifier",
-    "title": "Purifier Logic",
-    "hiddenTitle": "Unknown Purifier Clue",
-    "category": "Rituals",
-    "triggerType": "block",
-    "triggerId": "demontimessntwo:purifier",
-    "threat": "Ritual Clue // Purification",
-    "body": "Purification separates corruption from material, but the output always remembers what it used to be. The cleanest result is not the one with no past. It is the one that survived the past without becoming obedient to it."
-  },
-  {
-    "code": "ALTAR-UNSTABLE-FAILURE",
-    "sourceId": "altar_unstable_failure",
-    "title": "Unstable Altar Failure",
-    "hiddenTitle": "Unknown Altar Failure",
+    "code": "RITUAL-FAILURE-RULES",
+    "aliases": [
+      "ALTAR-UNSTABLE-FAILURE",
+      "ALTAR-STABILIZED-FAILURE",
+      "ALTAR-VOLATILE-FAILURE",
+      "altar_unstable_failure",
+      "altar_stabilized_failure",
+      "altar_volatile_failure"
+    ],
+    "sourceId": "altar_unstable_failure+altar_stabilized_failure+altar_volatile_failure",
+    "title": "Ritual Failure Rules",
+    "hiddenTitle": "Unknown Failure Record",
     "category": "Warnings",
     "triggerType": "discovery",
-    "triggerId": "altar_unstable_failure",
+    "triggerId": "altar_unstable_failure|altar_stabilized_failure|altar_volatile_failure",
     "threat": "Warning Record // Rituals",
-    "body": "An altar without containment can fail raw. A failed rite may fizzle, bite back, drain what was offered, or call the attention of things nearby that should have stayed asleep. Failure is not always absence. Sometimes failure is arrival."
-  },
-  {
-    "code": "ALTAR-STABILIZED-FAILURE",
-    "sourceId": "altar_stabilized_failure",
-    "title": "Stabilized Altar Failure",
-    "hiddenTitle": "Unknown Stabilized Failure",
-    "category": "Warnings",
-    "triggerType": "discovery",
-    "triggerId": "altar_stabilized_failure",
-    "threat": "Warning Record // Rituals",
-    "body": "Containment does not guarantee success. It makes failure survivable. A stabilized rite catches the worst of the mistake and teaches the altar where not to throw its anger. Safety is not kindness; it is geometry."
-  },
-  {
-    "code": "ALTAR-VOLATILE-FAILURE",
-    "sourceId": "altar_volatile_failure",
-    "title": "Volatile Backlash",
-    "hiddenTitle": "Unknown Volatile Failure",
-    "category": "Warnings",
-    "triggerType": "discovery",
-    "triggerId": "altar_volatile_failure",
-    "threat": "Warning Record // Rituals",
-    "body": "Volatile power makes success louder and failure louder still. When a rite goes wrong under that pressure, it does not whisper. It announces itself with heat, force, witnesses, and consequences that linger after the light fades."
+    "body": "Failure is not always absence. Sometimes failure is arrival. An altar without containment can fizzle, bite back, drain what was offered, or wake nearby things that should have stayed asleep. Stabilization makes the mistake survivable, not kind. Volatile power makes success louder and failure louder still. Safety is not mercy; it is geometry under pressure."
   }
 ];
 
@@ -580,7 +409,10 @@ function bindEvents() {
 
 function handleSubmit() {
   const normalized = normalizeCode(els.input.value);
-  const record = RED_ARCHIVE_RECORDS.find((item) => normalizeCode(item.code) === normalized || normalizeCode(item.sourceId) === normalized);
+  const record = RED_ARCHIVE_RECORDS.find((item) => {
+    const aliases = Array.isArray(item.aliases) ? item.aliases : [];
+    return normalizeCode(item.code) === normalized || normalizeCode(item.sourceId) === normalized || aliases.some((alias) => normalizeCode(alias) === normalized);
+  });
 
   if (!normalized) {
     setStatus("AWAITING CODE");
