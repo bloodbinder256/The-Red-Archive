@@ -2,34 +2,36 @@
 
 **The Red Archive** is a companion lore-code website for the *DemonTime* Minecraft mod.
 
-Players discover hidden lore codes in-game, enter them here, and unlock records inspired by the Heavenly Book entries. The website works on its own and does not require an in-game archive system.
+Players discover hidden codes in-game, enter them here, and unlock story records about Heaven, Fallen Heavens, rituals, relics, bosses, ruins, and the things Heaven tried to erase.
 
 ## What it is for
 
-The site gives DemonTime players an outside-the-game lore terminal for forbidden records, bestiary notes, ritual clues, item lore, structures, bosses, relics, and Heaven/Fallen Heavens discoveries.
+The site gives DemonTime players an outside-the-game lore terminal without needing an in-game archive system.
 
-Instead of dumping all lore at once, the mod can reveal pieces through:
-
-- dimensions and biomes
-- bosses and mobs
-- blocks and structures
-- relics and materials
-- rituals and altar clues
-- bestiary progress
-- special item use
+The Red Archive is now focused on **storyline records**, not every item, recipe, upgrade, or old archive entry. The goal is to make each code feel meaningful instead of flooding players with filler.
 
 ## Current lore data
 
-This version includes **94 Heavenly Book-inspired entries** built from the existing `HeavenArchiveUnlocks.java` list, rewritten so the records read like standalone website lore instead of in-game archive-system text.
+This version includes **42 curated storyline entries**.
 
-Each website code is the entry ID converted to uppercase with hyphens.
+Removed content includes:
 
-Example:
+- old in-game archive-system wording
+- duplicate bestiary drop/weakness notes
+- gameplay-only upgrade/catalyst notes
+- individual stabilizer block entries
+- tool-set and material-list filler that did not push the story forward
+- entries that were too mechanical, outdated, or not important enough for the main DemonTime mystery
+
+Each website code is usually the entry ID converted to uppercase with hyphens.
+
+Examples:
 
 ```text
 heaven_dimension -> HEAVEN-DIMENSION
 sky_breach -> SKY-BREACH
 cosmic_demon -> COSMIC-DEMON
+fallen_seraph -> FALLEN-SERAPH
 ```
 
 Players can type codes with spaces, underscores, lowercase letters, or hyphens. The site normalizes them before checking.
