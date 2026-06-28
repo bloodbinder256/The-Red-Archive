@@ -285,6 +285,193 @@ const RED_ARCHIVE_RECORDS = [
     "body": "Grace looks gentle because mercy knows how to hide its strength. Dust, bottles, apples, lockets, and amulets carry the same impossible promise: not yet, not here, not this death. In a world where Heaven often feels like judgment, grace is the stranger record. It suggests something holy may still want the player to live."
   },
   {
+    "code": "RA-A8V2-G4N7",
+    "legacyNames": [
+      "ANGELIC-ARMOR",
+      "ANGELIC-RAIMENT",
+      "ANGELIC-SET",
+      "angelic_armor",
+      "angelic_raiment",
+      "angelic_set"
+    ],
+    "sourceId": "angelic_armor+angelic_raiment",
+    "title": "Angelic Raiment",
+    "hiddenTitle": "Unknown Feather Armor",
+    "category": "Armory",
+    "triggerType": "item",
+    "triggerId": "demontimessntwo:angelic_helmet|demontimessntwo:angelic_chestplate|demontimessntwo:angelic_leggings|demontimessntwo:angelic_boots|demontimessntwo:angelic_armor_helmet|demontimessntwo:angelic_armor_chestplate|demontimessntwo:angelic_armor_leggings|demontimessntwo:angelic_armor_boots|demontimessntwo:aerolite_helmet|demontimessntwo:aerolite_chestplate|demontimessntwo:aerolite_leggings|demontimessntwo:aerolite_boots",
+    "threat": "Armory Record // Heaven",
+    "body": "Angelic armor is the first lesson Heaven teaches the body: survive beautifully or be mistaken for unworthy. Feathers and pale metal do not make the wearer gentle. They make impact sound like prayer. The set was made for mortals who were never supposed to enter the war, then entered anyway. Every plate whispers the same instruction: stand up before the titans learn your name."
+  },
+  {
+    "code": "RA-D6K9-L3W5",
+    "legacyNames": [
+      "GILDED-ARMOR",
+      "GILDED-RAIMENT",
+      "GILDED-GUARD",
+      "gilded_armor",
+      "gilded_raiment",
+      "gilded_guard"
+    ],
+    "sourceId": "gilded_armor+gilded_guard",
+    "title": "Gilded Guard Armor",
+    "hiddenTitle": "Unknown Golden Armor",
+    "category": "Armory",
+    "triggerType": "item",
+    "triggerId": "demontimessntwo:gilded_helmet|demontimessntwo:gilded_chestplate|demontimessntwo:gilded_leggings|demontimessntwo:gilded_boots|demontimessntwo:divine_halo_helmet|demontimessntwo:divine_halo_chestplate|demontimessntwo:divine_halo_leggings|demontimessntwo:divine_halo_boots|demontimessntwo:gilded_feather|demontimessntwo:gildedfeather",
+    "threat": "Armory Record // Fallen Guard",
+    "body": "Gilded armor was never made to protect innocence. It was made to announce authority from far enough away that fear arrived first. The feathers taken from it are stronger than ordinary angelic feathers because they remember command, rank, and the weight of a guard who stood between Heaven and the thing Heaven feared. When the armor falls to earth, its shine does not fade. It accuses the battlefield of touching it."
+  },
+  {
+    "code": "RA-J9C2-W8R6",
+    "legacyNames": [
+      "CHOIR-BOW",
+      "DRAGONS-BOW",
+      "DRAGON-BOW",
+      "BOWS-OF-THE-CHOIR",
+      "choir_bow",
+      "dragons_bow",
+      "dragon_bow"
+    ],
+    "sourceId": "choir_bow+dragon_bow",
+    "title": "Bows of the Choir",
+    "hiddenTitle": "Unknown Singing Bow",
+    "category": "Weapons",
+    "triggerType": "item",
+    "triggerId": "demontimessntwo:choir_bow|demontimessntwo:dragons_bow|demontimessntwo:dragon_bow",
+    "threat": "Weapon Record // Choir",
+    "body": "The bow does not simply launch an arrow. It gives distance a voice. Some records call it the Dragon's Bow, found where Fallen Heaven still hides teeth in its ashes. Others call the later form the Choir Bow, because the shot carries more than force: hymn, wail, resonance, and the brief terror of being named by sound. A normal bow asks whether the player can aim. This one asks whether the target can endure being heard."
+  },
+  {
+    "code": "RA-Z4M8-C2Q7",
+    "legacyNames": [
+      "AEROLITE-WEAPONS",
+      "ASTRELIUM-WEAPONS",
+      "STAR-FORGED-ARSENAL",
+      "CELESTIAL-BLADE",
+      "aerolite_weapons",
+      "astrelium_weapons",
+      "star_forged_arsenal",
+      "celestial_blade"
+    ],
+    "sourceId": "aerolite_tools+astrelium_tools+celestial_blade",
+    "title": "Star-Forged Arsenal",
+    "hiddenTitle": "Unknown Star Weapons",
+    "category": "Weapons",
+    "triggerType": "item",
+    "triggerId": "demontimessntwo:aerolite_sword|demontimessntwo:aerolite_pickaxe|demontimessntwo:aerolite_axe|demontimessntwo:aerolite_shovel|demontimessntwo:aerolite_hoe|demontimessntwo:blessed_aerolite_sword|demontimessntwo:astrelium_sword|demontimessntwo:astrelium_pickaxe|demontimessntwo:astrelium_axe|demontimessntwo:astrelium_shovel|demontimessntwo:astrelium_hoe|demontimessntwo:celestial_blade|demontimessntwo:heavens_wrath|demontimessntwo:true_heavens_wrath",
+    "threat": "Weapon Record // Star Metal",
+    "body": "Aerolite is the first metal that believes a mortal can matter in a war of gods and titans. Astrelium is the answer that comes later, colder and brighter, as if the stars decided pity was inefficient. Blades, tools, belts, and wrath-forged edges all belong to the same argument: mortals were released early, unfinished, and desperate, but they learned to put the sky in their hands anyway."
+  },
+  {
+    "code": "RA-E7C2-P6V9",
+    "legacyNames": [
+      "ANGELIC-PROTECTOR",
+      "ANGELIC-PROTECTOR-ARMOR",
+      "PROTECTOR-HALO",
+      "angelic_protector",
+      "angelic_protector_armor",
+      "protector_halo"
+    ],
+    "sourceId": "angelic_protector_armor",
+    "title": "Angelic Protector Armor",
+    "hiddenTitle": "Unknown Winged Armor",
+    "category": "Armory",
+    "triggerType": "item",
+    "triggerId": "demontimessntwo:angelic_protector_halo|demontimessntwo:angelic_protector_chestplate|demontimessntwo:angelic_protector_leggings|demontimessntwo:angelic_protector_boots|demontimessntwo:protector_halo|demontimessntwo:divine_halo",
+    "threat": "Armory Record // Protector",
+    "body": "The Angelic Protector set was not made for soldiers who wanted glory. It was made for the ones ordered to stand between Heaven and disaster until their names stopped mattering. The halo is the command seal; the armor is the oath wrapped around bone. When the wings answer, they do not feel like freedom. They feel like a duty learning how to lift the wearer anyway."
+  },
+  {
+    "code": "RA-R8D4-T6K9",
+    "legacyNames": [
+      "SET-OF-THE-FALLEN-WORLDS",
+      "FALLEN-WORLDS-SET",
+      "FALLEN-WORLDS-ARMOR",
+      "set_of_the_fallen_worlds",
+      "fallen_worlds_set",
+      "fallen_worlds_armor"
+    ],
+    "sourceId": "set_of_the_fallen_worlds",
+    "title": "Set of the Fallen Worlds",
+    "hiddenTitle": "Unknown World-Bound Armor",
+    "category": "Armory",
+    "triggerType": "item",
+    "triggerId": "demontimessntwo:set_of_the_fallen_worlds_helmet|demontimessntwo:set_of_the_fallen_worlds_chestplate|demontimessntwo:set_of_the_fallen_worlds_leggings|demontimessntwo:set_of_the_fallen_worlds_boots|demontimessntwo:fallen_worlds_helmet|demontimessntwo:fallen_worlds_chestplate|demontimessntwo:fallen_worlds_leggings|demontimessntwo:fallen_worlds_boots",
+    "threat": "Armory Record // Fallen Worlds",
+    "body": "The Set of the Fallen Worlds is not one armor. It is a treaty between ruins that should never have agreed on anything. Drowned, burned, stone-crowned, and silent worlds each gave the set a different survival instinct. Wear enough of it and the body becomes a meeting place for disasters, each one promising it knows how to keep you alive better than the others."
+  },
+  {
+    "code": "RA-U5N2-C9J7",
+    "legacyNames": [
+      "DROWNED-WARRIOR",
+      "DROWNED-WARRIOR-ARMOR",
+      "drowned_warrior",
+      "drowned_warrior_armor"
+    ],
+    "sourceId": "drowned_warrior_armor",
+    "title": "Drowned Warrior Armor",
+    "hiddenTitle": "Unknown Drowned Plate",
+    "category": "Armory",
+    "triggerType": "item",
+    "triggerId": "demontimessntwo:drowned_warrior_helmet|demontimessntwo:drowned_warrior_chestplate|demontimessntwo:drowned_warrior_leggings|demontimessntwo:drowned_warrior_boots",
+    "threat": "Armory Record // Drowned World",
+    "body": "The Drowned Warrior set remembers pressure before it remembers water. It was shaped for a world where the sky failed and the sea inherited everything. The armor does not panic when the dark closes in; it settles, sinks, and waits. Its mercy is endurance. Its curse is that every breath begins to sound borrowed."
+  },
+  {
+    "code": "RA-B7F3-A2M8",
+    "legacyNames": [
+      "BURNED-WARRIOR",
+      "BURNED-WARRIOR-ARMOR",
+      "burned_warrior",
+      "burned_warrior_armor"
+    ],
+    "sourceId": "burned_warrior_armor",
+    "title": "Burned Warrior Armor",
+    "hiddenTitle": "Unknown Burned Plate",
+    "category": "Armory",
+    "triggerType": "item",
+    "triggerId": "demontimessntwo:burned_warrior_helmet|demontimessntwo:burned_warrior_chestplate|demontimessntwo:burned_warrior_leggings|demontimessntwo:burned_warrior_boots",
+    "threat": "Armory Record // Burned World",
+    "body": "The Burned Warrior set was forged after the fire had already won. It does not prevent pain so much as teach the wearer what pain is not allowed to interrupt. Char, ember, and old rage cling to every plate. When it moves, it sounds like a house collapsing in reverse, trying one more time to become shelter."
+  },
+  {
+    "code": "RA-S4C9-V6Q1",
+    "legacyNames": [
+      "STONECREST-WARRIOR",
+      "STONECREST-WARRIOR-ARMOR",
+      "stonecrest_warrior",
+      "stonecrest_warrior_armor"
+    ],
+    "sourceId": "stonecrest_warrior_armor",
+    "title": "Stonecrest Warrior Armor",
+    "hiddenTitle": "Unknown Stone-Crowned Plate",
+    "category": "Armory",
+    "triggerType": "item",
+    "triggerId": "demontimessntwo:stonecrest_warrior_helmet|demontimessntwo:stonecrest_warrior_chestplate|demontimessntwo:stonecrest_warrior_leggings|demontimessntwo:stonecrest_warrior_boots",
+    "threat": "Armory Record // Stone World",
+    "body": "The Stonecrest Warrior set carries the patience of mountains and the stubbornness of graves. It was made for fighters who could not outrun the end, so they became harder for the end to move. The crest is not decoration. It is a warning that the wearer has chosen to be terrain, obstacle, and monument all at once."
+  },
+  {
+    "code": "RA-W9L6-N3X5",
+    "legacyNames": [
+      "WARRIOR-OF-SILENCE",
+      "SILENCE-WARRIOR",
+      "WARRIOR-OF-SILENCE-ARMOR",
+      "warrior_of_silence",
+      "silence_warrior",
+      "warrior_of_silence_armor"
+    ],
+    "sourceId": "warrior_of_silence_armor",
+    "title": "Warrior of Silence Armor",
+    "hiddenTitle": "Unknown Silent Plate",
+    "category": "Armory",
+    "triggerType": "item",
+    "triggerId": "demontimessntwo:warrior_of_silence_helmet|demontimessntwo:warrior_of_silence_chestplate|demontimessntwo:warrior_of_silence_leggings|demontimessntwo:warrior_of_silence_boots|demontimessntwo:silence_warrior_helmet|demontimessntwo:silence_warrior_chestplate|demontimessntwo:silence_warrior_leggings|demontimessntwo:silence_warrior_boots",
+    "threat": "Armory Record // Silent World",
+    "body": "The Warrior of Silence set does not hide sound. It remembers a world where sound was taken as punishment. The armor teaches the wearer to move like an omitted sentence, present only after the damage has already been done. Choir records become unstable around it; some notes refuse to play, and some names become §kUNSPOKEN§r rather than erased."
+  },
+  {
     "code": "RA-Q3H8-M6C4",
     "legacyNames": [
       "ALTAR-UNSTABLE-FAILURE",

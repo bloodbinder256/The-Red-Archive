@@ -12,7 +12,7 @@ The Red Archive is focused on **storyline records**, not every item, recipe, upg
 
 ## Current lore data
 
-This version includes **16 grouped storyline entries**.
+This version includes **26 grouped storyline entries**.
 
 Players must find actual alphanumeric Red Archive codes in-game. Story names like `HEAVEN-SKY-THRESHOLD`, `COSMIC-DEMON-ENCOUNTER`, or old smaller entry names no longer unlock records by themselves.
 
@@ -26,6 +26,7 @@ Heavenly Altar + Goblet/Athame + First Light -> one hidden Red Archive record
 Fallen Heavens + Fringe + Ash + Charred Wood -> one hidden Red Archive record
 Cosmic Demon Arena + Cosmic Demon -> one hidden Red Archive record
 Blackhole Core + Staffs + Ring + Gravity Offering -> one hidden Red Archive record
+Angelic Armor + Gilded Armor + Angelic Protector + Fallen Worlds armor + new weapon lines -> hidden armory records
 ```
 
 ## Minecraft formatting support
