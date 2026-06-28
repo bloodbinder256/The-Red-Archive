@@ -14,19 +14,19 @@ The Red Archive is focused on **storyline records**, not every item, recipe, upg
 
 This version includes **16 grouped storyline entries**.
 
+Players must find actual alphanumeric Red Archive codes in-game. Story names like `HEAVEN-SKY-THRESHOLD`, `COSMIC-DEMON-ENCOUNTER`, or old smaller entry names no longer unlock records by themselves.
+
+Related story ideas are still grouped together behind single records, but the public unlock keys are discovery codes rather than guessable titles.
+
 Examples of grouped records:
 
 ```text
-Heaven Dimension + Sky Breach + Heaven Biome -> HEAVEN-SKY-THRESHOLD
-Heavenly Altar + Goblet/Athame + First Light -> HEAVENLY-ALTAR-RITES
-Fallen Heavens + Fringe + Ash + Charred Wood -> FALLEN-HEAVENS-SCAR
-Cosmic Demon Arena + Cosmic Demon -> COSMIC-DEMON-ENCOUNTER
-Blackhole Core + Staffs + Ring + Gravity Offering -> GRAVITY-RELICS
+Heaven Dimension + Sky Breach + Heaven Biome -> one hidden Red Archive record
+Heavenly Altar + Goblet/Athame + First Light -> one hidden Red Archive record
+Fallen Heavens + Fringe + Ash + Charred Wood -> one hidden Red Archive record
+Cosmic Demon Arena + Cosmic Demon -> one hidden Red Archive record
+Blackhole Core + Staffs + Ring + Gravity Offering -> one hidden Red Archive record
 ```
-
-Old smaller codes still work as aliases where possible. For example, typing `HEAVEN-DIMENSION`, `SKY-BREACH`, or `HEAVEN-BIOME` will unlock the grouped `HEAVEN-SKY-THRESHOLD` record.
-
-Players can type codes with spaces, underscores, lowercase letters, or hyphens. The site normalizes them before checking.
 
 ## Minecraft formatting support
 
@@ -56,7 +56,7 @@ body: "The forbidden name was §kUNKNOWN§r, and the record refused to translate
 
 ## How it works
 
-Enter a recovered code into the terminal.
+Enter a recovered alphanumeric code into the terminal.
 
 If the code is valid, the site reveals the matching record and saves it locally in the browser with `localStorage`.
 

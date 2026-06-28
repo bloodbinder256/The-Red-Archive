@@ -3,7 +3,8 @@
   Curated, grouped storyline-only record list. Gameplay-only, duplicate, deprecated, and old in-game archive-style entries were removed.
 
   Related records are clumped into larger story files so the site feels like a lore terminal instead of a checklist.
-  Old codes can still work through aliases.
+  Unlock codes are alphanumeric discovery codes, not guessable story titles.
+  Story-label codes are no longer accepted. legacyNames are maintainer labels only.
 
   Lore text supports Minecraft formatting codes:
   §k obfuscated, §l bold, §o italic, §n underline, §m strikethrough, §r reset,
@@ -12,8 +13,8 @@
 
 const RED_ARCHIVE_RECORDS = [
   {
-    "code": "HEAVEN-SKY-THRESHOLD",
-    "aliases": [
+    "code": "RA-7QK3-V2M9",
+    "legacyNames": [
       "HEAVEN-DIMENSION",
       "SKY-BREACH",
       "HEAVEN-BIOME",
@@ -31,8 +32,8 @@ const RED_ARCHIVE_RECORDS = [
     "body": "The first sign of Heaven is not a gate. It is height. Climb until the sky thins and the world forgets how to keep you, and the breach opens into a realm too clean to trust. Its biome grows from divine light made into weather: pale grass, still trees, beautiful silence, and air that feels like judgment pretending to be peace. Heaven is not merely above the world. It is above consequence, or it believes it is."
   },
   {
-    "code": "CLOUD-MATTER",
-    "aliases": [
+    "code": "RA-4N8X-H1C6",
+    "legacyNames": [
       "CLOUD-BLOCK",
       "cloud_block"
     ],
@@ -46,8 +47,8 @@ const RED_ARCHIVE_RECORDS = [
     "body": "Cloud matter can be shaped, but never fully convinced. It remembers being sky and treats solidity like a temporary favor. Heaven builds with things that should not hold weight, then calls the result proof of authority. Walk on it carefully. Anything that used to be air may eventually remember how to let go."
   },
   {
-    "code": "HEAVENLY-WORKS",
-    "aliases": [
+    "code": "RA-M6Z2-Q9T4",
+    "legacyNames": [
       "HEAVENLY-FORGE",
       "HEAVENS-WRATH",
       "DIVINE-HALO",
@@ -65,8 +66,8 @@ const RED_ARCHIVE_RECORDS = [
     "body": "The Heavenly Forge does not simply improve metal. It teaches material to accept a purpose higher than survival. A halo is not decoration; it is a crown with better public relations, a circle of light making a claim over the wearer. Heaven's Wrath is the same claim sharpened into a blade. The truer form does not strike harder because it is stronger. It strikes harder because mercy has been removed from the calculation."
   },
   {
-    "code": "HEAVENLY-ALTAR-RITES",
-    "aliases": [
+    "code": "RA-H9D4-A7K2",
+    "legacyNames": [
       "HEAVENLY-ALTAR",
       "RITUAL-CLUE-ALTAR-FOUND",
       "RITUAL-CLUE-TOOLS",
@@ -86,8 +87,8 @@ const RED_ARCHIVE_RECORDS = [
     "body": "The altar listens before it answers. Attention is the first offering; the rite begins the moment the player chooses to be noticed. The Goblet receives. The Athame divides. Feather offerings open the first pale paths because softness can still be power. Bring the wrong thing and the altar may ignore you. Bring the right thing and it may remember your name."
   },
   {
-    "code": "PURIFIER-LOGIC",
-    "aliases": [
+    "code": "RA-P3V8-L2N5",
+    "legacyNames": [
       "PURIFIER",
       "PURIFIER-CORES",
       "RITUAL-CLUE-PURIFIER",
@@ -105,8 +106,8 @@ const RED_ARCHIVE_RECORDS = [
     "body": "The Purifier removes corruption, but it cannot erase history. Each core teaches the machine a different definition of clean: angelic mercy, abyssal silence, blood memory, verdant repair, infernal hunger, echo persistence. The cleanest result is not the one with no past. It is the one that survived the past without becoming obedient to it."
   },
   {
-    "code": "FALLEN-HEAVENS-SCAR",
-    "aliases": [
+    "code": "RA-W2J7-C6F9",
+    "legacyNames": [
       "FALLEN-HEAVENS",
       "FALLEN-HEAVENS-FRINGE",
       "ASH-COVERED-DIRT",
@@ -126,8 +127,8 @@ const RED_ARCHIVE_RECORDS = [
     "body": "Fallen Heavens is the scar left when something holy hit the ground and kept burning. The fringe is where ordinary life pretends recovery has begun, but ash-covered dirt and charred wood know better. Every path, trunk, plank, and footprint disturbs the remains of a place that believed itself untouchable. The land did not become cursed overnight; it became accused."
   },
   {
-    "code": "FALLEN-RUINS-NETWORK",
-    "aliases": [
+    "code": "RA-K8R1-S5D3",
+    "legacyNames": [
       "BROKEN-CHURCH",
       "CHARRED-HOUSE",
       "SMALL-ALTAR",
@@ -146,8 +147,8 @@ const RED_ARCHIVE_RECORDS = [
     "body": "The ruins are not scattered randomly. Paths, homes, altars, and a broken church form a pattern like a village trying to point at its own murderer. The church broke before it burned. The houses still frame their last seconds. The small altars prove not every rite needed a temple, only desperate hands and a price. Follow the roads and Fallen Heavens stops feeling like a biome. It starts feeling like a crime scene."
   },
   {
-    "code": "COSMIC-DEMON-ENCOUNTER",
-    "aliases": [
+    "code": "RA-C9M4-X7Q2",
+    "legacyNames": [
       "COSMIC-DEMON-ARENA",
       "COSMIC-DEMON",
       "cosmic_demon_arena",
@@ -164,8 +165,8 @@ const RED_ARCHIVE_RECORDS = [
     "body": "The arena was not built for sport. Its paths, offerings, and altar curve toward one invitation: bring the Cosmic Demon close enough to fight. The demon is gravity given malice. It rearranges distance, movement, and safety until the battlefield becomes part of its body. Its core is not a trophy. It is the part of collapse that survived being defeated."
   },
   {
-    "code": "GRAVITY-RELICS",
-    "aliases": [
+    "code": "RA-G5T9-N3V8",
+    "legacyNames": [
       "BLACKHOLE-CORE",
       "BLACKHOLE-STAFFS",
       "BLACK-HOLE-RING",
@@ -185,8 +186,8 @@ const RED_ARCHIVE_RECORDS = [
     "body": "A Blackhole Core is contained disaster. The staff line begins as controlled failure and ends as jurisdiction over gravity. The ring is a private agreement with collapse, teaching nearby things to fall toward the wearer. Black-hole offerings are never cheap, even when the cost is not obvious yet. The safest relic is the one you never forget is hungry."
   },
   {
-    "code": "FALLEN-STAR-RECORD",
-    "aliases": [
+    "code": "RA-X1F6-B8K4",
+    "legacyNames": [
       "STAR-CLUSTER-STRUCTURE",
       "STAR-MATERIALS",
       "star_cluster_structure",
@@ -202,8 +203,8 @@ const RED_ARCHIVE_RECORDS = [
     "body": "The star cluster does not look built so much as arranged after impact. Pieces of sky gathered there like witnesses after a crash. Star fragments, fallen cores, cracked shells, ingots, and singularities all belong to the moment the sky stopped being distant and became debris. Every shard feels like it arrived angry and has not cooled enough to forgive the ground."
   },
   {
-    "code": "ANGELIC-ECOLOGY",
-    "aliases": [
+    "code": "RA-S7L2-P9W5",
+    "legacyNames": [
       "ANGELIC-CHICKEN",
       "ANGELIC-FEATHER",
       "GILDED-FEATHER",
@@ -221,8 +222,8 @@ const RED_ARCHIVE_RECORDS = [
     "body": "Not every holy creature arrives with wings spread and judgment blazing. Some cluck softly in the grass and make Heaven seem harmless. Angelic feathers are the softest proof that Heaven can be touched, while gilded feathers turn softness into a signature. That is the first trick of divine ecology: teach the player to smile before showing them teeth."
   },
   {
-    "code": "CHOIR-WISP",
-    "aliases": [
+    "code": "RA-N4C8-J6R1",
+    "legacyNames": [
       "choir_wisp"
     ],
     "sourceId": "choir_wisp",
@@ -235,8 +236,8 @@ const RED_ARCHIVE_RECORDS = [
     "body": "A Choir Wisp is less an animal than a note that learned to hover. It blesses, flees, pulses, and punishes like a fragment of sacred music trapped in a body. Strike one and the backlash feels personal, as if the song remembers who interrupted it. Some records describe the true choir as §kUNTRANSLATED§r, which may mean lost, sealed, or still singing somewhere no ear should reach."
   },
   {
-    "code": "FALLEN-SERAPH",
-    "aliases": [
+    "code": "RA-F2Y9-H5M7",
+    "legacyNames": [
       "bestiary_fallen_seraph_basic",
       "fallen_seraph"
     ],
@@ -250,8 +251,8 @@ const RED_ARCHIVE_RECORDS = [
     "body": "The Fallen Seraph is not a monster pretending to be holy. It is holiness after the fall, still convinced its pain is doctrine. Lasers, dives, halos, and gravity pins are not just attacks. They are a sermon delivered by something that no longer knows how to stop preaching. Defeating it does not disprove Heaven. It proves Heaven can bleed."
   },
   {
-    "code": "TITAN-REMAINS",
-    "aliases": [
+    "code": "RA-T6B3-Z8Q1",
+    "legacyNames": [
       "TITAN-REMNANT",
       "TITAN-REMNANT-VARIANTS",
       "RITUAL-CLUE-TITAN",
@@ -269,8 +270,8 @@ const RED_ARCHIVE_RECORDS = [
     "body": "A Titan Remnant is not dead material. It is leftover enormity with memory, stubbornness, and opinions. Control, concealment, blessing, blood stabilization, and binding each solve one problem while teaching the relic a new grudge. The altar treats Titan matter like a sleeping witness and tries not to wake too much of it at once."
   },
   {
-    "code": "GRACE-OF-MERCY",
-    "aliases": [
+    "code": "RA-L9V5-D2X7",
+    "legacyNames": [
       "GRACE-MATERIALS",
       "grace_materials"
     ],
@@ -284,8 +285,8 @@ const RED_ARCHIVE_RECORDS = [
     "body": "Grace looks gentle because mercy knows how to hide its strength. Dust, bottles, apples, lockets, and amulets carry the same impossible promise: not yet, not here, not this death. In a world where Heaven often feels like judgment, grace is the stranger record. It suggests something holy may still want the player to live."
   },
   {
-    "code": "RITUAL-FAILURE-RULES",
-    "aliases": [
+    "code": "RA-Q3H8-M6C4",
+    "legacyNames": [
       "ALTAR-UNSTABLE-FAILURE",
       "ALTAR-STABILIZED-FAILURE",
       "ALTAR-VOLATILE-FAILURE",
@@ -409,10 +410,7 @@ function bindEvents() {
 
 function handleSubmit() {
   const normalized = normalizeCode(els.input.value);
-  const record = RED_ARCHIVE_RECORDS.find((item) => {
-    const aliases = Array.isArray(item.aliases) ? item.aliases : [];
-    return normalizeCode(item.code) === normalized || normalizeCode(item.sourceId) === normalized || aliases.some((alias) => normalizeCode(alias) === normalized);
-  });
+  const record = RED_ARCHIVE_RECORDS.find((item) => normalizeCode(item.code) === normalized);
 
   if (!normalized) {
     setStatus("AWAITING CODE");
@@ -460,7 +458,7 @@ function showDenied() {
   els.recordTitle.textContent = "Record Not Found";
   els.recordMeta.textContent = "UNKNOWN-CODE // ACCESS REFUSED";
   els.recordWarning.textContent = "No record answers to that code.";
-  els.recordBody.textContent = "No matching record exists. Check the recovered code, remove extra symbols, or seek another hidden code in-game.";
+  els.recordBody.textContent = "No matching record exists. Check the recovered alphanumeric code, remove extra spaces, or seek another hidden code in-game.";
   activeRecord = null;
   shake(els.result);
 }
