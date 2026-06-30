@@ -1,69 +1,54 @@
 # The Red Archive
 
-**The Red Archive** is a companion lore-code website for the *DemonTime* Minecraft mod.
+**The Red Archive** is the companion lore terminal for the *DemonTimesSNTwo* Minecraft mod.
 
-Players discover hidden codes in-game, enter them here, and unlock story records about Heaven, Fallen Heavens, rituals, relics, bosses, ruins, and the things Heaven tried to erase.
+Players recover private archive codes inside the game, then enter those codes on this website to restore grouped lore memories.
 
 ## What it is for
 
-The site gives DemonTime players an outside-the-game lore terminal without needing an in-game archive system.
+The website is the out-of-game side of the DemonTimesSNTwo code discovery loop.
 
-The Red Archive is focused on **storyline records**, not every item, recipe, upgrade, or old archive entry. Related records are now grouped together so each unlock feels like a meaningful piece of the DemonTime story instead of a tiny checklist item.
+Inside Minecraft, Red Archive fragments, gear, rituals, bosses, or structures can reveal a code. On the website, the player enters that code and unlocks the matching memory group.
 
-## Current lore data
+## Current memory groups
 
-This version includes **26 grouped storyline entries**.
+The current site restores eight grouped memories:
 
-Players must find actual alphanumeric Red Archive codes in-game. Story names like `HEAVEN-SKY-THRESHOLD`, `COSMIC-DEMON-ENCOUNTER`, or old smaller entry names no longer unlock records by themselves.
+- Sky Threshold / Heaven Dimension / Heaven Biome
+- Heavenly Altar / rituals / cache / altar failure
+- Choir Bow / Choir Wail / Hymn Shot / Resonance
+- Seraphic enemies / angelic life / feathers / divine halo
+- Heaven authority / Heaven's Wrath / Fallen Heaven / cosmic demon
+- Seal blocks / containment / ruins / sealed structures
+- Divine armor / divine equipment / newest Heaven gear
+- Ritual tools / goblet / athame / relic memory
 
-Related story ideas are still grouped together behind single records, but the public unlock keys are discovery codes rather than guessable titles.
+## Code behavior
 
-Examples of grouped records:
+The code gate is forgiving about formatting. It ignores lowercase, spaces, and hyphens.
 
-```text
-Heaven Dimension + Sky Breach + Heaven Biome -> one hidden Red Archive record
-Heavenly Altar + Goblet/Athame + First Light -> one hidden Red Archive record
-Fallen Heavens + Fringe + Ash + Charred Wood -> one hidden Red Archive record
-Cosmic Demon Arena + Cosmic Demon -> one hidden Red Archive record
-Blackhole Core + Staffs + Ring + Gravity Offering -> one hidden Red Archive record
-Angelic Armor + Gilded Armor + Angelic Protector + Fallen Worlds armor + new weapon lines -> hidden armory records
-```
-
-## Minecraft formatting support
-
-Lore body text supports Minecraft `§` formatting codes:
+These all work as the same code:
 
 ```text
-§0-§f = Minecraft colors
-§k = obfuscated / glitch text
-§l = bold
-§m = strikethrough
-§n = underline
-§o = italic
-§r = reset
+SKY-A7F4
+skya7f4
+sky a7f4
+sky-a7f4
 ```
 
-It also supports Java-style hex colors:
+Wrong codes show:
 
 ```text
-§x§f§f§0§0§0§0Red hex text§r
+The archive rejects this sequence.
 ```
 
-Example entry text in `app.js`:
+Already-used codes show:
 
-```js
-body: "The forbidden name was §kUNKNOWN§r, and the record refused to translate it."
+```text
+This memory has already been restored.
 ```
 
-## How it works
-
-Enter a recovered alphanumeric code into the terminal.
-
-If the code is valid, the site reveals the matching record and saves it locally in the browser with `localStorage`.
-
-If the code is unknown, access is refused until the player finds the correct hidden code.
-
-No account system or server is required.
+Unlocked memories are saved locally in the player's browser with `localStorage`.
 
 ## Built with
 
@@ -74,14 +59,4 @@ No account system or server is required.
 
 ## GitHub Pages
 
-This is a static site. To publish it with GitHub Pages:
-
-1. Upload the files to the root of the GitHub repo.
-2. Go to the repo settings.
-3. Open **Pages**.
-4. Set the source to the `main` branch and `/root`.
-5. Save and wait for GitHub to deploy it.
-
-## Created for DemonTime
-
-DemonTime is a dark fantasy Minecraft mod about Heaven, Fallen Heavens, rituals, seals, choirs, demons, angels, contracts, forgotten names, and things Heaven tried to erase.
+This is a static site. It can be hosted directly with GitHub Pages. Upload the files to the repository root, enable GitHub Pages for the `main` branch, and open the published URL.

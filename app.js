@@ -1,10 +1,9 @@
 /*
   The Red Archive — DemonTime lore code site
-  Curated, grouped storyline-only record list. Gameplay-only, duplicate, deprecated, and old in-game archive-style entries were removed.
+  DemonTimesSNTwo Red Archive code loop. In-game items reveal private archive codes; this site restores the matching memory groups.
 
-  Related records are clumped into larger story files so the site feels like a lore terminal instead of a checklist.
-  Unlock codes are alphanumeric discovery codes, not guessable story titles.
-  Story-label codes are no longer accepted. legacyNames are maintainer labels only.
+  Codes are normalized before checking, so lowercase, spaces, and hyphens are ignored.
+  Example: SKY-A7F4, skya7f4, sky a7f4, and sky-a7f4 all unlock the same memory.
 
   Lore text supports Minecraft formatting codes:
   §k obfuscated, §l bold, §o italic, §n underline, §m strikethrough, §r reset,
@@ -13,482 +12,92 @@
 
 const RED_ARCHIVE_RECORDS = [
   {
-    "code": "RA-7QK3-V2M9",
-    "legacyNames": [
-      "HEAVEN-DIMENSION",
-      "SKY-BREACH",
-      "HEAVEN-BIOME",
-      "heaven_dimension",
-      "sky_breach",
-      "heaven_biome"
-    ],
-    "sourceId": "heaven_dimension+sky_breach+heaven_biome",
-    "title": "Heaven and the Sky Threshold",
-    "hiddenTitle": "Unknown Sky Dominion",
-    "category": "Heaven",
-    "triggerType": "discovery",
-    "triggerId": "demontimessntwo:heavendimension|heavendimension|dimension/heavendimension|y400|heaven_dimension_transport|demontimessntwo:heavenbiome|heavenbiome",
-    "threat": "Story Record // Heaven",
-    "body": "The first sign of Heaven is not a gate. It is height. Climb until the sky thins and the world forgets how to keep you, and the breach opens into a realm too clean to trust. Its biome grows from divine light made into weather: pale grass, still trees, beautiful silence, and air that feels like judgment pretending to be peace. Heaven is not merely above the world. It is above consequence, or it believes it is."
+    "code": "SKY-A7F4",
+    "sourceId": "sky_threshold_heaven_dimension_heaven_biome",
+    "title": "Sky Threshold Memory",
+    "hiddenTitle": "Unrestored Sky Memory",
+    "category": "Heaven Memory",
+    "triggerType": "code_fragment",
+    "triggerId": "demontimessntwo:red_archive_sky_fragment|heaven_dimension|sky_threshold|heaven_biome",
+    "threat": "Memory Group // Heaven Threshold",
+    "body": "Heaven does not open like a door. It thins. The higher the player climbs, the less the world remembers how to keep them, until the sky becomes a threshold and the threshold becomes a verdict. Beyond it waits the Heaven Dimension: pale grass, quiet trees, cloud matter, and air too clean to trust. The biome is beautiful in the way a courtroom is beautiful before the sentence is read. §8Recovered note:§r the sky was never empty. It was watching."
   },
   {
-    "code": "RA-4N8X-H1C6",
-    "legacyNames": [
-      "CLOUD-BLOCK",
-      "cloud_block"
-    ],
-    "sourceId": "cloud_block",
-    "title": "Cloud Matter",
-    "hiddenTitle": "Unknown Cloud Matter",
-    "category": "Heaven",
-    "triggerType": "block",
-    "triggerId": "demontimessntwo:cloud_block",
-    "threat": "Matter Record // Heaven",
-    "body": "Cloud matter can be shaped, but never fully convinced. It remembers being sky and treats solidity like a temporary favor. Heaven builds with things that should not hold weight, then calls the result proof of authority. Walk on it carefully. Anything that used to be air may eventually remember how to let go."
+    "code": "ALTAR-8MZ2",
+    "sourceId": "heavenly_altar_rituals_cache_failure",
+    "title": "Altar Memory: Cache and Failure",
+    "hiddenTitle": "Unrestored Altar Memory",
+    "category": "Ritual Memory",
+    "triggerType": "code_fragment",
+    "triggerId": "demontimessntwo:red_archive_altar_fragment|heavenly_altar|heavenly_cache_box|heavenly_cache_key|altar_failure",
+    "threat": "Memory Group // Altar Rites",
+    "body": "The Heavenly Altar listens before it answers. A Goblet receives. An Athame divides. A feather asks gently. A cache key asks with proof. The cache is not a chest so much as a promise that Heaven locked away something it still wanted found by the correct hands. Failed rites are not empty mistakes; they are failed negotiations. Without containment, the altar may fizzle, bite, drain, or wake things buried under the ritual geometry. §cThe altar does not forgive sloppy names.§r"
   },
   {
-    "code": "RA-M6Z2-Q9T4",
-    "legacyNames": [
-      "HEAVENLY-FORGE",
-      "HEAVENS-WRATH",
-      "DIVINE-HALO",
-      "heavenly_forge",
-      "heavens_wrath",
-      "divine_halo"
-    ],
-    "sourceId": "heavenly_forge+heavens_wrath+divine_halo",
-    "title": "Heavenly Works: Forge, Halo, Wrath",
-    "hiddenTitle": "Unknown Instruments of Judgment",
-    "category": "Relics",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:heavenly_forge|demontimessntwo:heavens_wrath|demontimessntwo:true_heavens_wrath|demontimessntwo:divine_halo_helmet",
-    "threat": "Relic Record // Judgment",
-    "body": "The Heavenly Forge does not simply improve metal. It teaches material to accept a purpose higher than survival. A halo is not decoration; it is a crown with better public relations, a circle of light making a claim over the wearer. Heaven's Wrath is the same claim sharpened into a blade. The truer form does not strike harder because it is stronger. It strikes harder because mercy has been removed from the calculation."
+    "code": "CHOIR-9K2M",
+    "sourceId": "choir_bow_choir_wail_hymn_resonance",
+    "title": "Choir Memory: Resonance",
+    "hiddenTitle": "Unrestored Choir Memory",
+    "category": "Weapon Memory",
+    "triggerType": "code_fragment",
+    "triggerId": "demontimessntwo:red_archive_choir_fragment|choir_bow|choir_wail|hymn_shot|resonance",
+    "threat": "Memory Group // Choir Bow",
+    "body": "The Choir Bow is not a bow that learned music. It is music forced into the shape of a weapon. Hymn Shot is the first clean note: focused, obedient, almost merciful. Choir Wail is the note after obedience breaks, when sound stops blessing the target and starts accusing it. Resonance is the memory between shots, the gathered pressure of every note that has not yet been allowed to scream. When the string is drawn, distance gains a voice. When the shot lands, the target learns what it sounds like to be named."
   },
   {
-    "code": "RA-H9D4-A7K2",
-    "legacyNames": [
-      "HEAVENLY-ALTAR",
-      "RITUAL-CLUE-ALTAR-FOUND",
-      "RITUAL-CLUE-TOOLS",
-      "RITUAL-CLUE-FIRST-LIGHT",
-      "heavenly_altar",
-      "ritual_clue_altar_found",
-      "ritual_clue_tools",
-      "ritual_clue_first_light"
-    ],
-    "sourceId": "heavenly_altar+ritual_clue_altar_found+ritual_clue_tools+ritual_clue_first_light",
-    "title": "Heavenly Altar Rites",
-    "hiddenTitle": "Unknown Altar Instructions",
-    "category": "Rituals",
-    "triggerType": "block",
-    "triggerId": "demontimessntwo:heavenly_altar|demontimessntwo:goblet|demontimessntwo:athame|demontimessntwo:angelic_feather|demontimessntwo:gildedfeather|demontimessntwo:gilded_feather",
-    "threat": "Ritual Record // Altar",
-    "body": "The altar listens before it answers. Attention is the first offering; the rite begins the moment the player chooses to be noticed. The Goblet receives. The Athame divides. Feather offerings open the first pale paths because softness can still be power. Bring the wrong thing and the altar may ignore you. Bring the right thing and it may remember your name."
+    "code": "SERAPH-Q6R1",
+    "sourceId": "seraphic_angelic_enemies_feathers_divine_halo",
+    "title": "Seraphic Memory: Feathers and Halos",
+    "hiddenTitle": "Unrestored Seraphic Memory",
+    "category": "Creature Memory",
+    "triggerType": "code_fragment",
+    "triggerId": "demontimessntwo:red_archive_seraph_fragment|angelicchicken|choir_wisp|fallen_seraph|angelic_feather|gilded_feather|divine_halo",
+    "threat": "Memory Group // Seraphic Remains",
+    "body": "Not every angelic thing arrives as a boss. Some arrive as feathers, halos, wisps, and soft creatures that make Heaven look harmless. Angelic feathers are the first touchable proof that divine life bleeds materials into the world. Gilded feathers remember rank. Halos remember command. Seraphic enemies remember Heaven before the fall and hate the ground for surviving them. The prettiest pieces are often the most dangerous, because they teach the player to smile before showing them what judgment weighs."
   },
   {
-    "code": "RA-P3V8-L2N5",
-    "legacyNames": [
-      "PURIFIER",
-      "PURIFIER-CORES",
-      "RITUAL-CLUE-PURIFIER",
-      "purifier",
-      "purifier_cores",
-      "ritual_clue_purifier"
-    ],
-    "sourceId": "purifier+purifier_cores+ritual_clue_purifier",
-    "title": "Purifier Logic",
-    "hiddenTitle": "Unknown Cleansing Machine",
-    "category": "Rituals",
-    "triggerType": "block",
-    "triggerId": "demontimessntwo:purifier|demontimessntwo:basic_purifier_core|demontimessntwo:angelic_core|demontimessntwo:celestial_core|demontimessntwo:abyssal_core|demontimessntwo:blood_core|demontimessntwo:verdant_core|demontimessntwo:infernal_core|demontimessntwo:echo_core",
-    "threat": "Ritual Record // Purification",
-    "body": "The Purifier removes corruption, but it cannot erase history. Each core teaches the machine a different definition of clean: angelic mercy, abyssal silence, blood memory, verdant repair, infernal hunger, echo persistence. The cleanest result is not the one with no past. It is the one that survived the past without becoming obedient to it."
+    "code": "THRONE-X8V3",
+    "sourceId": "heaven_authority_heavens_wrath_fallen_heaven_cosmic_demon",
+    "title": "Throne Memory: Wrath and Collapse",
+    "hiddenTitle": "Unrestored Throne Memory",
+    "category": "Authority Memory",
+    "triggerType": "code_fragment",
+    "triggerId": "demontimessntwo:red_archive_throne_fragment|heavens_wrath|true_heavens_wrath|fallen_heavens|cosmicdemon|blackhole_core",
+    "threat": "Memory Group // Heaven Authority",
+    "body": "Heaven calls its violence authority because authority sounds cleaner than fear. Heaven's Wrath is not merely a weapon path; it is a verdict sharpened until mercy falls away from the edge. Fallen Heaven is what happens when that authority crashes into the world and leaves a scar that still smells like ash. The Cosmic Demon is the counterargument: collapse wearing hunger, gravity with malice, a throne made from everything that falls. Between Wrath and Collapse, DemonTime asks one question: who gets to decide what deserves to remain standing?"
   },
   {
-    "code": "RA-W2J7-C6F9",
-    "legacyNames": [
-      "FALLEN-HEAVENS",
-      "FALLEN-HEAVENS-FRINGE",
-      "ASH-COVERED-DIRT",
-      "CHARRED-WOOD-FAMILY",
-      "fallen_heavens",
-      "fallen_heavens_fringe",
-      "ash_covered_dirt",
-      "charred_wood_family"
-    ],
-    "sourceId": "fallen_heavens+fallen_heavens_fringe+ash_covered_dirt+charred_wood_family",
-    "title": "The Fallen Heavens Scar",
-    "hiddenTitle": "Unknown Fallen Biome",
-    "category": "Fallen Heavens",
-    "triggerType": "discovery",
-    "triggerId": "demontimessntwo:fallen_heavens|fallen_heavens|demontimessntwo:fallen_heavens_fringe|fallen_heavens_fringe|fringe|demontimessntwo:ash_covered_dirt|demontimessntwo:charred_log|demontimessntwo:charred_wood|demontimessntwo:stripped_charred_log|demontimessntwo:stripped_charred_wood|demontimessntwo:charred_planks|demontimessntwo:charred_stairs|demontimessntwo:charred_slab|demontimessntwo:charred_fence|demontimessntwo:charred_fence_gate|demontimessntwo:charred_door|demontimessntwo:charred_trapdoor|demontimessntwo:charred_leaves",
-    "threat": "Story Record // Fallen Heavens",
-    "body": "Fallen Heavens is the scar left when something holy hit the ground and kept burning. The fringe is where ordinary life pretends recovery has begun, but ash-covered dirt and charred wood know better. Every path, trunk, plank, and footprint disturbs the remains of a place that believed itself untouchable. The land did not become cursed overnight; it became accused."
+    "code": "SEAL-V4ND",
+    "sourceId": "seal_blocks_containment_ruins_sealed_structures",
+    "title": "Seal Memory: Containment Ruins",
+    "hiddenTitle": "Unrestored Seal Memory",
+    "category": "Containment Memory",
+    "triggerType": "code_fragment",
+    "triggerId": "demontimessntwo:red_archive_seal_fragment|seal_block|fallen_heavens_ruins|broken_church|small_altar|sealed_structure",
+    "threat": "Memory Group // Seals and Ruins",
+    "body": "A seal is not a wall. A wall says no. A seal says not yet. The ruins of Fallen Heaven are full of that difference: broken churches, burned houses, small altars, sealed structures, and paths arranged like a village trying to point at its own murderer. Containment does not mean victory. It means the thing inside still matters enough to be feared. §8Recovered warning:§r if a seal fades too quickly, it was never meant to hold. If it remains, ask what it is protecting you from."
   },
   {
-    "code": "RA-K8R1-S5D3",
-    "legacyNames": [
-      "BROKEN-CHURCH",
-      "CHARRED-HOUSE",
-      "SMALL-ALTAR",
-      "fallen_ruins_network",
-      "broken_church",
-      "charred_house",
-      "small_altar"
-    ],
-    "sourceId": "fallen_ruins_network+broken_church+charred_house+small_altar",
-    "title": "The Fallen Ruins Network",
-    "hiddenTitle": "Unknown Ruin Network",
-    "category": "Ruins",
-    "triggerType": "discovery",
-    "triggerId": "demontimessntwo:fallen_heavens_ruins|demontimessntwo:cosmic_demon_ruins|complete_arena_network|demontimessntwo:fallen_heavens_ruins/broken_church|broken_church|demontimessntwo:fallen_heavens_ruins/charred_house|charred_house|demontimessntwo:fallen_heavens_ruins/small_altar|small_altar",
-    "threat": "Structure Record // Ruins",
-    "body": "The ruins are not scattered randomly. Paths, homes, altars, and a broken church form a pattern like a village trying to point at its own murderer. The church broke before it burned. The houses still frame their last seconds. The small altars prove not every rite needed a temple, only desperate hands and a price. Follow the roads and Fallen Heavens stops feeling like a biome. It starts feeling like a crime scene."
+    "code": "ARMOR-3VNX",
+    "sourceId": "divine_armor_equipment_newest_heaven_gear",
+    "title": "Armor Memory: Divine Equipment",
+    "hiddenTitle": "Unrestored Armor Memory",
+    "category": "Armory Memory",
+    "triggerType": "code_fragment",
+    "triggerId": "demontimessntwo:red_archive_armor_fragment|angelic_protector|set_of_the_fallen_worlds|drowned_warrior|burned_warrior|stonecrest_warrior|warrior_of_silence|divine_armor|heaven_gear",
+    "threat": "Memory Group // Divine Armory",
+    "body": "Divine armor is not just protection. It is a story the body is forced to wear. Angelic gear teaches survival to look beautiful. Protector armor turns duty into wings. The Set of the Fallen Worlds carries drowned pressure, burned endurance, stone patience, and silence sharp enough to cut sound from the air. New Heaven gear does not ask whether the player is worthy. It asks whether the player can keep moving while every plate remembers a different apocalypse."
   },
   {
-    "code": "RA-C9M4-X7Q2",
-    "legacyNames": [
-      "COSMIC-DEMON-ARENA",
-      "COSMIC-DEMON",
-      "cosmic_demon_arena",
-      "cosmic_demon",
-      "bestiary_cosmic_demon_basic"
-    ],
-    "sourceId": "cosmic_demon_arena+cosmic_demon",
-    "title": "The Cosmic Demon Encounter",
-    "hiddenTitle": "Unknown Collapse Boss",
-    "category": "Bosses",
-    "triggerType": "kill",
-    "triggerId": "demontimessntwo:cosmic_demon_arena|demontimessntwo:cosmic_demon_ruins/arena|cosmic_demon_summoning_altar|demontimessntwo:cosmicdemon|cosmicdemon|cosmic_demon",
-    "threat": "Boss Record // Collapse",
-    "body": "The arena was not built for sport. Its paths, offerings, and altar curve toward one invitation: bring the Cosmic Demon close enough to fight. The demon is gravity given malice. It rearranges distance, movement, and safety until the battlefield becomes part of its body. Its core is not a trophy. It is the part of collapse that survived being defeated."
-  },
-  {
-    "code": "RA-G5T9-N3V8",
-    "legacyNames": [
-      "BLACKHOLE-CORE",
-      "BLACKHOLE-STAFFS",
-      "BLACK-HOLE-RING",
-      "RITUAL-CLUE-GRAVITY",
-      "blackhole_core",
-      "blackhole_staffs",
-      "black_hole_ring",
-      "ritual_clue_gravity"
-    ],
-    "sourceId": "blackhole_core+blackhole_staffs+black_hole_ring+ritual_clue_gravity",
-    "title": "Gravity Relics",
-    "hiddenTitle": "Unknown Collapse Relics",
-    "category": "Relics",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:blackholecore|demontimessntwo:blackhole_core_item|demontimessntwo:stabilized_blackhole_staff|demontimessntwo:blackhole_staff|demontimessntwo:event_horizon_staff|demontimessntwo:singularity_staff|demontimessntwo:black_hole_ring|demontimessntwo:celestial_singularity",
-    "threat": "Relic Record // Collapse",
-    "body": "A Blackhole Core is contained disaster. The staff line begins as controlled failure and ends as jurisdiction over gravity. The ring is a private agreement with collapse, teaching nearby things to fall toward the wearer. Black-hole offerings are never cheap, even when the cost is not obvious yet. The safest relic is the one you never forget is hungry."
-  },
-  {
-    "code": "RA-X1F6-B8K4",
-    "legacyNames": [
-      "STAR-CLUSTER-STRUCTURE",
-      "STAR-MATERIALS",
-      "star_cluster_structure",
-      "star_materials"
-    ],
-    "sourceId": "star_cluster_structure+star_materials",
-    "title": "Fallen Star Record",
-    "hiddenTitle": "Unknown Fallen Star",
-    "category": "Relics",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:star_cluster_structure|star_cluster|demontimessntwo:star_metal_fragment|demontimessntwo:fallen_star_core|demontimessntwo:cracked_star_shell|demontimessntwo:star_metal_ingot|demontimessntwo:celestial_singularity",
-    "threat": "Relic Record // Falling Star",
-    "body": "The star cluster does not look built so much as arranged after impact. Pieces of sky gathered there like witnesses after a crash. Star fragments, fallen cores, cracked shells, ingots, and singularities all belong to the moment the sky stopped being distant and became debris. Every shard feels like it arrived angry and has not cooled enough to forgive the ground."
-  },
-  {
-    "code": "RA-S7L2-P9W5",
-    "legacyNames": [
-      "ANGELIC-CHICKEN",
-      "ANGELIC-FEATHER",
-      "GILDED-FEATHER",
-      "angelic_chicken",
-      "angelic_feather",
-      "gilded_feather"
-    ],
-    "sourceId": "angelic_chicken+angelic_feather+gilded_feather",
-    "title": "Angelic Ecology",
-    "hiddenTitle": "Unknown Angelic Life",
-    "category": "Creatures",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:angelicchicken|angelicchicken|demontimessntwo:angelic_feather|demontimessntwo:gildedfeather|demontimessntwo:gilded_feather",
-    "threat": "Creature Record // Heaven",
-    "body": "Not every holy creature arrives with wings spread and judgment blazing. Some cluck softly in the grass and make Heaven seem harmless. Angelic feathers are the softest proof that Heaven can be touched, while gilded feathers turn softness into a signature. That is the first trick of divine ecology: teach the player to smile before showing them teeth."
-  },
-  {
-    "code": "RA-N4C8-J6R1",
-    "legacyNames": [
-      "choir_wisp"
-    ],
-    "sourceId": "choir_wisp",
-    "title": "Choir Wisp",
-    "hiddenTitle": "Unknown Choir Light",
-    "category": "Creatures",
-    "triggerType": "discovery",
-    "triggerId": "demontimessntwo:wisp|wisp|choir_wisp",
-    "threat": "Creature Record // Choir",
-    "body": "A Choir Wisp is less an animal than a note that learned to hover. It blesses, flees, pulses, and punishes like a fragment of sacred music trapped in a body. Strike one and the backlash feels personal, as if the song remembers who interrupted it. Some records describe the true choir as §kUNTRANSLATED§r, which may mean lost, sealed, or still singing somewhere no ear should reach."
-  },
-  {
-    "code": "RA-F2Y9-H5M7",
-    "legacyNames": [
-      "bestiary_fallen_seraph_basic",
-      "fallen_seraph"
-    ],
-    "sourceId": "bestiary_fallen_seraph_basic",
-    "title": "Fallen Seraph",
-    "hiddenTitle": "Unknown Fallen Seraph",
-    "category": "Bosses",
-    "triggerType": "kill",
-    "triggerId": "demontimessntwo:fallen_seraph|fallen_seraph|fallenseraph",
-    "threat": "Boss Record // Fallen Heaven",
-    "body": "The Fallen Seraph is not a monster pretending to be holy. It is holiness after the fall, still convinced its pain is doctrine. Lasers, dives, halos, and gravity pins are not just attacks. They are a sermon delivered by something that no longer knows how to stop preaching. Defeating it does not disprove Heaven. It proves Heaven can bleed."
-  },
-  {
-    "code": "RA-T6B3-Z8Q1",
-    "legacyNames": [
-      "TITAN-REMNANT",
-      "TITAN-REMNANT-VARIANTS",
-      "RITUAL-CLUE-TITAN",
-      "titan_remnant",
-      "titan_remnant_variants",
-      "ritual_clue_titan"
-    ],
-    "sourceId": "titan_remnant+titan_remnant_variants+ritual_clue_titan",
-    "title": "Titan Remains",
-    "hiddenTitle": "Unknown Titan Relic",
-    "category": "Relics",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:titan_remnant|demontimessntwo:titanremanent|demontimessntwo:controlledtitanremanent|demontimessntwo:permanentlyconcealedtitanremanent|demontimessntwo:blessed_titan_remnant|demontimessntwo:concealed_titan_remnant|demontimessntwo:blood_stabilized_remnant",
-    "threat": "Relic Record // Titan",
-    "body": "A Titan Remnant is not dead material. It is leftover enormity with memory, stubbornness, and opinions. Control, concealment, blessing, blood stabilization, and binding each solve one problem while teaching the relic a new grudge. The altar treats Titan matter like a sleeping witness and tries not to wake too much of it at once."
-  },
-  {
-    "code": "RA-L9V5-D2X7",
-    "legacyNames": [
-      "GRACE-MATERIALS",
-      "grace_materials"
-    ],
-    "sourceId": "grace_materials",
-    "title": "Grace of Mercy",
-    "hiddenTitle": "Unknown Grace Relic",
-    "category": "Relics",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:grace_dust|demontimessntwo:bottled_grace|demontimessntwo:grace_apple|demontimessntwo:grace_locket|demontimessntwo:celestial_amulet",
-    "threat": "Relic Record // Grace",
-    "body": "Grace looks gentle because mercy knows how to hide its strength. Dust, bottles, apples, lockets, and amulets carry the same impossible promise: not yet, not here, not this death. In a world where Heaven often feels like judgment, grace is the stranger record. It suggests something holy may still want the player to live."
-  },
-  {
-    "code": "RA-A8V2-G4N7",
-    "legacyNames": [
-      "ANGELIC-ARMOR",
-      "ANGELIC-RAIMENT",
-      "ANGELIC-SET",
-      "angelic_armor",
-      "angelic_raiment",
-      "angelic_set"
-    ],
-    "sourceId": "angelic_armor+angelic_raiment",
-    "title": "Angelic Raiment",
-    "hiddenTitle": "Unknown Feather Armor",
-    "category": "Armory",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:angelic_helmet|demontimessntwo:angelic_chestplate|demontimessntwo:angelic_leggings|demontimessntwo:angelic_boots|demontimessntwo:angelic_armor_helmet|demontimessntwo:angelic_armor_chestplate|demontimessntwo:angelic_armor_leggings|demontimessntwo:angelic_armor_boots|demontimessntwo:aerolite_helmet|demontimessntwo:aerolite_chestplate|demontimessntwo:aerolite_leggings|demontimessntwo:aerolite_boots",
-    "threat": "Armory Record // Heaven",
-    "body": "Angelic armor is the first lesson Heaven teaches the body: survive beautifully or be mistaken for unworthy. Feathers and pale metal do not make the wearer gentle. They make impact sound like prayer. The set was made for mortals who were never supposed to enter the war, then entered anyway. Every plate whispers the same instruction: stand up before the titans learn your name."
-  },
-  {
-    "code": "RA-D6K9-L3W5",
-    "legacyNames": [
-      "GILDED-ARMOR",
-      "GILDED-RAIMENT",
-      "GILDED-GUARD",
-      "gilded_armor",
-      "gilded_raiment",
-      "gilded_guard"
-    ],
-    "sourceId": "gilded_armor+gilded_guard",
-    "title": "Gilded Guard Armor",
-    "hiddenTitle": "Unknown Golden Armor",
-    "category": "Armory",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:gilded_helmet|demontimessntwo:gilded_chestplate|demontimessntwo:gilded_leggings|demontimessntwo:gilded_boots|demontimessntwo:divine_halo_helmet|demontimessntwo:divine_halo_chestplate|demontimessntwo:divine_halo_leggings|demontimessntwo:divine_halo_boots|demontimessntwo:gilded_feather|demontimessntwo:gildedfeather",
-    "threat": "Armory Record // Fallen Guard",
-    "body": "Gilded armor was never made to protect innocence. It was made to announce authority from far enough away that fear arrived first. The feathers taken from it are stronger than ordinary angelic feathers because they remember command, rank, and the weight of a guard who stood between Heaven and the thing Heaven feared. When the armor falls to earth, its shine does not fade. It accuses the battlefield of touching it."
-  },
-  {
-    "code": "RA-J9C2-W8R6",
-    "legacyNames": [
-      "CHOIR-BOW",
-      "DRAGONS-BOW",
-      "DRAGON-BOW",
-      "BOWS-OF-THE-CHOIR",
-      "choir_bow",
-      "dragons_bow",
-      "dragon_bow"
-    ],
-    "sourceId": "choir_bow+dragon_bow",
-    "title": "Bows of the Choir",
-    "hiddenTitle": "Unknown Singing Bow",
-    "category": "Weapons",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:choir_bow|demontimessntwo:dragons_bow|demontimessntwo:dragon_bow",
-    "threat": "Weapon Record // Choir",
-    "body": "The bow does not simply launch an arrow. It gives distance a voice. Some records call it the Dragon's Bow, found where Fallen Heaven still hides teeth in its ashes. Others call the later form the Choir Bow, because the shot carries more than force: hymn, wail, resonance, and the brief terror of being named by sound. A normal bow asks whether the player can aim. This one asks whether the target can endure being heard."
-  },
-  {
-    "code": "RA-Z4M8-C2Q7",
-    "legacyNames": [
-      "AEROLITE-WEAPONS",
-      "ASTRELIUM-WEAPONS",
-      "STAR-FORGED-ARSENAL",
-      "CELESTIAL-BLADE",
-      "aerolite_weapons",
-      "astrelium_weapons",
-      "star_forged_arsenal",
-      "celestial_blade"
-    ],
-    "sourceId": "aerolite_tools+astrelium_tools+celestial_blade",
-    "title": "Star-Forged Arsenal",
-    "hiddenTitle": "Unknown Star Weapons",
-    "category": "Weapons",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:aerolite_sword|demontimessntwo:aerolite_pickaxe|demontimessntwo:aerolite_axe|demontimessntwo:aerolite_shovel|demontimessntwo:aerolite_hoe|demontimessntwo:blessed_aerolite_sword|demontimessntwo:astrelium_sword|demontimessntwo:astrelium_pickaxe|demontimessntwo:astrelium_axe|demontimessntwo:astrelium_shovel|demontimessntwo:astrelium_hoe|demontimessntwo:celestial_blade|demontimessntwo:heavens_wrath|demontimessntwo:true_heavens_wrath",
-    "threat": "Weapon Record // Star Metal",
-    "body": "Aerolite is the first metal that believes a mortal can matter in a war of gods and titans. Astrelium is the answer that comes later, colder and brighter, as if the stars decided pity was inefficient. Blades, tools, belts, and wrath-forged edges all belong to the same argument: mortals were released early, unfinished, and desperate, but they learned to put the sky in their hands anyway."
-  },
-  {
-    "code": "RA-E7C2-P6V9",
-    "legacyNames": [
-      "ANGELIC-PROTECTOR",
-      "ANGELIC-PROTECTOR-ARMOR",
-      "PROTECTOR-HALO",
-      "angelic_protector",
-      "angelic_protector_armor",
-      "protector_halo"
-    ],
-    "sourceId": "angelic_protector_armor",
-    "title": "Angelic Protector Armor",
-    "hiddenTitle": "Unknown Winged Armor",
-    "category": "Armory",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:angelic_protector_halo|demontimessntwo:angelic_protector_chestplate|demontimessntwo:angelic_protector_leggings|demontimessntwo:angelic_protector_boots|demontimessntwo:protector_halo|demontimessntwo:divine_halo",
-    "threat": "Armory Record // Protector",
-    "body": "The Angelic Protector set was not made for soldiers who wanted glory. It was made for the ones ordered to stand between Heaven and disaster until their names stopped mattering. The halo is the command seal; the armor is the oath wrapped around bone. When the wings answer, they do not feel like freedom. They feel like a duty learning how to lift the wearer anyway."
-  },
-  {
-    "code": "RA-R8D4-T6K9",
-    "legacyNames": [
-      "SET-OF-THE-FALLEN-WORLDS",
-      "FALLEN-WORLDS-SET",
-      "FALLEN-WORLDS-ARMOR",
-      "set_of_the_fallen_worlds",
-      "fallen_worlds_set",
-      "fallen_worlds_armor"
-    ],
-    "sourceId": "set_of_the_fallen_worlds",
-    "title": "Set of the Fallen Worlds",
-    "hiddenTitle": "Unknown World-Bound Armor",
-    "category": "Armory",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:set_of_the_fallen_worlds_helmet|demontimessntwo:set_of_the_fallen_worlds_chestplate|demontimessntwo:set_of_the_fallen_worlds_leggings|demontimessntwo:set_of_the_fallen_worlds_boots|demontimessntwo:fallen_worlds_helmet|demontimessntwo:fallen_worlds_chestplate|demontimessntwo:fallen_worlds_leggings|demontimessntwo:fallen_worlds_boots",
-    "threat": "Armory Record // Fallen Worlds",
-    "body": "The Set of the Fallen Worlds is not one armor. It is a treaty between ruins that should never have agreed on anything. Drowned, burned, stone-crowned, and silent worlds each gave the set a different survival instinct. Wear enough of it and the body becomes a meeting place for disasters, each one promising it knows how to keep you alive better than the others."
-  },
-  {
-    "code": "RA-U5N2-C9J7",
-    "legacyNames": [
-      "DROWNED-WARRIOR",
-      "DROWNED-WARRIOR-ARMOR",
-      "drowned_warrior",
-      "drowned_warrior_armor"
-    ],
-    "sourceId": "drowned_warrior_armor",
-    "title": "Drowned Warrior Armor",
-    "hiddenTitle": "Unknown Drowned Plate",
-    "category": "Armory",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:drowned_warrior_helmet|demontimessntwo:drowned_warrior_chestplate|demontimessntwo:drowned_warrior_leggings|demontimessntwo:drowned_warrior_boots",
-    "threat": "Armory Record // Drowned World",
-    "body": "The Drowned Warrior set remembers pressure before it remembers water. It was shaped for a world where the sky failed and the sea inherited everything. The armor does not panic when the dark closes in; it settles, sinks, and waits. Its mercy is endurance. Its curse is that every breath begins to sound borrowed."
-  },
-  {
-    "code": "RA-B7F3-A2M8",
-    "legacyNames": [
-      "BURNED-WARRIOR",
-      "BURNED-WARRIOR-ARMOR",
-      "burned_warrior",
-      "burned_warrior_armor"
-    ],
-    "sourceId": "burned_warrior_armor",
-    "title": "Burned Warrior Armor",
-    "hiddenTitle": "Unknown Burned Plate",
-    "category": "Armory",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:burned_warrior_helmet|demontimessntwo:burned_warrior_chestplate|demontimessntwo:burned_warrior_leggings|demontimessntwo:burned_warrior_boots",
-    "threat": "Armory Record // Burned World",
-    "body": "The Burned Warrior set was forged after the fire had already won. It does not prevent pain so much as teach the wearer what pain is not allowed to interrupt. Char, ember, and old rage cling to every plate. When it moves, it sounds like a house collapsing in reverse, trying one more time to become shelter."
-  },
-  {
-    "code": "RA-S4C9-V6Q1",
-    "legacyNames": [
-      "STONECREST-WARRIOR",
-      "STONECREST-WARRIOR-ARMOR",
-      "stonecrest_warrior",
-      "stonecrest_warrior_armor"
-    ],
-    "sourceId": "stonecrest_warrior_armor",
-    "title": "Stonecrest Warrior Armor",
-    "hiddenTitle": "Unknown Stone-Crowned Plate",
-    "category": "Armory",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:stonecrest_warrior_helmet|demontimessntwo:stonecrest_warrior_chestplate|demontimessntwo:stonecrest_warrior_leggings|demontimessntwo:stonecrest_warrior_boots",
-    "threat": "Armory Record // Stone World",
-    "body": "The Stonecrest Warrior set carries the patience of mountains and the stubbornness of graves. It was made for fighters who could not outrun the end, so they became harder for the end to move. The crest is not decoration. It is a warning that the wearer has chosen to be terrain, obstacle, and monument all at once."
-  },
-  {
-    "code": "RA-W9L6-N3X5",
-    "legacyNames": [
-      "WARRIOR-OF-SILENCE",
-      "SILENCE-WARRIOR",
-      "WARRIOR-OF-SILENCE-ARMOR",
-      "warrior_of_silence",
-      "silence_warrior",
-      "warrior_of_silence_armor"
-    ],
-    "sourceId": "warrior_of_silence_armor",
-    "title": "Warrior of Silence Armor",
-    "hiddenTitle": "Unknown Silent Plate",
-    "category": "Armory",
-    "triggerType": "item",
-    "triggerId": "demontimessntwo:warrior_of_silence_helmet|demontimessntwo:warrior_of_silence_chestplate|demontimessntwo:warrior_of_silence_leggings|demontimessntwo:warrior_of_silence_boots|demontimessntwo:silence_warrior_helmet|demontimessntwo:silence_warrior_chestplate|demontimessntwo:silence_warrior_leggings|demontimessntwo:silence_warrior_boots",
-    "threat": "Armory Record // Silent World",
-    "body": "The Warrior of Silence set does not hide sound. It remembers a world where sound was taken as punishment. The armor teaches the wearer to move like an omitted sentence, present only after the damage has already been done. Choir records become unstable around it; some notes refuse to play, and some names become §kUNSPOKEN§r rather than erased."
-  },
-  {
-    "code": "RA-Q3H8-M6C4",
-    "legacyNames": [
-      "ALTAR-UNSTABLE-FAILURE",
-      "ALTAR-STABILIZED-FAILURE",
-      "ALTAR-VOLATILE-FAILURE",
-      "altar_unstable_failure",
-      "altar_stabilized_failure",
-      "altar_volatile_failure"
-    ],
-    "sourceId": "altar_unstable_failure+altar_stabilized_failure+altar_volatile_failure",
-    "title": "Ritual Failure Rules",
-    "hiddenTitle": "Unknown Failure Record",
-    "category": "Warnings",
-    "triggerType": "discovery",
-    "triggerId": "altar_unstable_failure|altar_stabilized_failure|altar_volatile_failure",
-    "threat": "Warning Record // Rituals",
-    "body": "Failure is not always absence. Sometimes failure is arrival. An altar without containment can fizzle, bite back, drain what was offered, or wake nearby things that should have stayed asleep. Stabilization makes the mistake survivable, not kind. Volatile power makes success louder and failure louder still. Safety is not mercy; it is geometry under pressure."
+    "code": "RELIC-T7C2",
+    "sourceId": "ritual_tools_goblet_athame_relic_memory",
+    "title": "Relic Memory: Cup, Knife, and Remnant",
+    "hiddenTitle": "Unrestored Relic Memory",
+    "category": "Relic Memory",
+    "triggerType": "code_fragment",
+    "triggerId": "demontimessntwo:red_archive_relic_fragment|goblet|athame|titan_remnant|blackhole_core|grace_locket|ritual_tool",
+    "threat": "Memory Group // Ritual Relics",
+    "body": "Relics are objects that survived long enough to become arguments. The Goblet receives what the player is willing to offer. The Athame divides what can be spared from what must be taken. Titan remnants remember size, blood, and stubbornness. Gravity relics remember collapse. Grace relics remember the strange mercy of not dying yet. None of them are neutral. Every relic is a tool, a witness, and a small locked mouth waiting for the correct rite to make it speak."
   }
 ];
 
@@ -611,6 +220,12 @@ function handleSubmit() {
     return;
   }
 
+  if (unlocked.has(record.code)) {
+    setStatus("MEMORY RESTORED");
+    showAlreadyRestored(record);
+    return;
+  }
+
   unlocked.add(record.code);
   saveUnlockedCodes([...unlocked]);
   revealRecord(record);
@@ -642,12 +257,22 @@ function revealRecord(record) {
 
 function showDenied() {
   els.result.classList.remove("hidden");
-  els.recordTitle.textContent = "Record Not Found";
+  els.recordTitle.textContent = "Sequence Rejected";
   els.recordMeta.textContent = "UNKNOWN-CODE // ACCESS REFUSED";
-  els.recordWarning.textContent = "No record answers to that code.";
-  els.recordBody.textContent = "No matching record exists. Check the recovered alphanumeric code, remove extra spaces, or seek another hidden code in-game.";
+  els.recordWarning.textContent = "No memory answers to that sequence.";
+  els.recordBody.textContent = "The archive rejects this sequence.";
   activeRecord = null;
   shake(els.result);
+}
+
+function showAlreadyRestored(record) {
+  activeRecord = record;
+  els.result.classList.remove("hidden");
+  els.recordTitle.textContent = "Memory Already Restored";
+  els.recordMeta.textContent = `${record.code} // ${record.category}`;
+  els.recordWarning.textContent = record.threat;
+  els.recordBody.textContent = "This memory has already been restored.";
+  pulseElement(els.result);
 }
 
 function renderGrid() {
@@ -901,11 +526,8 @@ function escapeAttr(value) {
 
 function normalizeCode(code) {
   return String(code || "")
-    .trim()
     .toUpperCase()
-    .replace(/[\s_]+/g, "-")
-    .replace(/[^A-Z0-9-]/g, "")
-    .replace(/-+/g, "-");
+    .replace(/[^A-Z0-9]/g, "");
 }
 
 function loadUnlockedCodes() {
