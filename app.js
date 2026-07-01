@@ -769,10 +769,21 @@ function renderProgressionGuide() {
   els.integrityFill.style.width = `${percent}%`;
 
   if (els.wikiContents) {
-    els.wikiContents.innerHTML = RED_ARCHIVE_RECORDS.map((record, index) => {
+    const staticContents = [
+      ["guide-overview", "Overview", "guide"],
+      ["guide-how-to-use", "How to use", "guide"],
+      ["guide-survival-notes", "Survival notes", "guide"],
+      ["guide-crafting-recipes", "Crafting recipes", "wiki"],
+      ["guide-items-blocks-systems", "Items / blocks / systems", "wiki"],
+      ["guide-route", "Suggested route", "guide"]
+    ].map(([id, title, state]) => `<li><a href="#${id}">${title}</a><span>${state}</span></li>`).join("");
+
+    const memoryContents = RED_ARCHIVE_RECORDS.map((record, index) => {
       const isUnlocked = unlocked.has(record.sourceId);
       return `<li><a href="#memory-${String(index + 1).padStart(2, "0")}">${escapeHtml(record.guideTitle || record.title)}</a><span>${isUnlocked ? "restored" : "sealed"}</span></li>`;
     }).join("");
+
+    els.wikiContents.innerHTML = staticContents + memoryContents;
   }
 
   els.guide.innerHTML = RED_ARCHIVE_RECORDS.map((record, index) => {

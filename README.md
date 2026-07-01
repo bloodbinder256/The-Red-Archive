@@ -137,3 +137,9 @@ This build includes extra presentation and usability touches:
 - keyboard shortcut: press `/` or `Ctrl + K` to focus the archive input
 - mobile and accessibility touchups
 
+## Latest wiki expansion
+
+The Progression Guide now includes a **Crafting Recipe Index** plus an **Items, Blocks, and Systems Explained** section. The recipe section covers the main DemonTime: Season Two progression stations, base Purifier recipes, Heavenly Forge tool chains, armor recipe references, and high-tier relic notes.
+
+Use in-game JEI/tooltips as the final source of truth if a patch changes a recipe. The website is meant to be the spoiler-light public wiki layer, not a replacement for in-game recipe registration.
+
