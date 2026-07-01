@@ -206,7 +206,9 @@ const els = {
   guideCount: $("#guide-count"),
   integrityValue: $("#integrity-value"),
   integrityFill: $("#integrity-fill"),
-  archiveVoice: $("#archive-voice")
+  archiveVoice: $("#archive-voice"),
+  tabButtons: $$(".tab-button"),
+  tabPanels: $$(".tab-panel")
 };
 
 const VALID_RECORD_CODES = new Set(RED_ARCHIVE_RECORDS.map((record) => record.code));
@@ -220,6 +222,7 @@ function boot() {
   els.totalCount.textContent = RED_ARCHIVE_RECORDS.length;
   renderAll();
   bindEvents();
+  initializeTabs();
   startAmbientAnimations();
 
   if (animate) {
@@ -235,6 +238,10 @@ function bindEvents() {
   els.submit.addEventListener("click", handleSubmit);
   els.input.addEventListener("keydown", (event) => {
     if (event.key === "Enter") handleSubmit();
+  });
+
+  els.tabButtons.forEach((button) => {
+    button.addEventListener("click", () => switchTab(button.dataset.tabTarget, true));
   });
 
   els.reset.addEventListener("click", () => {
@@ -263,6 +270,44 @@ function bindEvents() {
       setStatus("COPY BLOCKED");
     }
   });
+}
+
+function initializeTabs() {
+  const requestedPanel = window.location.hash === "#progression-guide" || window.location.hash === "#guide"
+    ? "guide-panel"
+    : "archive-panel";
+  switchTab(requestedPanel, false);
+}
+
+function switchTab(panelId, updateHash = false) {
+  if (!panelId) return;
+
+  els.tabPanels.forEach((panel) => {
+    const isActive = panel.id === panelId;
+    panel.classList.toggle("active", isActive);
+    panel.hidden = !isActive;
+  });
+
+  els.tabButtons.forEach((button) => {
+    const isActive = button.dataset.tabTarget === panelId;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-selected", String(isActive));
+  });
+
+  if (updateHash) {
+    const hash = panelId === "guide-panel" ? "#progression-guide" : "#archive";
+    history.replaceState(null, "", hash);
+  }
+
+  if (animate) {
+    const activePanel = document.getElementById(panelId);
+    if (activePanel) {
+      animate(activePanel, { opacity: [0, 1], translateY: [10, 0], duration: 360, ease: "outQuad" });
+      if (panelId === "guide-panel") {
+        animate("#guide-panel .progression-card", { opacity: [0, 1], translateY: [12, 0], delay: stagger(35), duration: 420, ease: "outQuad" });
+      }
+    }
+  }
 }
 
 function handleSubmit() {

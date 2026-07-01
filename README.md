@@ -2,7 +2,7 @@
 
 **The Red Archive** is the companion lore terminal for the *DemonTime: Season Two* Minecraft mod.
 
-Players recover private archive codes inside the game, then enter those codes on this website to restore grouped lore memories.
+Players recover private archive codes inside the game, then enter those codes on this website to restore grouped lore memories. The site is split into two top tabs: **Archive Terminal** for code entry/restored memories and **Progression Guide** for spoiler-light wiki-style discovery hints.
 
 ## What it is for
 
@@ -31,7 +31,8 @@ This version adds several discovery features:
 - **False-code responses**: certain wrong guesses get custom lore-flavored rejection messages instead of only a generic error.
 - **Associated Records**: restored entries show related items, bosses, mechanics, or structures connected to that memory group.
 - **Archive voice**: the site changes its message as more memories are restored, so the Archive feels more awake over time.
-- **Progression guide**: a spoiler-light path hints at what kinds of in-game actions or discoveries may lead to each memory.
+- **Tabbed layout**: Archive Terminal and Progression Guide are separated into top navigation tabs.
+- **Progression guide**: a spoiler-light wiki-style path hints at what kinds of in-game actions or discoveries may lead to each memory.
 - **Archive integrity meter**: the restored-memory percentage updates as codes are entered.
 
 ## Code behavior

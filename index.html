@@ -31,76 +31,89 @@
       </p>
     </section>
 
-    <section class="terminal-card" aria-labelledby="terminal-title">
-      <div class="terminal-top">
-        <div class="lights" aria-hidden="true">
-          <span></span><span></span><span></span>
-        </div>
-        <p id="terminal-title">RED_ARCHIVE://CODE_GATE</p>
-        <p class="status" id="archive-status">STANDBY</p>
-      </div>
+    <nav class="archive-tabs" role="tablist" aria-label="Red Archive sections">
+      <button class="tab-button active" id="tab-archive" type="button" role="tab" aria-selected="true" aria-controls="archive-panel" data-tab-target="archive-panel">
+        Archive Terminal
+      </button>
+      <button class="tab-button" id="tab-guide" type="button" role="tab" aria-selected="false" aria-controls="guide-panel" data-tab-target="guide-panel">
+        Progression Guide
+      </button>
+    </nav>
 
-      <div class="terminal-body">
-        <label for="code-input">Enter recovered code</label>
-        <div class="code-row">
-          <input id="code-input" type="text" autocomplete="off" spellcheck="false" placeholder="ENTER RECOVERED CODE" aria-describedby="hint" />
-          <button id="submit-code" type="button">Decrypt</button>
+    <section class="tab-panel active" id="archive-panel" role="tabpanel" aria-labelledby="tab-archive">
+      <section class="terminal-card" aria-labelledby="terminal-title">
+        <div class="terminal-top">
+          <div class="lights" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <p id="terminal-title">RED_ARCHIVE://CODE_GATE</p>
+          <p class="status" id="archive-status">STANDBY</p>
         </div>
-        <p id="hint" class="hint">Codes are case-insensitive. Spaces and hyphens are ignored, so SKY-A7F4, skya7f4, sky a7f4, and sky-a7f4 all work.</p>
 
-        <div class="quick-actions" aria-label="Archive actions">
-          <button id="reset-archive" type="button" class="ghost-button danger">Reset unlocked records</button>
+        <div class="terminal-body">
+          <label for="code-input">Enter recovered code</label>
+          <div class="code-row">
+            <input id="code-input" type="text" autocomplete="off" spellcheck="false" placeholder="ENTER RECOVERED CODE" aria-describedby="hint" />
+            <button id="submit-code" type="button">Decrypt</button>
+          </div>
+          <p id="hint" class="hint">Codes are case-insensitive. Spaces and hyphens are ignored, so SKY-A7F4, skya7f4, sky a7f4, and sky-a7f4 all work.</p>
+
+          <div class="quick-actions" aria-label="Archive actions">
+            <button id="reset-archive" type="button" class="ghost-button danger">Reset unlocked records</button>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <section class="result-panel hidden" id="result-panel" aria-live="polite">
+        <div class="record-label">Record decrypted</div>
+        <h2 id="record-title"></h2>
+        <p class="record-meta" id="record-meta"></p>
+        <p class="record-body" id="record-body"></p>
+        <div class="associated-section" aria-labelledby="associated-title">
+          <h3 id="associated-title">Associated Records</h3>
+          <ul id="associated-list"></ul>
+        </div>
+        <div class="record-footer">
+          <span id="record-warning">Integrity unstable.</span>
+          <button id="copy-record" type="button" class="ghost-button">Copy entry</button>
+        </div>
+      </section>
+
+      <section class="archive-grid-section" aria-labelledby="unlocked-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Recovered files</p>
+            <h2 id="unlocked-title">Unlocked Records</h2>
+          </div>
+          <p class="counter"><span id="unlocked-count">0</span>/<span id="total-count">0</span> decrypted</p>
+        </div>
+        <div class="archive-grid" id="archive-grid"></div>
+      </section>
     </section>
 
-    <section class="result-panel hidden" id="result-panel" aria-live="polite">
-      <div class="record-label">Record decrypted</div>
-      <h2 id="record-title"></h2>
-      <p class="record-meta" id="record-meta"></p>
-      <p class="record-body" id="record-body"></p>
-      <div class="associated-section" aria-labelledby="associated-title">
-        <h3 id="associated-title">Associated Records</h3>
-        <ul id="associated-list"></ul>
-      </div>
-      <div class="record-footer">
-        <span id="record-warning">Integrity unstable.</span>
-        <button id="copy-record" type="button" class="ghost-button">Copy entry</button>
-      </div>
-    </section>
-
-    <section class="progression-section" aria-labelledby="progression-title">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">Progression guide</p>
-          <h2 id="progression-title">Memory Restoration Path</h2>
+    <section class="tab-panel" id="guide-panel" role="tabpanel" aria-labelledby="tab-guide" hidden>
+      <section class="progression-section" aria-labelledby="progression-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Progression guide</p>
+            <h2 id="progression-title">Memory Restoration Path</h2>
+          </div>
+          <p class="counter"><span id="guide-count">0/0</span> restored</p>
         </div>
-        <p class="counter"><span id="guide-count">0/0</span> restored</p>
-      </div>
 
-      <div class="integrity-panel">
-        <div>
-          <p class="integrity-label">Archive Integrity</p>
-          <p id="archive-voice" class="archive-voice">The archive is silent.</p>
+        <div class="integrity-panel">
+          <div>
+            <p class="integrity-label">Archive Integrity</p>
+            <p id="archive-voice" class="archive-voice">The archive is silent.</p>
+          </div>
+          <div class="integrity-meter" aria-hidden="true">
+            <span id="integrity-fill"></span>
+          </div>
+          <p id="integrity-value" class="integrity-value">0%</p>
         </div>
-        <div class="integrity-meter" aria-hidden="true">
-          <span id="integrity-fill"></span>
-        </div>
-        <p id="integrity-value" class="integrity-value">0%</p>
-      </div>
 
-      <div class="progression-grid" id="progression-guide"></div>
-    </section>
-
-    <section class="archive-grid-section" aria-labelledby="unlocked-title">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">Recovered files</p>
-          <h2 id="unlocked-title">Unlocked Records</h2>
-        </div>
-        <p class="counter"><span id="unlocked-count">0</span>/<span id="total-count">0</span> decrypted</p>
-      </div>
-      <div class="archive-grid" id="archive-grid"></div>
+        <div class="progression-grid" id="progression-guide"></div>
+      </section>
     </section>
   </main>
 
