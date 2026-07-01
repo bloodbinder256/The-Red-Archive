@@ -23,6 +23,17 @@ The current site restores eight grouped memories:
 - Divine armor / divine equipment / newest Heaven gear
 - Ritual tools / goblet / athame / relic memory
 
+## New site features
+
+This version adds several discovery features:
+
+- **Entry-specific visual effects**: each restored memory has its own animation style, such as sky glow, ritual pulse, choir wave, seal crack, armor gleam, or relic drift.
+- **False-code responses**: certain wrong guesses get custom lore-flavored rejection messages instead of only a generic error.
+- **Associated Records**: restored entries show related items, bosses, mechanics, or structures connected to that memory group.
+- **Archive voice**: the site changes its message as more memories are restored, so the Archive feels more awake over time.
+- **Progression guide**: a spoiler-light path hints at what kinds of in-game actions or discoveries may lead to each memory.
+- **Archive integrity meter**: the restored-memory percentage updates as codes are entered.
+
 ## Code behavior
 
 The code gate is forgiving about formatting. It ignores lowercase, spaces, and hyphens.
@@ -36,11 +47,13 @@ sky a7f4
 sky-a7f4
 ```
 
-Wrong codes show:
+Wrong codes still begin with:
 
 ```text
 The archive rejects this sequence.
 ```
+
+Depending on restoration progress, the Archive may add extra commentary after that.
 
 Already-used codes show:
 
@@ -49,6 +62,26 @@ This memory has already been restored.
 ```
 
 Unlocked memories are saved locally in the player's browser with `localStorage`.
+
+## Minecraft formatting support
+
+Lore text supports Minecraft formatting codes:
+
+```text
+§0-§f = Minecraft colors
+§k = obfuscated/glitch text
+§l = bold
+§m = strikethrough
+§n = underline
+§o = italic
+§r = reset
+```
+
+It also supports Java-style hex formatting like:
+
+```text
+§x§f§f§0§0§0§0
+```
 
 ## Built with
 

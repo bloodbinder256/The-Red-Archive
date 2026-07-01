@@ -59,10 +59,37 @@
       <h2 id="record-title"></h2>
       <p class="record-meta" id="record-meta"></p>
       <p class="record-body" id="record-body"></p>
+      <div class="associated-section" aria-labelledby="associated-title">
+        <h3 id="associated-title">Associated Records</h3>
+        <ul id="associated-list"></ul>
+      </div>
       <div class="record-footer">
         <span id="record-warning">Integrity unstable.</span>
         <button id="copy-record" type="button" class="ghost-button">Copy entry</button>
       </div>
+    </section>
+
+    <section class="progression-section" aria-labelledby="progression-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Progression guide</p>
+          <h2 id="progression-title">Memory Restoration Path</h2>
+        </div>
+        <p class="counter"><span id="guide-count">0/0</span> restored</p>
+      </div>
+
+      <div class="integrity-panel">
+        <div>
+          <p class="integrity-label">Archive Integrity</p>
+          <p id="archive-voice" class="archive-voice">The archive is silent.</p>
+        </div>
+        <div class="integrity-meter" aria-hidden="true">
+          <span id="integrity-fill"></span>
+        </div>
+        <p id="integrity-value" class="integrity-value">0%</p>
+      </div>
+
+      <div class="progression-grid" id="progression-guide"></div>
     </section>
 
     <section class="archive-grid-section" aria-labelledby="unlocked-title">

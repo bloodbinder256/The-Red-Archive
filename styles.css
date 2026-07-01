@@ -563,3 +563,312 @@ button:active {
     scroll-behavior: auto !important;
   }
 }
+
+/* Progression guide, archive voice, associated records, and memory-specific effects */
+.progression-section {
+  margin-top: 42px;
+}
+
+.integrity-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 360px) auto;
+  gap: 18px;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px;
+  background: rgba(9, 2, 5, 0.62);
+  box-shadow: var(--shadow);
+  margin-bottom: 18px;
+}
+
+.integrity-label {
+  margin: 0 0 6px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.archive-voice {
+  margin: 0;
+  color: #f3d9cf;
+  line-height: 1.5;
+}
+
+.integrity-meter {
+  height: 14px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 51, 72, 0.2);
+  box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.5);
+}
+
+.integrity-meter span {
+  display: block;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--red-dark), var(--red), var(--gold));
+  box-shadow: 0 0 18px rgba(255, 51, 72, 0.45);
+  transition: width 480ms ease;
+}
+
+.integrity-value {
+  margin: 0;
+  color: var(--gold);
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-weight: 900;
+}
+
+.progression-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.progression-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  border: 1px solid rgba(255, 51, 72, 0.2);
+  border-radius: 18px;
+  padding: 16px;
+  background: rgba(30, 5, 9, 0.62);
+  overflow: hidden;
+  position: relative;
+}
+
+.progression-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 100% 0%, rgba(240, 183, 93, 0.1), transparent 12rem);
+}
+
+.progression-card > * {
+  position: relative;
+}
+
+.progression-card.sealed {
+  opacity: 0.62;
+}
+
+.progression-card.restored {
+  border-color: rgba(240, 183, 93, 0.38);
+  box-shadow: 0 0 28px rgba(213, 20, 39, 0.16);
+}
+
+.progression-index {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(240, 183, 93, 0.35);
+  color: var(--gold);
+  background: rgba(0, 0, 0, 0.2);
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-weight: 900;
+}
+
+.progression-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+
+.progression-card p {
+  margin: 0 0 10px;
+  color: #c9a9a0;
+  line-height: 1.5;
+  font-size: 0.92rem;
+}
+
+.progression-state {
+  color: var(--gold);
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  font-weight: 900;
+}
+
+.associated-section {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 51, 72, 0.22);
+}
+
+.associated-section h3 {
+  margin: 0 0 12px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.74rem;
+}
+
+.associated-section ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+}
+
+.associated-section li {
+  border: 1px solid rgba(255, 51, 72, 0.24);
+  border-radius: 999px;
+  padding: 8px 11px;
+  color: #f7d6ce;
+  background: rgba(255, 51, 72, 0.08);
+  font-size: 0.86rem;
+}
+
+.associated-section .empty-associated {
+  border-style: dashed;
+  color: var(--muted);
+}
+
+.result-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: screen;
+}
+
+.result-panel.effect-sky::after {
+  opacity: 0.5;
+  background:
+    radial-gradient(circle at 30% 0%, rgba(115, 255, 241, 0.18), transparent 18rem),
+    linear-gradient(110deg, transparent 0 35%, rgba(115, 255, 241, 0.12) 50%, transparent 65%);
+  animation: skyDrift 5s ease-in-out infinite;
+}
+
+.result-panel.effect-altar::after {
+  opacity: 0.52;
+  background: repeating-radial-gradient(circle at 50% 100%, rgba(255, 51, 72, 0.18) 0 2px, transparent 2px 18px);
+  animation: ritualPulse 2.4s ease-in-out infinite;
+}
+
+.result-panel.effect-choir::after {
+  opacity: 0.44;
+  background: repeating-linear-gradient(90deg, transparent 0 18px, rgba(115, 255, 241, 0.1) 18px 20px, transparent 20px 38px);
+  animation: choirWave 1.2s linear infinite;
+}
+
+.result-panel.effect-seraph::after {
+  opacity: 0.46;
+  background:
+    radial-gradient(ellipse at 10% 50%, rgba(240, 183, 93, 0.18), transparent 19rem),
+    radial-gradient(ellipse at 90% 50%, rgba(240, 183, 93, 0.18), transparent 19rem);
+  animation: wingFlash 3.2s ease-in-out infinite;
+}
+
+.result-panel.effect-throne::after {
+  opacity: 0.48;
+  background:
+    linear-gradient(180deg, rgba(240, 183, 93, 0.16), transparent 45%),
+    radial-gradient(circle at 50% 0%, rgba(255, 51, 72, 0.16), transparent 19rem);
+  animation: throneSeal 3s ease-in-out infinite;
+}
+
+.result-panel.effect-seal::after {
+  opacity: 0.55;
+  background:
+    linear-gradient(45deg, transparent 0 48%, rgba(255, 51, 72, 0.18) 49% 51%, transparent 52% 100%),
+    linear-gradient(-45deg, transparent 0 48%, rgba(240, 183, 93, 0.12) 49% 51%, transparent 52% 100%);
+  animation: sealCrack 1.8s steps(2) infinite;
+}
+
+.result-panel.effect-armor::after {
+  opacity: 0.44;
+  background: linear-gradient(115deg, transparent 0 42%, rgba(240, 183, 93, 0.2) 50%, transparent 58% 100%);
+  animation: armorGleam 2.8s ease-in-out infinite;
+}
+
+.result-panel.effect-relic::after {
+  opacity: 0.48;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(240, 183, 93, 0.18) 0 2px, transparent 3px),
+    radial-gradient(circle at 82% 65%, rgba(255, 51, 72, 0.18) 0 2px, transparent 3px),
+    radial-gradient(circle at 65% 20%, rgba(115, 255, 241, 0.14) 0 2px, transparent 3px);
+  background-size: 160px 160px, 210px 210px, 180px 180px;
+  animation: relicOrbit 6s linear infinite;
+}
+
+.result-panel.effect-denied::after,
+.result-panel.effect-false::after {
+  opacity: 0.48;
+  background: repeating-linear-gradient(0deg, rgba(255, 51, 72, 0.18) 0 1px, transparent 1px 10px);
+  animation: deniedStatic 0.5s steps(2) infinite;
+}
+
+.effect-mini-sky::before { background: radial-gradient(circle at 100% 0%, rgba(115, 255, 241, 0.14), transparent 12rem), linear-gradient(135deg, rgba(255, 51, 72, 0.08), transparent 48%); }
+.effect-mini-altar::before { background: radial-gradient(circle at 50% 100%, rgba(255, 51, 72, 0.18), transparent 10rem); }
+.effect-mini-choir::before { background: repeating-linear-gradient(90deg, rgba(115, 255, 241, 0.08) 0 2px, transparent 2px 22px); }
+.effect-mini-seraph::before { background: radial-gradient(ellipse at 100% 0%, rgba(240, 183, 93, 0.16), transparent 12rem); }
+.effect-mini-throne::before { background: linear-gradient(180deg, rgba(240, 183, 93, 0.12), transparent 60%); }
+.effect-mini-seal::before { background: linear-gradient(45deg, transparent 0 48%, rgba(255, 51, 72, 0.16) 49% 51%, transparent 52% 100%); }
+.effect-mini-armor::before { background: linear-gradient(115deg, transparent 0 40%, rgba(240, 183, 93, 0.16) 50%, transparent 60% 100%); }
+.effect-mini-relic::before { background: radial-gradient(circle at 100% 0%, rgba(240, 183, 93, 0.16), transparent 12rem), radial-gradient(circle at 0% 100%, rgba(255, 51, 72, 0.1), transparent 10rem); }
+
+@keyframes skyDrift {
+  0%, 100% { transform: translateX(-2%); }
+  50% { transform: translateX(2%); }
+}
+
+@keyframes ritualPulse {
+  0%, 100% { transform: scale(0.96); opacity: 0.32; }
+  50% { transform: scale(1.04); opacity: 0.62; }
+}
+
+@keyframes choirWave {
+  from { background-position: 0 0; }
+  to { background-position: 40px 0; }
+}
+
+@keyframes wingFlash {
+  0%, 100% { opacity: 0.28; filter: blur(0px); }
+  45% { opacity: 0.66; filter: blur(1px); }
+}
+
+@keyframes throneSeal {
+  0%, 100% { transform: translateY(-1%); opacity: 0.36; }
+  50% { transform: translateY(1%); opacity: 0.6; }
+}
+
+@keyframes sealCrack {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(2px, -1px); }
+}
+
+@keyframes armorGleam {
+  0% { transform: translateX(-80%); opacity: 0; }
+  35%, 55% { opacity: 0.55; }
+  100% { transform: translateX(80%); opacity: 0; }
+}
+
+@keyframes relicOrbit {
+  from { background-position: 0 0, 0 0, 0 0; }
+  to { background-position: 160px 160px, -210px 210px, 180px -180px; }
+}
+
+@keyframes deniedStatic {
+  0%, 100% { transform: translateY(0); opacity: 0.32; }
+  50% { transform: translateY(4px); opacity: 0.6; }
+}
+
+@media (max-width: 820px) {
+  .integrity-panel,
+  .progression-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .integrity-value {
+    text-align: left;
+  }
+}
