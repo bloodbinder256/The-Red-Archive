@@ -139,7 +139,9 @@ This build includes extra presentation and usability touches:
 
 ## Latest wiki expansion
 
-The Progression Guide now includes a **Crafting Recipe Index** plus an **Items, Blocks, and Systems Explained** section. The recipe section covers the main DemonTime: Season Two progression stations, base Purifier recipes, Heavenly Forge tool chains, armor recipe references, and high-tier relic notes.
+The Progression Guide now includes a **Crafting Recipe Index** plus an **Items, Blocks, and Systems Explained** section. The recipe section covers the main DemonTime: Season Two progression stations, the accurate Purifier system, Purifier and Basic Purifier Core crafting recipes, core + water + fuel + input transformations, Heavenly Forge tool chains, armor recipe references, and high-tier relic notes.
+
+The Purifier section now explains the actual machine loop: an input item is processed with a Purifier Core, stored water, and fuel. Water Buckets add 1000 water, Water Potions add 250 water, the tank stores up to 4000 water, and different cores unlock different transformation families.
 
 Use in-game JEI/tooltips as the final source of truth if a patch changes a recipe. The website is meant to be the spoiler-light public wiki layer, not a replacement for in-game recipe registration.
 

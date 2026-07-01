@@ -185,7 +185,7 @@
           </article>
           <article>
             <h3>Crafting Wiki</h3>
-            <p>Review stations, Purifier patterns, forge tool chains, armor recipes, and system explanations.</p>
+            <p>Review stations, accurate Purifier core recipes, forge tool chains, armor recipes, and system explanations.</p>
             <button type="button" class="ghost-button portal-jump" data-tab-jump="guide-panel">Open recipe index</button>
           </article>
           <article>
@@ -344,8 +344,8 @@
                   </tr>
                   <tr>
                     <td>Purifier</td>
-                    <td>Titan Remanent stabilization, Purifier Core processing, and corruption/cleansing recipes.</td>
-                    <td>Think of it as moral machinery: the core changes what “clean” means.</td>
+                    <td>Core + water + fuel + input item transformations: remnant control, grace, void concealment, fire-cleansing, nature restoration, and echo relic work.</td>
+                    <td>Think of it as moral machinery: the inserted core changes what “clean” means.</td>
                   </tr>
                   <tr>
                     <td>Angelic Smelter</td>
@@ -365,37 +365,123 @@
                 </tbody>
               </table>
 
-              <h4 class="recipe-subheading">Base Purifier recipes</h4>
+              <h4 class="recipe-subheading">Purifier crafting recipes</h4>
               <div class="recipe-grid">
                 <article class="recipe-card">
-                  <h4>Controlled Titan Remanent</h4>
-                  <p class="recipe-output">Output: 4 × Controlled Titan Remanent</p>
-                  <div class="recipe-pattern" aria-label="Controlled Titan Remanent recipe pattern">
+                  <h4>Purifier</h4>
+                  <p class="recipe-output">Output: 1 × Purifier</p>
+                  <div class="recipe-pattern" aria-label="Purifier crafting pattern">
                     <span>A</span><span>B</span><span>A</span>
-                    <span>B</span><span>C</span><span>B</span>
-                    <span>A</span><span>B</span><span>A</span>
+                    <span>C</span><span>D</span><span>C</span>
+                    <span>A</span><span>E</span><span>A</span>
                   </div>
                   <ul>
-                    <li><strong>A:</strong> Angelic Feather</li>
-                    <li><strong>B:</strong> Aerolite Chunk</li>
-                    <li><strong>C:</strong> Titan Remanent</li>
+                    <li><strong>A:</strong> Gold Block</li>
+                    <li><strong>B:</strong> Cauldron</li>
+                    <li><strong>C:</strong> Iron Bars</li>
+                    <li><strong>D:</strong> Forging Symbol</li>
+                    <li><strong>E:</strong> Furnace</li>
                   </ul>
                 </article>
                 <article class="recipe-card">
-                  <h4>Permanently Concealed Titan Remanent</h4>
-                  <p class="recipe-output">Output: 4 × Permanently Concealed Titan Remanent</p>
-                  <div class="recipe-pattern" aria-label="Permanently Concealed Titan Remanent recipe pattern">
-                    <span>A</span><span>B</span><span>A</span>
-                    <span>B</span><span>C</span><span>B</span>
-                    <span>A</span><span>B</span><span>A</span>
+                  <h4>Basic Purifier Core</h4>
+                  <p class="recipe-output">Output: 1 × Basic Purifier Core</p>
+                  <div class="recipe-pattern" aria-label="Basic Purifier Core crafting pattern">
+                    <span>G</span><span>L</span><span>G</span>
+                    <span>L</span><span>C</span><span>L</span>
+                    <span>G</span><span>L</span><span>G</span>
                   </div>
                   <ul>
-                    <li><strong>A:</strong> Gilded Feather</li>
-                    <li><strong>B:</strong> Aerolite Ingot</li>
-                    <li><strong>C:</strong> Controlled Titan Remanent</li>
+                    <li><strong>G:</strong> Gold Ingot</li>
+                    <li><strong>L:</strong> Lapis Lazuli</li>
+                    <li><strong>C:</strong> Water Bucket</li>
                   </ul>
                 </article>
               </div>
+
+              <h4 class="recipe-subheading">How the Purifier works</h4>
+              <p>
+                The Purifier is not a normal crafting table. It processes one input item using four requirements: an input item, a purifier core,
+                stored water, and fuel. The core decides the recipe family and changes the meaning of purification.
+              </p>
+              <table class="wiki-table recipe-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Slot / resource</th>
+                    <th scope="col">Accepts</th>
+                    <th scope="col">Important behavior</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Input</td><td>The item being purified or transformed.</td><td>Water items, fuel, and cores cannot be placed here.</td></tr>
+                  <tr><td>Water</td><td>Water Bucket or Water Potion.</td><td>Water Bucket adds 1000 water; Water Potion adds 250 water. Max tank: 4000.</td></tr>
+                  <tr><td>Fuel</td><td>Coal, Charcoal, Blaze Rod, Lava Bucket, or items in the DemonTime fuel tag.</td><td>Coal/Charcoal/tag fuel burn 1600 ticks, Blaze Rod burns 2400 ticks, Lava Bucket burns 20000 ticks.</td></tr>
+                  <tr><td>Core</td><td>Basic, Angelic, Abyssal, Celestial, Blood, Verdant, Infernal, or Echo Purifier Core.</td><td>The inserted core decides which transformations are available.</td></tr>
+                  <tr><td>Output</td><td>Purified result and empty containers.</td><td>Outputs only; players cannot insert items directly into this slot.</td></tr>
+                </tbody>
+              </table>
+
+              <h4 class="recipe-subheading">Purifier core costs</h4>
+              <table class="wiki-table recipe-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Core</th>
+                    <th scope="col">Water per operation</th>
+                    <th scope="col">Cook time</th>
+                    <th scope="col">Theme</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>No Core / Basic Core</td><td>250</td><td>120 ticks</td><td>Normal cleansing and early remnant control.</td></tr>
+                  <tr><td>Angelic Core</td><td>150</td><td>120 ticks</td><td>Holy grace, blessing, and gentle purification.</td></tr>
+                  <tr><td>Abyssal Core</td><td>350</td><td>150 ticks</td><td>Void-stability, concealment, and controlled corruption.</td></tr>
+                  <tr><td>Celestial Core</td><td>250</td><td>70 ticks</td><td>Endgame refinement and singularity work.</td></tr>
+                  <tr><td>Blood Core</td><td>350</td><td>55 ticks</td><td>Fast, dangerous remnant stabilization.</td></tr>
+                  <tr><td>Verdant Core</td><td>250</td><td>120 ticks</td><td>Life/nature restoration.</td></tr>
+                  <tr><td>Infernal Core</td><td>100</td><td>120 ticks</td><td>Fire-cleansing and smelting-like conversion.</td></tr>
+                  <tr><td>Echo Core</td><td>250</td><td>120 ticks</td><td>Memory, resonance, and relic restoration.</td></tr>
+                </tbody>
+              </table>
+
+              <h4 class="recipe-subheading">Purifier transformation recipes</h4>
+              <table class="wiki-table recipe-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Core</th>
+                    <th scope="col">Input</th>
+                    <th scope="col">Output</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>No Core / Basic Core</td><td>Titan Remnant</td><td>Controlled Titan Remanent</td></tr>
+                  <tr><td>No Core / Basic Core</td><td>Bone</td><td>Purified Bone</td></tr>
+                  <tr><td>No Core / Basic Core</td><td>Rotten Flesh</td><td>Leather</td></tr>
+                  <tr><td>No Core / Basic Core</td><td>Soul Sand</td><td>Cleansed Soul Sand</td></tr>
+                  <tr><td>No Core / Basic Core</td><td>Nether Wart</td><td>Purified Nether Wart</td></tr>
+                  <tr><td>Angelic Core</td><td>Controlled Titan Remanent</td><td>Blessed Titan Remnant</td></tr>
+                  <tr><td>Angelic Core</td><td>Rotten Flesh</td><td>Purified Flesh</td></tr>
+                  <tr><td>Angelic Core</td><td>Glass Bottle</td><td>Bottled Grace</td></tr>
+                  <tr><td>Angelic Core</td><td>Apple</td><td>Grace Apple</td></tr>
+                  <tr><td>Abyssal Core</td><td>Controlled Titan Remanent</td><td>Concealed Titan Remnant</td></tr>
+                  <tr><td>Abyssal Core</td><td>Blackhole Core Item</td><td>Stabilized Blackhole Fragment</td></tr>
+                  <tr><td>Abyssal Core</td><td>Echo Shard</td><td>Echo Fragment</td></tr>
+                  <tr><td>Celestial Core</td><td>Controlled Titan Remanent or Concealed Titan Remnant</td><td>Permanently Concealed Titan Remanent</td></tr>
+                  <tr><td>Celestial Core</td><td>Stabilized Blackhole Fragment</td><td>Celestial Singularity</td></tr>
+                  <tr><td>Celestial Core</td><td>Wither Rose</td><td>4 × Purified Rose</td></tr>
+                  <tr><td>Blood Core</td><td>Titan Remnant</td><td>Blood Stabilized Remnant</td></tr>
+                  <tr><td>Blood Core</td><td>Rotten Flesh</td><td>Purified Flesh</td></tr>
+                  <tr><td>Blood Core</td><td>Bone</td><td>Purified Bone</td></tr>
+                  <tr><td>Verdant Core</td><td>Poisonous Potato</td><td>Potato</td></tr>
+                  <tr><td>Verdant Core</td><td>Wither Rose</td><td>4 × Purified Rose</td></tr>
+                  <tr><td>Verdant Core</td><td>Rotten Flesh</td><td>Leather</td></tr>
+                  <tr><td>Infernal Core</td><td>Soul Sand</td><td>Soul Glass</td></tr>
+                  <tr><td>Infernal Core</td><td>Ancient Debris</td><td>Netherite Scrap</td></tr>
+                  <tr><td>Infernal Core</td><td>Raw Iron</td><td>Iron Ingot</td></tr>
+                  <tr><td>Echo Core</td><td>Echo Shard</td><td>Echo Fragment</td></tr>
+                  <tr><td>Echo Core</td><td>Book</td><td>Restored Relic</td></tr>
+                  <tr><td>Echo Core</td><td>Amethyst Shard</td><td>Echo Fragment</td></tr>
+                </tbody>
+              </table>
 
               <h4 class="recipe-subheading">Heavenly Forge tool chains</h4>
               <table class="wiki-table recipe-table">
@@ -466,7 +552,7 @@
                   <ul>
                     <li><strong>Materials:</strong> Angelic Feathers, Gilded Feathers, Aerolite, Astrelium, Star Metal, Grace, and Titan Remanents.</li>
                     <li><strong>Weapons:</strong> Heaven’s Wrath, Choir Bow, Black Hole Staff line, Aerolite tools, and Astrelium tools.</li>
-                    <li><strong>Relics:</strong> halos, charms, rings, pendants, cache keys, remnant variants, and ritual tools.</li>
+                    <li><strong>Relics:</strong> halos, charms, rings, pendants, cache keys, remnant variants, purifier cores, and ritual tools.</li>
                     <li><strong>Archive fragments:</strong> in-game clues that point back to this site without revealing lore for free.</li>
                   </ul>
                 </article>
@@ -486,7 +572,7 @@
                   <ul>
                     <li><strong>Red Archive loop:</strong> find code in-game, enter it here, restore memory, keep investigating.</li>
                     <li><strong>Heaven progression:</strong> sky threshold, Heaven biome, angelic drops, divine stations, stronger gear.</li>
-                    <li><strong>Ritual progression:</strong> altar preparation, offerings, candles, goblet, athame, success, backlash, and cache clues.</li>
+                    <li><strong>Ritual progression:</strong> altar preparation, offerings, candles, goblet, athame, success, backlash, purifier transformations, and cache clues.</li>
                     <li><strong>Combat escalation:</strong> Choir Bow resonance, seraphic enemies, Fallen Heaven scars, Cosmic Demon gravity pressure.</li>
                     <li><strong>Structure investigation:</strong> ruins, broken churches, small altars, sealed rooms, and containment marks.</li>
                   </ul>
