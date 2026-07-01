@@ -1,6 +1,6 @@
 /*
-  The Red Archive — DemonTime lore code site
-  DemonTimesSNTwo Red Archive code loop. In-game items reveal private archive codes; this site restores the matching memory groups.
+  The Red Archive — DemonTime: Season Two lore code site
+  DemonTime: Season Two Red Archive code loop. In-game items reveal private archive codes; this site restores the matching memory groups.
 
   Codes are normalized before checking, so lowercase, spaces, and hyphens are ignored.
   Example: SKY-A7F4, skya7f4, sky a7f4, and sky-a7f4 all unlock the same memory.

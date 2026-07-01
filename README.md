@@ -1,12 +1,12 @@
 # The Red Archive
 
-**The Red Archive** is the companion lore terminal for the *DemonTimesSNTwo* Minecraft mod.
+**The Red Archive** is the companion lore terminal for the *DemonTime: Season Two* Minecraft mod.
 
 Players recover private archive codes inside the game, then enter those codes on this website to restore grouped lore memories.
 
 ## What it is for
 
-The website is the out-of-game side of the DemonTimesSNTwo code discovery loop.
+The website is the out-of-game side of the DemonTime: Season Two code discovery loop.
 
 Inside Minecraft, Red Archive fragments, gear, rituals, bosses, or structures can reveal a code. On the website, the player enters that code and unlocks the matching memory group.
 
