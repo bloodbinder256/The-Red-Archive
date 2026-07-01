@@ -92,27 +92,88 @@
     </section>
 
     <section class="tab-panel" id="guide-panel" role="tabpanel" aria-labelledby="tab-guide" hidden>
-      <section class="progression-section" aria-labelledby="progression-title">
-        <div class="section-heading">
+      <section class="wiki-guide" aria-labelledby="progression-title">
+        <div class="section-heading wiki-heading">
           <div>
-            <p class="eyebrow">Progression guide</p>
-            <h2 id="progression-title">Memory Restoration Path</h2>
+            <p class="eyebrow">Field wiki</p>
+            <h2 id="progression-title">Progression Guide</h2>
           </div>
           <p class="counter"><span id="guide-count">0/0</span> restored</p>
         </div>
 
-        <div class="integrity-panel">
-          <div>
-            <p class="integrity-label">Archive Integrity</p>
-            <p id="archive-voice" class="archive-voice">The archive is silent.</p>
-          </div>
-          <div class="integrity-meter" aria-hidden="true">
-            <span id="integrity-fill"></span>
-          </div>
-          <p id="integrity-value" class="integrity-value">0%</p>
-        </div>
+        <div class="wiki-layout">
+          <aside class="wiki-sidebar" aria-label="Progression tools">
+            <section class="wiki-infobox" aria-labelledby="wiki-infobox-title">
+              <h3 id="wiki-infobox-title">Red Archive Index</h3>
+              <dl>
+                <div>
+                  <dt>Game</dt>
+                  <dd>DemonTime: Season Two</dd>
+                </div>
+                <div>
+                  <dt>Purpose</dt>
+                  <dd>Recover in-game codes, then restore memory groups here.</dd>
+                </div>
+                <div>
+                  <dt>Restored</dt>
+                  <dd><span id="guide-count-side">0/0</span></dd>
+                </div>
+                <div>
+                  <dt>Integrity</dt>
+                  <dd><span id="integrity-value">0%</span></dd>
+                </div>
+              </dl>
+            </section>
 
-        <div class="progression-grid" id="progression-guide"></div>
+            <nav class="wiki-contents" aria-label="Guide contents">
+              <h3>Contents</h3>
+              <ol id="wiki-contents"></ol>
+            </nav>
+
+            <section class="notes-panel" aria-labelledby="notes-title">
+              <h3 id="notes-title">Player Notes</h3>
+              <p>Use this to track code clues, structure coordinates, boss drops, or theories while you play.</p>
+              <textarea id="player-notes" spellcheck="true" placeholder="Example: Found a red fragment near the broken church at X: ___ Z: ___."></textarea>
+              <div class="notes-actions">
+                <button id="save-notes" type="button" class="ghost-button">Save notes</button>
+                <button id="clear-notes" type="button" class="ghost-button danger">Clear</button>
+              </div>
+              <p id="notes-status" class="notes-status">Notes save locally in this browser.</p>
+            </section>
+          </aside>
+
+          <article class="wiki-article">
+            <header class="wiki-article-header">
+              <p class="wiki-kicker">Spoiler-light restoration route</p>
+              <h3>Memory Restoration Path</h3>
+              <p>
+                This guide is written like a field wiki: it hints at where each Red Archive memory belongs without revealing the private code.
+                The actual sequences must still be recovered inside the mod.
+              </p>
+            </header>
+
+            <div class="integrity-panel wiki-integrity">
+              <div>
+                <p class="integrity-label">Archive Voice</p>
+                <p id="archive-voice" class="archive-voice">The archive is silent.</p>
+              </div>
+              <div class="integrity-meter" aria-hidden="true">
+                <span id="integrity-fill"></span>
+              </div>
+            </div>
+
+            <section class="wiki-section" id="guide-overview">
+              <h3>Overview</h3>
+              <p>
+                Each memory group ties together related systems: dimensions, rituals, weapons, enemies, seals, armor, and relics.
+                When an in-game discovery reveals a Red Archive code, enter it on the Archive Terminal tab to restore the matching record.
+              </p>
+              <div class="wiki-note"><strong>Note:</strong> The guide avoids showing codes on purpose. It is meant to help players hunt, not skip the hunt.</div>
+            </section>
+
+            <div class="wiki-progression-list" id="progression-guide"></div>
+          </article>
+        </div>
       </section>
     </section>
   </main>

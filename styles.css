@@ -937,3 +937,332 @@ button:active {
     text-align: left;
   }
 }
+
+/* Wiki-themed progression guide and local player notes */
+.wiki-guide {
+  margin-top: 42px;
+}
+
+.wiki-heading {
+  border-bottom: 1px solid rgba(240, 183, 93, 0.24);
+  padding-bottom: 18px;
+}
+
+.wiki-layout {
+  display: grid;
+  grid-template-columns: minmax(245px, 310px) minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.wiki-sidebar {
+  position: sticky;
+  top: 14px;
+  display: grid;
+  gap: 14px;
+}
+
+.wiki-infobox,
+.wiki-contents,
+.notes-panel,
+.wiki-article,
+.wiki-memory-card {
+  border: 1px solid rgba(255, 51, 72, 0.22);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 5.5rem),
+    rgba(13, 4, 8, 0.82);
+  box-shadow: 0 0 32px rgba(0, 0, 0, 0.34);
+}
+
+.wiki-infobox,
+.wiki-contents,
+.notes-panel {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.wiki-infobox h3,
+.wiki-contents h3,
+.notes-panel h3 {
+  margin: 0;
+  padding: 12px 14px;
+  background: rgba(96, 4, 12, 0.62);
+  border-bottom: 1px solid rgba(255, 51, 72, 0.22);
+  color: var(--gold);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.wiki-infobox dl {
+  margin: 0;
+}
+
+.wiki-infobox dl div {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 10px;
+  padding: 11px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.wiki-infobox dl div:last-child {
+  border-bottom: 0;
+}
+
+.wiki-infobox dt {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.wiki-infobox dd {
+  margin: 0;
+  color: #f4d9cf;
+}
+
+.wiki-contents ol {
+  list-style: decimal-leading-zero;
+  margin: 0;
+  padding: 12px 14px 12px 38px;
+}
+
+.wiki-contents li {
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.wiki-contents li:last-child {
+  border-bottom: 0;
+}
+
+.wiki-contents a {
+  color: #f3d9cf;
+  text-decoration: none;
+}
+
+.wiki-contents a:hover {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+.wiki-contents span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.notes-panel p,
+.notes-status {
+  margin: 0;
+  padding: 12px 14px 0;
+  color: #c9a9a0;
+  line-height: 1.45;
+  font-size: 0.9rem;
+}
+
+.notes-panel textarea {
+  display: block;
+  width: calc(100% - 28px);
+  min-height: 180px;
+  margin: 12px 14px;
+  resize: vertical;
+  border: 1px solid rgba(240, 183, 93, 0.22);
+  border-radius: 12px;
+  padding: 12px;
+  color: var(--text);
+  background: rgba(0, 0, 0, 0.34);
+  font: 0.92rem/1.45 ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  outline: none;
+}
+
+.notes-panel textarea:focus {
+  border-color: rgba(240, 183, 93, 0.55);
+  box-shadow: 0 0 0 3px rgba(240, 183, 93, 0.1);
+}
+
+.notes-actions {
+  display: flex;
+  gap: 8px;
+  padding: 0 14px 12px;
+}
+
+.notes-status {
+  padding: 0 14px 14px;
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-size: 0.76rem;
+  color: var(--gold);
+}
+
+.wiki-article {
+  border-radius: 18px;
+  padding: 22px;
+}
+
+.wiki-article-header {
+  border-bottom: 1px solid rgba(240, 183, 93, 0.2);
+  padding-bottom: 16px;
+  margin-bottom: 18px;
+}
+
+.wiki-kicker,
+.wiki-memory-index {
+  margin: 0 0 7px;
+  color: var(--gold);
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 900;
+}
+
+.wiki-article-header h3,
+.wiki-section h3,
+.wiki-memory-card h3 {
+  margin: 0 0 10px;
+  color: #fff2e3;
+}
+
+.wiki-article-header p,
+.wiki-section p {
+  margin: 0;
+  color: #d4b6ad;
+  line-height: 1.6;
+}
+
+.wiki-integrity {
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 360px);
+  margin: 0 0 18px;
+  border-radius: 14px;
+}
+
+.wiki-section {
+  margin: 18px 0;
+  padding: 16px;
+  border: 1px solid rgba(240, 183, 93, 0.16);
+  border-left: 4px solid rgba(240, 183, 93, 0.45);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.wiki-note {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid rgba(240, 183, 93, 0.22);
+  background: rgba(240, 183, 93, 0.07);
+  color: #f4d9cf;
+  line-height: 1.5;
+}
+
+.wiki-progression-list {
+  display: grid;
+  gap: 16px;
+}
+
+.wiki-memory-card {
+  border-radius: 14px;
+  padding: 16px;
+  scroll-margin-top: 96px;
+}
+
+.wiki-memory-card.restored {
+  border-color: rgba(240, 183, 93, 0.4);
+}
+
+.wiki-memory-card.sealed {
+  opacity: 0.82;
+}
+
+.wiki-memory-title-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: start;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.wiki-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 0.93rem;
+}
+
+.wiki-table th,
+.wiki-table td {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 12px;
+  vertical-align: top;
+  line-height: 1.45;
+}
+
+.wiki-table th {
+  width: 178px;
+  color: var(--gold);
+  background: rgba(96, 4, 12, 0.34);
+  text-align: left;
+}
+
+.wiki-table td {
+  color: #dfc5bd;
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.wiki-details {
+  border: 1px solid rgba(255, 51, 72, 0.18);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.wiki-details summary {
+  cursor: pointer;
+  color: var(--gold);
+  font-weight: 900;
+}
+
+.wiki-details ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+}
+
+.wiki-details li {
+  border: 1px solid rgba(255, 51, 72, 0.22);
+  border-radius: 999px;
+  padding: 7px 10px;
+  color: #f7d6ce;
+  background: rgba(255, 51, 72, 0.08);
+  font-size: 0.84rem;
+}
+
+@media (max-width: 900px) {
+  .wiki-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .wiki-sidebar {
+    position: static;
+  }
+
+  .wiki-infobox dl div,
+  .wiki-integrity {
+    grid-template-columns: 1fr;
+  }
+
+  .wiki-table th,
+  .wiki-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .wiki-memory-title-row {
+    flex-direction: column;
+  }
+}

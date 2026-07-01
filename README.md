@@ -2,7 +2,7 @@
 
 **The Red Archive** is the companion lore terminal for the *DemonTime: Season Two* Minecraft mod.
 
-Players recover private archive codes inside the game, then enter those codes on this website to restore grouped lore memories. The site is split into two top tabs: **Archive Terminal** for code entry/restored memories and **Progression Guide** for spoiler-light wiki-style discovery hints.
+Players recover private archive codes inside the game, then enter those codes on this website to restore grouped lore memories. The site is split into two top tabs: **Archive Terminal** for code entry/restored memories and **Progression Guide** for a dark wiki-themed discovery guide with local player notes.
 
 ## What it is for
 
@@ -32,7 +32,8 @@ This version adds several discovery features:
 - **Associated Records**: restored entries show related items, bosses, mechanics, or structures connected to that memory group.
 - **Archive voice**: the site changes its message as more memories are restored, so the Archive feels more awake over time.
 - **Tabbed layout**: Archive Terminal and Progression Guide are separated into top navigation tabs.
-- **Progression guide**: a spoiler-light wiki-style path hints at what kinds of in-game actions or discoveries may lead to each memory.
+- **Wiki-themed Progression Guide**: a dark field-wiki layout with an index, contents list, infobox, overview note, and memory pages for spoiler-light discovery hints.
+- **Player Notes**: a local notes box lets players track code fragments, structure coordinates, drops, theories, or to-do items while they play. Notes are saved in this browser with `localStorage`.
 - **Archive integrity meter**: the restored-memory percentage updates as codes are entered.
 
 ## Code behavior
@@ -63,6 +64,18 @@ This memory has already been restored.
 ```
 
 Unlocked memories are saved locally in the player's browser with `localStorage`.
+
+## Player notes
+
+The Progression Guide tab includes a **Player Notes** panel. It is meant for tracking things like:
+
+- coordinates where a fragment was found
+- which boss or structure revealed a clue
+- partial code fragments
+- theories about sealed memories
+- items or armor sets still missing
+
+Notes are private to the browser. They are not uploaded anywhere and can be cleared from the notes panel.
 
 ## Minecraft formatting support
 

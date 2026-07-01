@@ -152,6 +152,7 @@ const FALSE_CODE_RESPONSES = {
 };
 
 const STORAGE_KEY = "demontime.redArchive.unlocked";
+const NOTES_KEY = "demontime.redArchive.playerNotes";
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => Array.from(document.querySelectorAll(selector));
 const animeApi = window.anime || null;
@@ -204,9 +205,15 @@ const els = {
   totalCount: $("#total-count"),
   guide: $("#progression-guide"),
   guideCount: $("#guide-count"),
+  guideCountSide: $("#guide-count-side"),
   integrityValue: $("#integrity-value"),
   integrityFill: $("#integrity-fill"),
   archiveVoice: $("#archive-voice"),
+  wikiContents: $("#wiki-contents"),
+  notes: $("#player-notes"),
+  saveNotes: $("#save-notes"),
+  clearNotes: $("#clear-notes"),
+  notesStatus: $("#notes-status"),
   tabButtons: $$(".tab-button"),
   tabPanels: $$(".tab-panel")
 };
@@ -222,6 +229,7 @@ function boot() {
   els.totalCount.textContent = RED_ARCHIVE_RECORDS.length;
   renderAll();
   bindEvents();
+  initializeNotes();
   initializeTabs();
   startAmbientAnimations();
 
@@ -230,7 +238,7 @@ function boot() {
     animate(".title", { opacity: [0, 1], scale: [0.94, 1], duration: 1200, delay: 300, ease: "outExpo" });
     animate(".subtitle", { opacity: [0, 1], translateY: [14, 0], duration: 900, delay: 620, ease: "outQuad" });
     animate(".terminal-card", { opacity: [0, 1], translateY: [32, 0], duration: 900, delay: 820, ease: "outExpo" });
-    animate(".progression-card", { opacity: [0, 1], translateY: [18, 0], delay: stagger(50), duration: 520, ease: "outQuad" });
+    animate(".wiki-memory-card", { opacity: [0, 1], translateY: [18, 0], delay: stagger(50), duration: 520, ease: "outQuad" });
   }
 }
 
@@ -270,6 +278,47 @@ function bindEvents() {
       setStatus("COPY BLOCKED");
     }
   });
+
+  if (els.saveNotes) {
+    els.saveNotes.addEventListener("click", savePlayerNotes);
+  }
+
+  if (els.clearNotes) {
+    els.clearNotes.addEventListener("click", () => {
+      if (!els.notes) return;
+      els.notes.value = "";
+      localStorage.removeItem(NOTES_KEY);
+      setNotesStatus("Notes cleared.");
+      pulseElement(els.clearNotes);
+    });
+  }
+
+  if (els.notes) {
+    let notesTimer = null;
+    els.notes.addEventListener("input", () => {
+      clearTimeout(notesTimer);
+      setNotesStatus("Unsaved changes…");
+      notesTimer = setTimeout(savePlayerNotes, 800);
+    });
+  }
+}
+
+function initializeNotes() {
+  if (!els.notes) return;
+  els.notes.value = localStorage.getItem(NOTES_KEY) || "";
+}
+
+function savePlayerNotes() {
+  if (!els.notes) return;
+  localStorage.setItem(NOTES_KEY, els.notes.value || "");
+  setNotesStatus("Notes saved locally.");
+  pulseElement(els.saveNotes);
+}
+
+function setNotesStatus(text) {
+  if (!els.notesStatus) return;
+  els.notesStatus.textContent = text;
+  pulseElement(els.notesStatus);
 }
 
 function initializeTabs() {
@@ -304,7 +353,7 @@ function switchTab(panelId, updateHash = false) {
     if (activePanel) {
       animate(activePanel, { opacity: [0, 1], translateY: [10, 0], duration: 360, ease: "outQuad" });
       if (panelId === "guide-panel") {
-        animate("#guide-panel .progression-card", { opacity: [0, 1], translateY: [12, 0], delay: stagger(35), duration: 420, ease: "outQuad" });
+        animate("#guide-panel .wiki-memory-card", { opacity: [0, 1], translateY: [12, 0], delay: stagger(35), duration: 420, ease: "outQuad" });
       }
     }
   }
@@ -474,20 +523,60 @@ function renderProgressionGuide() {
   const percent = total ? Math.round((count / total) * 100) : 0;
 
   els.guideCount.textContent = `${count}/${total}`;
+  if (els.guideCountSide) els.guideCountSide.textContent = `${count}/${total}`;
   els.integrityValue.textContent = `${percent}%`;
   els.integrityFill.style.width = `${percent}%`;
 
+  if (els.wikiContents) {
+    els.wikiContents.innerHTML = RED_ARCHIVE_RECORDS.map((record, index) => {
+      const isUnlocked = unlocked.has(record.code);
+      return `<li><a href="#memory-${String(index + 1).padStart(2, "0")}">${escapeHtml(record.guideTitle || record.title)}</a><span>${isUnlocked ? "restored" : "sealed"}</span></li>`;
+    }).join("");
+  }
+
   els.guide.innerHTML = RED_ARCHIVE_RECORDS.map((record, index) => {
     const isUnlocked = unlocked.has(record.code);
+    const anchor = `memory-${String(index + 1).padStart(2, "0")}`;
+    const associated = record.associatedRecords?.length
+      ? record.associatedRecords.map((item) => `<li>${escapeHtml(item)}</li>`).join("")
+      : `<li>Related records unknown.</li>`;
+
     return `
-      <article class="progression-card ${isUnlocked ? "restored" : "sealed"}">
-        <div class="progression-index">${String(index + 1).padStart(2, "0")}</div>
-        <div>
-          <h3>${escapeHtml(record.guideTitle || record.title)}</h3>
-          <p>${escapeHtml(record.guideHint || "Recover this memory inside DemonTime: Season Two.")}</p>
+      <section class="wiki-memory-card ${isUnlocked ? "restored" : "sealed"}" id="${anchor}">
+        <div class="wiki-memory-title-row">
+          <div>
+            <p class="wiki-memory-index">Memory ${String(index + 1).padStart(2, "0")}</p>
+            <h3>${escapeHtml(record.guideTitle || record.title)}</h3>
+          </div>
           <span class="progression-state">${isUnlocked ? "RESTORED" : "SEALED"}</span>
         </div>
-      </article>
+
+        <table class="wiki-table">
+          <tbody>
+            <tr>
+              <th scope="row">Memory group</th>
+              <td>${escapeHtml(record.title)}</td>
+            </tr>
+            <tr>
+              <th scope="row">Status</th>
+              <td>${isUnlocked ? "Restored in this browser." : "Sealed. Recover the private code in-game."}</td>
+            </tr>
+            <tr>
+              <th scope="row">Where to investigate</th>
+              <td>${escapeHtml(record.guideHint || "Recover this memory inside DemonTime: Season Two.")}</td>
+            </tr>
+            <tr>
+              <th scope="row">Archive behavior</th>
+              <td>${isUnlocked ? "The restored record can be opened on the Archive Terminal tab." : "The website will not reveal this code. The mod must give it to the player."}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <details class="wiki-details" ${isUnlocked ? "open" : ""}>
+          <summary>Associated records</summary>
+          <ul>${associated}</ul>
+        </details>
+      </section>
     `;
   }).join("");
 }
