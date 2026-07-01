@@ -164,6 +164,7 @@ const TERMINAL_COMMANDS = {
 const STORAGE_KEY = "demontime.redArchive.unlocked";
 const NOTES_KEY = "demontime.redArchive.playerNotes";
 const THEME_KEY = "demontime.redArchive.theme";
+const LAST_TAB_KEY = "demontime.redArchive.lastTab";
 const LEGACY_STORAGE_KEY = "demontime.redArchive.unlocked";
 
 const STYLE_THEMES = {
@@ -249,6 +250,9 @@ const els = {
   styleMenu: $("#style-menu"),
   styleName: $("#style-name"),
   styleOptions: $$(".style-option"),
+  toast: $("#archive-toast"),
+  backToTop: $("#back-to-top"),
+  commandChips: $$(".command-chip"),
   tabButtons: $$(".tab-button"),
   tabPanels: $$(".tab-panel")
 };
@@ -267,6 +271,7 @@ function boot() {
   bindEvents();
   initializeNotes();
   initializeTabs();
+  updateBackToTopVisibility();
   startAmbientAnimations();
 
   if (animate) {
@@ -284,6 +289,32 @@ function bindEvents() {
     if (event.key === "Enter") handleSubmit();
   });
 
+  els.input.addEventListener("blur", () => {
+    els.input.value = els.input.value.trim().toUpperCase();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    const isTyping = ["INPUT", "TEXTAREA"].includes(document.activeElement?.tagName || "");
+    if ((event.key === "/" || (event.ctrlKey && event.key.toLowerCase() === "k")) && !isTyping) {
+      event.preventDefault();
+      switchTab("archive-panel", true);
+      els.input.focus();
+      showToast("Archive input focused.");
+    }
+  });
+
+  els.commandChips.forEach((button) => {
+    button.addEventListener("click", () => {
+      els.input.value = button.dataset.command || "";
+      handleSubmit();
+    });
+  });
+
+  if (els.backToTop) {
+    window.addEventListener("scroll", updateBackToTopVisibility, { passive: true });
+    els.backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  }
+
   els.tabButtons.forEach((button) => {
     button.addEventListener("click", () => switchTab(button.dataset.tabTarget, true));
   });
@@ -298,6 +329,7 @@ function bindEvents() {
     setStatus("RECORDS PURGED");
     renderAll();
     pulseElement(els.reset);
+    showToast("Unlocked records were reset on this browser.", "warn");
   });
 
   els.copy.addEventListener("click", async () => {
@@ -309,10 +341,12 @@ function bindEvents() {
     try {
       await navigator.clipboard.writeText(text);
       setStatus("ENTRY COPIED");
+      showToast("Entry copied to clipboard.");
       els.copy.textContent = "Copied";
       setTimeout(() => (els.copy.textContent = "Copy entry"), 1200);
     } catch {
       setStatus("COPY BLOCKED");
+      showToast("Copy was blocked by the browser.", "warn");
     }
   });
 
@@ -425,6 +459,7 @@ function savePlayerNotes() {
   localStorage.setItem(NOTES_KEY, els.notes.value || "");
   setNotesStatus("Notes saved locally.");
   pulseElement(els.saveNotes);
+  showToast("Notes saved locally.");
 }
 
 async function copyPlayerNotes() {
@@ -433,6 +468,7 @@ async function copyPlayerNotes() {
     await navigator.clipboard.writeText(els.notes.value || "");
     setNotesStatus("Notes copied to clipboard.");
     pulseElement(els.copyNotes);
+    showToast("Notes copied.");
   } catch {
     setNotesStatus("Copy blocked by browser.");
   }
@@ -452,6 +488,7 @@ function exportPlayerNotes() {
   URL.revokeObjectURL(url);
   setNotesStatus("Notes exported.");
   pulseElement(els.exportNotes);
+  showToast("Notes exported as a text file.");
 }
 
 function importPlayerNotes(event) {
@@ -476,7 +513,7 @@ function setNotesStatus(text) {
 }
 
 function initializeTabs() {
-  let requestedPanel = "archive-panel";
+  let requestedPanel = localStorage.getItem(LAST_TAB_KEY) || "archive-panel";
   if (window.location.hash === "#progression-guide" || window.location.hash === "#guide") requestedPanel = "guide-panel";
   if (window.location.hash === "#wiki" || window.location.hash === "#main-page") requestedPanel = "wiki-panel";
   if (window.location.hash === "#archive") requestedPanel = "archive-panel";
@@ -497,6 +534,8 @@ function switchTab(panelId, updateHash = false) {
     button.classList.toggle("active", isActive);
     button.setAttribute("aria-selected", String(isActive));
   });
+
+  localStorage.setItem(LAST_TAB_KEY, panelId);
 
   if (updateHash) {
     const hash = panelId === "guide-panel" ? "#progression-guide" : panelId === "wiki-panel" ? "#wiki" : "#archive";
@@ -564,6 +603,7 @@ async function handleSubmit() {
 function revealRecord(record) {
   activeRecord = record;
   setStatus("DECRYPTING");
+  showToast(`Restoring memory: ${stripMinecraftFormatting(record.title)}`);
   els.result.classList.remove("hidden");
   applyEffectClass(record.effect);
   setFormattedContent(els.recordTitle, record.title);
@@ -584,9 +624,11 @@ function revealRecord(record) {
   }
 
   runRecordEffect(record.effect);
+  scrollResultIntoView();
   typeFormattedText(els.recordBody, record.body, 15, () => {
     setStatus("RECORD UNLOCKED");
     updateArchiveVoice();
+    showToast("Memory restored and saved locally.");
   });
 }
 
@@ -600,7 +642,9 @@ function showTerminalCommand(message, normalizedCode) {
   renderAssociatedRecords(null);
   activeRecord = null;
   pulseElement(els.result);
+  scrollResultIntoView();
   updateArchiveVoice(message);
+  showToast("Terminal command accepted.");
 }
 
 function showDenied() {
@@ -613,7 +657,9 @@ function showDenied() {
   renderAssociatedRecords(null);
   activeRecord = null;
   shake(els.result);
+  scrollResultIntoView();
   updateArchiveVoice();
+  showToast("The archive rejects this sequence.", "warn");
 }
 
 function showFalseCode(message, normalizedCode) {
@@ -626,7 +672,9 @@ function showFalseCode(message, normalizedCode) {
   renderAssociatedRecords(null);
   activeRecord = null;
   shake(els.result);
+  scrollResultIntoView();
   updateArchiveVoice(message);
+  showToast("False sequence recognized.", "warn");
 }
 
 function showAlreadyRestored(record) {
@@ -639,7 +687,9 @@ function showAlreadyRestored(record) {
   els.recordBody.textContent = "This memory has already been restored.";
   renderAssociatedRecords(record);
   pulseElement(els.result);
+  scrollResultIntoView();
   updateArchiveVoice("This memory has already been restored.");
+  showToast("This memory has already been restored.");
 }
 
 function renderAssociatedRecords(record) {
@@ -656,6 +706,7 @@ function renderAssociatedRecords(record) {
 }
 
 function renderAll() {
+  document.body.classList.toggle("archive-complete", isArchiveComplete());
   renderGrid();
   renderProgressionGuide();
   renderWikiHome();
@@ -668,7 +719,7 @@ function renderGrid() {
   els.grid.innerHTML = RED_ARCHIVE_RECORDS.map((record) => {
     const isUnlocked = unlocked.has(record.sourceId);
     return `
-      <article class="archive-card ${isUnlocked ? "" : "locked"} effect-mini-${escapeAttr(record.effect)}">
+      <article class="archive-card ${isUnlocked ? "" : "locked"} effect-mini-${escapeAttr(record.effect)}" aria-label="${escapeAttr(isUnlocked ? `Restored memory: ${stripMinecraftFormatting(record.title)}` : `Locked memory: ${record.hiddenTitle || "Unknown Record"}`)}">
         <div class="code">${isUnlocked ? "MEMORY RESTORED" : "LOCKED-RECORD"}</div>
         <h3>${isUnlocked ? renderMinecraftText(record.title) : escapeHtml(record.hiddenTitle || "Unknown Record")}</h3>
         <p>${isUnlocked ? escapeHtml(preview(stripMinecraftFormatting(record.body))) : "This file is sealed. Recover its code in-game to decrypt the entry."}</p>
@@ -1192,6 +1243,37 @@ function sha256(ascii) {
 
 function preview(text) {
   return text.length > 116 ? `${text.slice(0, 116)}…` : text;
+}
+
+function scrollResultIntoView() {
+  if (!els.result) return;
+  window.setTimeout(() => {
+    els.result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, 80);
+}
+
+let toastTimer = null;
+function showToast(message, tone = "info") {
+  if (!els.toast || !message) return;
+  clearTimeout(toastTimer);
+  els.toast.textContent = message;
+  els.toast.dataset.tone = tone;
+  els.toast.hidden = false;
+  els.toast.classList.add("visible");
+
+  toastTimer = window.setTimeout(() => {
+    els.toast.classList.remove("visible");
+    window.setTimeout(() => {
+      if (!els.toast.classList.contains("visible")) els.toast.hidden = true;
+    }, 240);
+  }, 2600);
+}
+
+function updateBackToTopVisibility() {
+  if (!els.backToTop) return;
+  const shouldShow = window.scrollY > 720;
+  els.backToTop.hidden = !shouldShow;
+  els.backToTop.classList.toggle("visible", shouldShow);
 }
 
 function setStatus(text) {

@@ -122,3 +122,18 @@ Because this is still a static GitHub Pages site, hashed codes are a strong anti
 ## GitHub Pages
 
 This is a static site. It can be hosted directly with GitHub Pages. Upload the files to the repository root, enable GitHub Pages for the `main` branch, and open the published URL.
+
+
+## Polish pass
+
+This build includes extra presentation and usability touches:
+
+- top-right style selector with saved themes
+- wiki, archive, and guide tabs
+- command shortcut chips for the terminal
+- local notes with save/copy/export/import tools
+- final completion memory when every current memory is restored
+- toast feedback messages for player actions
+- keyboard shortcut: press `/` or `Ctrl + K` to focus the archive input
+- mobile and accessibility touchups
+

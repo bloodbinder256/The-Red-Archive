@@ -5,10 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Red Archive | DemonTime: Season Two</title>
   <meta name="description" content="A DemonTime: Season Two lore-code archive where recovered in-game codes unlock forbidden records." />
+  <meta name="theme-color" content="#070307" />
+  <meta property="og:title" content="The Red Archive" />
+  <meta property="og:description" content="Recover codes in DemonTime: Season Two and restore forbidden memories in The Red Archive." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23070307'/%3E%3Cpath d='M12 48 32 10l20 38H12Z' fill='none' stroke='%23d51427' stroke-width='4'/%3E%3Ccircle cx='32' cy='36' r='7' fill='%23f0b75d'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#archive-panel">Skip to archive terminal</a>
   <div class="noise" aria-hidden="true"></div>
   <div class="scanlines" aria-hidden="true"></div>
   <div class="ember-field" aria-hidden="true"></div>
@@ -76,6 +82,13 @@
             <button id="submit-code" type="button">Decrypt</button>
           </div>
           <p id="hint" class="hint">Codes are case-insensitive. Spaces and hyphens are ignored, so recovered fragments still work if typed loosely.</p>
+          <div class="command-row" aria-label="Terminal command shortcuts">
+            <span>Terminal shortcuts</span>
+            <button type="button" class="command-chip" data-command="help">help</button>
+            <button type="button" class="command-chip" data-command="status">status</button>
+            <button type="button" class="command-chip" data-command="memories">memories</button>
+            <button type="button" class="command-chip" data-command="integrity">integrity</button>
+          </div>
 
           <div class="quick-actions" aria-label="Archive actions">
             <button id="reset-archive" type="button" class="ghost-button danger">Reset unlocked records</button>
@@ -273,6 +286,9 @@
   <footer class="footer">
     <p>DemonTime: Season Two Red Archive. Codes are recovered in-game. Memories are restored in-browser.</p>
   </footer>
+
+  <div id="archive-toast" class="archive-toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top" hidden>↑</button>
 
   <script src="https://cdn.jsdelivr.net/npm/animejs/dist/bundles/anime.umd.min.js"></script>
   <script src="app.js"></script>
