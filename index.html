@@ -35,6 +35,9 @@
       <button class="tab-button active" id="tab-archive" type="button" role="tab" aria-selected="true" aria-controls="archive-panel" data-tab-target="archive-panel">
         Archive Terminal
       </button>
+      <button class="tab-button" id="tab-wiki" type="button" role="tab" aria-selected="false" aria-controls="wiki-panel" data-tab-target="wiki-panel">
+        Wiki Main Page
+      </button>
       <button class="tab-button" id="tab-guide" type="button" role="tab" aria-selected="false" aria-controls="guide-panel" data-tab-target="guide-panel">
         Progression Guide
       </button>
@@ -56,7 +59,7 @@
             <input id="code-input" type="text" autocomplete="off" spellcheck="false" placeholder="ENTER RECOVERED CODE" aria-describedby="hint" />
             <button id="submit-code" type="button">Decrypt</button>
           </div>
-          <p id="hint" class="hint">Codes are case-insensitive. Spaces and hyphens are ignored, so SKY-A7F4, skya7f4, sky a7f4, and sky-a7f4 all work.</p>
+          <p id="hint" class="hint">Codes are case-insensitive. Spaces and hyphens are ignored, so recovered fragments still work if typed loosely.</p>
 
           <div class="quick-actions" aria-label="Archive actions">
             <button id="reset-archive" type="button" class="ghost-button danger">Reset unlocked records</button>
@@ -88,6 +91,75 @@
           <p class="counter"><span id="unlocked-count">0</span>/<span id="total-count">0</span> decrypted</p>
         </div>
         <div class="archive-grid" id="archive-grid"></div>
+      </section>
+
+      <section class="completion-panel hidden" id="completion-panel" aria-labelledby="completion-title">
+        <p class="eyebrow">Final protocol</p>
+        <h2 id="completion-title">The Archive Can Speak</h2>
+        <p id="completion-body">
+          All current memory groups have been restored. The Red Archive no longer behaves like a machine. It has enough recovered truth to answer back.
+        </p>
+        <blockquote>
+          “Heaven did not forget. Heaven edited. You restored the margin notes.”
+        </blockquote>
+        <button id="copy-completion" type="button" class="ghost-button">Copy final memory</button>
+      </section>
+    </section>
+
+    <section class="tab-panel" id="wiki-panel" role="tabpanel" aria-labelledby="tab-wiki" hidden>
+      <section class="wiki-home" aria-labelledby="wiki-main-title">
+        <div class="section-heading wiki-heading">
+          <div>
+            <p class="eyebrow">Dark wiki</p>
+            <h2 id="wiki-main-title">The Red Archive Wiki</h2>
+          </div>
+          <p class="counter"><span id="wiki-home-count">0/0</span> restored</p>
+        </div>
+
+        <div class="wiki-main-grid">
+          <article class="wiki-main-article">
+            <p class="wiki-kicker">Main Page</p>
+            <h3>Welcome to The Red Archive</h3>
+            <p>
+              The Red Archive is the external memory terminal for <strong>DemonTime: Season Two</strong>. Codes are recovered inside the mod;
+              restored memories, associated records, and field notes are organized here like a haunted wiki.
+            </p>
+            <div class="wiki-note"><strong>Spoiler policy:</strong> this site hints where to investigate, but it does not list private restoration codes.</div>
+          </article>
+
+          <aside class="wiki-infobox wiki-home-box" aria-label="Archive status">
+            <h3>Archive Status</h3>
+            <dl>
+              <div><dt>Restored</dt><dd><span id="wiki-home-restored">0/0</span></dd></div>
+              <div><dt>Integrity</dt><dd><span id="wiki-home-integrity">0%</span></dd></div>
+              <div><dt>Terminal</dt><dd>Active</dd></div>
+              <div><dt>Final protocol</dt><dd><span id="wiki-home-final">Locked</span></dd></div>
+            </dl>
+          </aside>
+        </div>
+
+        <section class="wiki-portal-grid" aria-label="Wiki portals">
+          <article>
+            <h3>Archive Terminal</h3>
+            <p>Enter recovered in-game sequences, restore memory groups, and reopen decrypted records.</p>
+            <button type="button" class="ghost-button portal-jump" data-tab-jump="archive-panel">Open terminal</button>
+          </article>
+          <article>
+            <h3>Progression Guide</h3>
+            <p>Use the spoiler-light wiki route to track where each memory group belongs in DemonTime: Season Two.</p>
+            <button type="button" class="ghost-button portal-jump" data-tab-jump="guide-panel">Open guide</button>
+          </article>
+          <article>
+            <h3>Player Notes</h3>
+            <p>Save, copy, export, or import local investigation notes from the Progression Guide sidebar.</p>
+            <button type="button" class="ghost-button portal-jump" data-tab-jump="guide-panel">Open notes</button>
+          </article>
+          <article>
+            <h3>Terminal Commands</h3>
+            <p>Try commands like <code>help</code>, <code>status</code>, <code>memories</code>, <code>integrity</code>, <code>whoami</code>, or <code>heaven</code>.</p>
+            <button type="button" class="ghost-button portal-jump" data-tab-jump="archive-panel">Use commands</button>
+          </article>
+        </section>
       </section>
     </section>
 
@@ -136,6 +208,10 @@
               <textarea id="player-notes" spellcheck="true" placeholder="Example: Found a red fragment near the broken church at X: ___ Z: ___."></textarea>
               <div class="notes-actions">
                 <button id="save-notes" type="button" class="ghost-button">Save notes</button>
+                <button id="copy-notes" type="button" class="ghost-button">Copy</button>
+                <button id="export-notes" type="button" class="ghost-button">Export</button>
+                <label class="ghost-button import-label" for="import-notes">Import</label>
+                <input id="import-notes" class="sr-only" type="file" accept=".txt,.md,text/plain" />
                 <button id="clear-notes" type="button" class="ghost-button danger">Clear</button>
               </div>
               <p id="notes-status" class="notes-status">Notes save locally in this browser.</p>

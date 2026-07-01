@@ -2,8 +2,8 @@
   The Red Archive — DemonTime: Season Two lore code site
   In-game items reveal private archive codes; this site restores the matching memory groups.
 
-  Codes are normalized before checking, so lowercase, spaces, and hyphens are ignored.
-  Example: SKY-A7F4, skya7f4, sky a7f4, and sky-a7f4 all unlock the same memory.
+  Codes are normalized and hashed before checking, so lowercase, spaces, and hyphens are ignored.
+  The site stores only code hashes, not raw restoration codes. This keeps codes out of casual source-code viewing.
 
   Lore text supports Minecraft formatting codes:
   §k obfuscated, §l bold, §o italic, §n underline, §m strikethrough, §r reset,
@@ -12,7 +12,7 @@
 
 const RED_ARCHIVE_RECORDS = [
   {
-    code: "SKY-A7F4",
+    codeHash: "46f1dc6602e41aa0b459c8d45e12231bc8af128e06c16cfd1770e03c7d10320c",
     sourceId: "sky_threshold_heaven_dimension_heaven_biome",
     title: "Sky Threshold Memory",
     hiddenTitle: "Unrestored Sky Memory",
@@ -27,7 +27,7 @@ const RED_ARCHIVE_RECORDS = [
     body: "Heaven does not open like a door. It thins. The higher the player climbs, the less the world remembers how to keep them, until the sky becomes a threshold and the threshold becomes a verdict. Beyond it waits the Heaven Dimension: pale grass, quiet trees, cloud matter, and air too clean to trust. The biome is beautiful in the way a courtroom is beautiful before the sentence is read. §8Recovered note:§r the sky was never empty. It was watching."
   },
   {
-    code: "ALTAR-8MZ2",
+    codeHash: "e9c0dd3e3c27ec270000bff6e4d3df4b8cf3c06e7cc0546fbe7bbc4151c9659f",
     sourceId: "heavenly_altar_rituals_cache_failure",
     title: "Altar Memory: Cache and Failure",
     hiddenTitle: "Unrestored Altar Memory",
@@ -42,7 +42,7 @@ const RED_ARCHIVE_RECORDS = [
     body: "The Heavenly Altar listens before it answers. A Goblet receives. An Athame divides. A feather asks gently. A cache key asks with proof. The cache is not a chest so much as a promise that Heaven locked away something it still wanted found by the correct hands. Failed rites are not empty mistakes; they are failed negotiations. Without containment, the altar may fizzle, bite, drain, or wake things buried under the ritual geometry. §cThe altar does not forgive sloppy names.§r"
   },
   {
-    code: "CHOIR-9K2M",
+    codeHash: "31da7bed56a5e64d0445ef7fd052c87247094431ee9b36774d88df817e287bc1",
     sourceId: "choir_bow_choir_wail_hymn_resonance",
     title: "Choir Memory: Resonance",
     hiddenTitle: "Unrestored Choir Memory",
@@ -57,7 +57,7 @@ const RED_ARCHIVE_RECORDS = [
     body: "The Choir Bow is not a bow that learned music. It is music forced into the shape of a weapon. Hymn Shot is the first clean note: focused, obedient, almost merciful. Choir Wail is the note after obedience breaks, when sound stops blessing the target and starts accusing it. Resonance is the memory between shots, the gathered pressure of every note that has not yet been allowed to scream. When the string is drawn, distance gains a voice. When the shot lands, the target learns what it sounds like to be named."
   },
   {
-    code: "SERAPH-Q6R1",
+    codeHash: "ef3531d245b840d0cab27069d57087eb2593ff85d5e3a6c34f1b79a38360be9d",
     sourceId: "seraphic_angelic_enemies_feathers_divine_halo",
     title: "Seraphic Memory: Feathers and Halos",
     hiddenTitle: "Unrestored Seraphic Memory",
@@ -72,7 +72,7 @@ const RED_ARCHIVE_RECORDS = [
     body: "Not every angelic thing arrives as a boss. Some arrive as feathers, halos, wisps, and soft creatures that make Heaven look harmless. Angelic feathers are the first touchable proof that divine life bleeds materials into the world. Gilded feathers remember rank. Halos remember command. Seraphic enemies remember Heaven before the fall and hate the ground for surviving them. The prettiest pieces are often the most dangerous, because they teach the player to smile before showing them what judgment weighs."
   },
   {
-    code: "THRONE-X8V3",
+    codeHash: "4fbff980671fa6a65002c99e66dcb79a6a205fd07c44bc4d1b7c142245a918db",
     sourceId: "heaven_authority_heavens_wrath_fallen_heaven_cosmic_demon",
     title: "Throne Memory: Wrath and Collapse",
     hiddenTitle: "Unrestored Throne Memory",
@@ -87,7 +87,7 @@ const RED_ARCHIVE_RECORDS = [
     body: "Heaven calls its violence authority because authority sounds cleaner than fear. Heaven's Wrath is not merely a weapon path; it is a verdict sharpened until mercy falls away from the edge. Fallen Heaven is what happens when that authority crashes into the world and leaves a scar that still smells like ash. The Cosmic Demon is the counterargument: collapse wearing hunger, gravity with malice, a throne made from everything that falls. Between Wrath and Collapse, DemonTime asks one question: who gets to decide what deserves to remain standing?"
   },
   {
-    code: "SEAL-V4ND",
+    codeHash: "1b01bb2fdc6110e22b88f9bea1c1e3969cd800f656378e1bbf153181cd0459b2",
     sourceId: "seal_blocks_containment_ruins_sealed_structures",
     title: "Seal Memory: Containment Ruins",
     hiddenTitle: "Unrestored Seal Memory",
@@ -102,7 +102,7 @@ const RED_ARCHIVE_RECORDS = [
     body: "A seal is not a wall. A wall says no. A seal says not yet. The ruins of Fallen Heaven are full of that difference: broken churches, burned houses, small altars, sealed structures, and paths arranged like a village trying to point at its own murderer. Containment does not mean victory. It means the thing inside still matters enough to be feared. §8Recovered warning:§r if a seal fades too quickly, it was never meant to hold. If it remains, ask what it is protecting you from."
   },
   {
-    code: "ARMOR-3VNX",
+    codeHash: "83edc10a94bb2ba2259bc85688ea8c7554ef39ecc9cf5b35d956c42a5668d888",
     sourceId: "divine_armor_equipment_newest_heaven_gear",
     title: "Armor Memory: Divine Equipment",
     hiddenTitle: "Unrestored Armor Memory",
@@ -117,7 +117,7 @@ const RED_ARCHIVE_RECORDS = [
     body: "Divine armor is not just protection. It is a story the body is forced to wear. Angelic gear teaches survival to look beautiful. Protector armor turns duty into wings. The Set of the Fallen Worlds carries drowned pressure, burned endurance, stone patience, and silence sharp enough to cut sound from the air. New Heaven gear does not ask whether the player is worthy. It asks whether the player can keep moving while every plate remembers a different apocalypse."
   },
   {
-    code: "RELIC-T7C2",
+    codeHash: "f09230b3b31e00c17cf12848d851ee40020d8b68bd660ea8b5ba277d021f625e",
     sourceId: "ritual_tools_goblet_athame_relic_memory",
     title: "Relic Memory: Cup, Knife, and Remnant",
     hiddenTitle: "Unrestored Relic Memory",
@@ -151,8 +151,19 @@ const FALSE_CODE_RESPONSES = {
   SAM: "External witness detected. She cannot restore what you have not recovered."
 };
 
+const TERMINAL_COMMANDS = {
+  HELP: () => "Commands recognized: HELP, STATUS, MEMORIES, INTEGRITY, WHOAMI, HEAVEN. Restoration codes must still be recovered in-game.",
+  STATUS: () => `Archive status: ${unlocked.size}/${RED_ARCHIVE_RECORDS.length} memories restored. Final protocol: ${isArchiveComplete() ? "OPEN" : "LOCKED"}.`,
+  MEMORIES: () => `Restored memories: ${unlocked.size}. Sealed memories: ${Math.max(RED_ARCHIVE_RECORDS.length - unlocked.size, 0)}.`,
+  INTEGRITY: () => `Archive integrity: ${getIntegrityPercent()}%.`,
+  WHOAMI: () => "Witness designation unresolved. Continue recovery.",
+  HEAVEN: () => "Authority locked this word.",
+  FINAL: () => isArchiveComplete() ? "Final protocol open. The Archive can speak." : "Final protocol locked. Restore every current memory first."
+};
+
 const STORAGE_KEY = "demontime.redArchive.unlocked";
 const NOTES_KEY = "demontime.redArchive.playerNotes";
+const LEGACY_STORAGE_KEY = "demontime.redArchive.unlocked";
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => Array.from(document.querySelectorAll(selector));
 const animeApi = window.anime || null;
@@ -199,6 +210,7 @@ const els = {
   recordWarning: $("#record-warning"),
   associatedList: $("#associated-list"),
   copy: $("#copy-record"),
+  copyCompletion: $("#copy-completion"),
   reset: $("#reset-archive"),
   grid: $("#archive-grid"),
   unlockedCount: $("#unlocked-count"),
@@ -209,17 +221,25 @@ const els = {
   integrityValue: $("#integrity-value"),
   integrityFill: $("#integrity-fill"),
   archiveVoice: $("#archive-voice"),
+  wikiHomeCount: $("#wiki-home-count"),
+  wikiHomeRestored: $("#wiki-home-restored"),
+  wikiHomeIntegrity: $("#wiki-home-integrity"),
+  wikiHomeFinal: $("#wiki-home-final"),
+  completionPanel: $("#completion-panel"),
   wikiContents: $("#wiki-contents"),
   notes: $("#player-notes"),
   saveNotes: $("#save-notes"),
+  copyNotes: $("#copy-notes"),
+  exportNotes: $("#export-notes"),
+  importNotes: $("#import-notes"),
   clearNotes: $("#clear-notes"),
   notesStatus: $("#notes-status"),
   tabButtons: $$(".tab-button"),
   tabPanels: $$(".tab-panel")
 };
 
-const VALID_RECORD_CODES = new Set(RED_ARCHIVE_RECORDS.map((record) => record.code));
-let unlocked = new Set(loadUnlockedCodes().filter((code) => VALID_RECORD_CODES.has(code)));
+const VALID_RECORD_IDS = new Set(RED_ARCHIVE_RECORDS.map((record) => record.sourceId));
+let unlocked = new Set(loadUnlockedIds().filter((id) => VALID_RECORD_IDS.has(id)));
 let activeRecord = null;
 let obfuscationTimer = null;
 
@@ -255,6 +275,7 @@ function bindEvents() {
   els.reset.addEventListener("click", () => {
     unlocked = new Set();
     localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(LEGACY_STORAGE_KEY);
     activeRecord = null;
     els.result.classList.add("hidden");
     clearEffectClass();
@@ -279,8 +300,28 @@ function bindEvents() {
     }
   });
 
+  if (els.copyCompletion) {
+    els.copyCompletion.addEventListener("click", copyCompletionMemory);
+  }
+
+  $$(".portal-jump").forEach((button) => {
+    button.addEventListener("click", () => switchTab(button.dataset.tabJump, true));
+  });
+
   if (els.saveNotes) {
     els.saveNotes.addEventListener("click", savePlayerNotes);
+  }
+
+  if (els.copyNotes) {
+    els.copyNotes.addEventListener("click", copyPlayerNotes);
+  }
+
+  if (els.exportNotes) {
+    els.exportNotes.addEventListener("click", exportPlayerNotes);
+  }
+
+  if (els.importNotes) {
+    els.importNotes.addEventListener("change", importPlayerNotes);
   }
 
   if (els.clearNotes) {
@@ -315,6 +356,48 @@ function savePlayerNotes() {
   pulseElement(els.saveNotes);
 }
 
+async function copyPlayerNotes() {
+  if (!els.notes) return;
+  try {
+    await navigator.clipboard.writeText(els.notes.value || "");
+    setNotesStatus("Notes copied to clipboard.");
+    pulseElement(els.copyNotes);
+  } catch {
+    setNotesStatus("Copy blocked by browser.");
+  }
+}
+
+function exportPlayerNotes() {
+  if (!els.notes) return;
+  const date = new Date().toISOString().slice(0, 10);
+  const blob = new Blob([els.notes.value || ""], { type: "text/plain" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `red-archive-notes-${date}.txt`;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+  setNotesStatus("Notes exported.");
+  pulseElement(els.exportNotes);
+}
+
+function importPlayerNotes(event) {
+  const file = event?.target?.files?.[0];
+  if (!file || !els.notes) return;
+
+  const reader = new FileReader();
+  reader.onload = () => {
+    els.notes.value = String(reader.result || "");
+    savePlayerNotes();
+    setNotesStatus(`Imported ${file.name}.`);
+  };
+  reader.onerror = () => setNotesStatus("Import failed.");
+  reader.readAsText(file);
+  event.target.value = "";
+}
+
 function setNotesStatus(text) {
   if (!els.notesStatus) return;
   els.notesStatus.textContent = text;
@@ -322,9 +405,10 @@ function setNotesStatus(text) {
 }
 
 function initializeTabs() {
-  const requestedPanel = window.location.hash === "#progression-guide" || window.location.hash === "#guide"
-    ? "guide-panel"
-    : "archive-panel";
+  let requestedPanel = "archive-panel";
+  if (window.location.hash === "#progression-guide" || window.location.hash === "#guide") requestedPanel = "guide-panel";
+  if (window.location.hash === "#wiki" || window.location.hash === "#main-page") requestedPanel = "wiki-panel";
+  if (window.location.hash === "#archive") requestedPanel = "archive-panel";
   switchTab(requestedPanel, false);
 }
 
@@ -344,7 +428,7 @@ function switchTab(panelId, updateHash = false) {
   });
 
   if (updateHash) {
-    const hash = panelId === "guide-panel" ? "#progression-guide" : "#archive";
+    const hash = panelId === "guide-panel" ? "#progression-guide" : panelId === "wiki-panel" ? "#wiki" : "#archive";
     history.replaceState(null, "", hash);
   }
 
@@ -355,13 +439,15 @@ function switchTab(panelId, updateHash = false) {
       if (panelId === "guide-panel") {
         animate("#guide-panel .wiki-memory-card", { opacity: [0, 1], translateY: [12, 0], delay: stagger(35), duration: 420, ease: "outQuad" });
       }
+      if (panelId === "wiki-panel") {
+        animate("#wiki-panel .wiki-main-article, #wiki-panel .wiki-infobox, #wiki-panel .wiki-portal-grid article", { opacity: [0, 1], translateY: [12, 0], delay: stagger(45), duration: 420, ease: "outQuad" });
+      }
     }
   }
 }
 
-function handleSubmit() {
+async function handleSubmit() {
   const normalized = normalizeCode(els.input.value);
-  const record = RED_ARCHIVE_RECORDS.find((item) => normalizeCode(item.code) === normalized);
 
   if (!normalized) {
     setStatus("AWAITING CODE");
@@ -369,15 +455,25 @@ function handleSubmit() {
     return;
   }
 
-  if (record && unlocked.has(record.code)) {
+  const command = TERMINAL_COMMANDS[normalized];
+  if (command) {
+    setStatus("COMMAND ACCEPTED");
+    showTerminalCommand(typeof command === "function" ? command() : command, normalized);
+    return;
+  }
+
+  const inputHash = await hashNormalizedCode(normalized);
+  const record = RED_ARCHIVE_RECORDS.find((item) => item.codeHash === inputHash);
+
+  if (record && unlocked.has(record.sourceId)) {
     setStatus("MEMORY RESTORED");
     showAlreadyRestored(record);
     return;
   }
 
   if (record) {
-    unlocked.add(record.code);
-    saveUnlockedCodes([...unlocked]);
+    unlocked.add(record.sourceId);
+    saveUnlockedIds([...unlocked]);
     revealRecord(record);
     renderAll();
     return;
@@ -400,7 +496,7 @@ function revealRecord(record) {
   els.result.classList.remove("hidden");
   applyEffectClass(record.effect);
   setFormattedContent(els.recordTitle, record.title);
-  setFormattedContent(els.recordMeta, `${record.code} // ${record.category}`);
+  setFormattedContent(els.recordMeta, `CODE ACCEPTED // ${record.category}`);
   setFormattedContent(els.recordWarning, record.threat);
   renderAssociatedRecords(record);
   els.recordBody.innerHTML = "";
@@ -421,6 +517,19 @@ function revealRecord(record) {
     setStatus("RECORD UNLOCKED");
     updateArchiveVoice();
   });
+}
+
+function showTerminalCommand(message, normalizedCode) {
+  els.result.classList.remove("hidden");
+  applyEffectClass("terminal");
+  els.recordTitle.textContent = "Terminal Response";
+  els.recordMeta.textContent = `${normalizedCode} // COMMAND`;
+  els.recordWarning.textContent = "No memory restored.";
+  els.recordBody.textContent = message;
+  renderAssociatedRecords(null);
+  activeRecord = null;
+  pulseElement(els.result);
+  updateArchiveVoice(message);
 }
 
 function showDenied() {
@@ -454,7 +563,7 @@ function showAlreadyRestored(record) {
   els.result.classList.remove("hidden");
   applyEffectClass(record.effect);
   els.recordTitle.textContent = "Memory Already Restored";
-  els.recordMeta.textContent = `${record.code} // ${record.category}`;
+  els.recordMeta.textContent = `RESTORED MEMORY // ${record.category}`;
   els.recordWarning.textContent = record.threat;
   els.recordBody.textContent = "This memory has already been restored.";
   renderAssociatedRecords(record);
@@ -478,26 +587,28 @@ function renderAssociatedRecords(record) {
 function renderAll() {
   renderGrid();
   renderProgressionGuide();
+  renderWikiHome();
+  renderCompletionPanel();
   updateArchiveVoice();
 }
 
 function renderGrid() {
   els.unlockedCount.textContent = unlocked.size;
   els.grid.innerHTML = RED_ARCHIVE_RECORDS.map((record) => {
-    const isUnlocked = unlocked.has(record.code);
+    const isUnlocked = unlocked.has(record.sourceId);
     return `
       <article class="archive-card ${isUnlocked ? "" : "locked"} effect-mini-${escapeAttr(record.effect)}">
-        <div class="code">${isUnlocked ? escapeHtml(record.code) : "LOCKED-RECORD"}</div>
+        <div class="code">${isUnlocked ? "MEMORY RESTORED" : "LOCKED-RECORD"}</div>
         <h3>${isUnlocked ? renderMinecraftText(record.title) : escapeHtml(record.hiddenTitle || "Unknown Record")}</h3>
         <p>${isUnlocked ? escapeHtml(preview(stripMinecraftFormatting(record.body))) : "This file is sealed. Recover its code in-game to decrypt the entry."}</p>
-        ${isUnlocked ? `<button class="ghost-button reopen" data-code="${escapeAttr(record.code)}">Open</button>` : ""}
+        ${isUnlocked ? `<button class="ghost-button reopen" data-source-id="${escapeAttr(record.sourceId)}">Open</button>` : ""}
       </article>
     `;
   }).join("");
 
   $$(".reopen").forEach((button) => {
     button.addEventListener("click", () => {
-      const record = RED_ARCHIVE_RECORDS.find((item) => item.code === button.dataset.code);
+      const record = RED_ARCHIVE_RECORDS.find((item) => item.sourceId === button.dataset.sourceId);
       if (record) revealRecord(record);
     });
   });
@@ -529,13 +640,13 @@ function renderProgressionGuide() {
 
   if (els.wikiContents) {
     els.wikiContents.innerHTML = RED_ARCHIVE_RECORDS.map((record, index) => {
-      const isUnlocked = unlocked.has(record.code);
+      const isUnlocked = unlocked.has(record.sourceId);
       return `<li><a href="#memory-${String(index + 1).padStart(2, "0")}">${escapeHtml(record.guideTitle || record.title)}</a><span>${isUnlocked ? "restored" : "sealed"}</span></li>`;
     }).join("");
   }
 
   els.guide.innerHTML = RED_ARCHIVE_RECORDS.map((record, index) => {
-    const isUnlocked = unlocked.has(record.code);
+    const isUnlocked = unlocked.has(record.sourceId);
     const anchor = `memory-${String(index + 1).padStart(2, "0")}`;
     const associated = record.associatedRecords?.length
       ? record.associatedRecords.map((item) => `<li>${escapeHtml(item)}</li>`).join("")
@@ -579,6 +690,39 @@ function renderProgressionGuide() {
       </section>
     `;
   }).join("");
+}
+
+function renderWikiHome() {
+  const total = RED_ARCHIVE_RECORDS.length;
+  const count = unlocked.size;
+  const percent = getIntegrityPercent();
+  if (els.wikiHomeCount) els.wikiHomeCount.textContent = `${count}/${total}`;
+  if (els.wikiHomeRestored) els.wikiHomeRestored.textContent = `${count}/${total}`;
+  if (els.wikiHomeIntegrity) els.wikiHomeIntegrity.textContent = `${percent}%`;
+  if (els.wikiHomeFinal) els.wikiHomeFinal.textContent = isArchiveComplete() ? "Open" : "Locked";
+}
+
+function renderCompletionPanel() {
+  if (!els.completionPanel) return;
+  const complete = isArchiveComplete();
+  els.completionPanel.classList.toggle("hidden", !complete);
+  if (complete && animate) {
+    animate(els.completionPanel, { opacity: [0, 1], translateY: [18, 0], duration: 620, ease: "outExpo" });
+  }
+}
+
+async function copyCompletionMemory() {
+  const text = "The Archive Can Speak\n\nAll current memory groups have been restored. The Red Archive no longer behaves like a machine. It has enough recovered truth to answer back.\n\nHeaven did not forget. Heaven edited. You restored the margin notes.";
+  try {
+    await navigator.clipboard.writeText(text);
+    setStatus("FINAL MEMORY COPIED");
+    if (els.copyCompletion) {
+      els.copyCompletion.textContent = "Copied";
+      setTimeout(() => (els.copyCompletion.textContent = "Copy final memory"), 1200);
+    }
+  } catch {
+    setStatus("COPY BLOCKED");
+  }
 }
 
 function updateArchiveVoice(forcedMessage = "") {
@@ -865,17 +1009,114 @@ function normalizeCode(code) {
     .replace(/[^A-Z0-9]/g, "");
 }
 
-function loadUnlockedCodes() {
+function loadUnlockedIds() {
   try {
     const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-    return Array.isArray(parsed) ? parsed : [];
+    if (Array.isArray(parsed)) return parsed;
   } catch {
-    return [];
+    // Ignore malformed localStorage.
   }
+
+  return [];
 }
 
-function saveUnlockedCodes(codes) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(codes));
+function saveUnlockedIds(ids) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(ids));
+}
+
+function isArchiveComplete() {
+  return unlocked.size >= RED_ARCHIVE_RECORDS.length && RED_ARCHIVE_RECORDS.length > 0;
+}
+
+function getIntegrityPercent() {
+  const total = RED_ARCHIVE_RECORDS.length;
+  return total ? Math.round((unlocked.size / total) * 100) : 0;
+}
+
+async function hashNormalizedCode(normalized) {
+  if (window.crypto?.subtle) {
+    const buffer = new TextEncoder().encode(normalized);
+    const digest = await crypto.subtle.digest("SHA-256", buffer);
+    return Array.from(new Uint8Array(digest)).map((byte) => byte.toString(16).padStart(2, "0")).join("");
+  }
+
+  return sha256(normalized);
+}
+
+function sha256(ascii) {
+  function rightRotate(value, amount) {
+    return (value >>> amount) | (value << (32 - amount));
+  }
+
+  const mathPow = Math.pow;
+  const maxWord = mathPow(2, 32);
+  const lengthProperty = "length";
+  let i;
+  let j;
+  const result = "";
+  const words = [];
+  const asciiBitLength = ascii[lengthProperty] * 8;
+  let hash = sha256.h = sha256.h || [];
+  const k = sha256.k = sha256.k || [];
+  let primeCounter = k[lengthProperty];
+  const isComposite = {};
+
+  for (let candidate = 2; primeCounter < 64; candidate += 1) {
+    if (!isComposite[candidate]) {
+      for (i = 0; i < 313; i += candidate) isComposite[i] = candidate;
+      hash[primeCounter] = (mathPow(candidate, 0.5) * maxWord) | 0;
+      k[primeCounter++] = (mathPow(candidate, 1 / 3) * maxWord) | 0;
+    }
+  }
+
+  ascii += "\x80";
+  while (ascii[lengthProperty] % 64 - 56) ascii += "\x00";
+  for (i = 0; i < ascii[lengthProperty]; i += 1) {
+    j = ascii.charCodeAt(i);
+    if (j >> 8) return "";
+    words[i >> 2] |= j << (((3 - i) % 4) * 8);
+  }
+  words[words[lengthProperty]] = ((asciiBitLength / maxWord) | 0);
+  words[words[lengthProperty]] = (asciiBitLength);
+
+  for (j = 0; j < words[lengthProperty];) {
+    const w = words.slice(j, j += 16);
+    const oldHash = hash;
+    hash = hash.slice(0, 8);
+
+    for (i = 0; i < 64; i += 1) {
+      const w15 = w[i - 15];
+      const w2 = w[i - 2];
+      const a = hash[0];
+      const e = hash[4];
+      const temp1 = hash[7]
+        + (rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25))
+        + ((e & hash[5]) ^ ((~e) & hash[6]))
+        + k[i]
+        + (w[i] = (i < 16) ? w[i] : (
+          w[i - 16]
+          + (rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15 >>> 3))
+          + w[i - 7]
+          + (rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2 >>> 10))
+        ) | 0);
+      const temp2 = (rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22))
+        + ((a & hash[1]) ^ (a & hash[2]) ^ (hash[1] & hash[2]));
+
+      hash = [(temp1 + temp2) | 0].concat(hash);
+      hash[4] = (hash[4] + temp1) | 0;
+    }
+
+    for (i = 0; i < 8; i += 1) hash[i] = (hash[i] + oldHash[i]) | 0;
+  }
+
+  let hex = result;
+  for (i = 0; i < 8; i += 1) {
+    for (j = 3; j + 1; j -= 1) {
+      const b = (hash[i] >> (j * 8)) & 255;
+      hex += ((b < 16) ? 0 : "") + b.toString(16);
+    }
+  }
+  return hex;
 }
 
 function preview(text) {

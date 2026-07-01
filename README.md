@@ -2,7 +2,7 @@
 
 **The Red Archive** is the companion lore terminal for the *DemonTime: Season Two* Minecraft mod.
 
-Players recover private archive codes inside the game, then enter those codes on this website to restore grouped lore memories. The site is split into two top tabs: **Archive Terminal** for code entry/restored memories and **Progression Guide** for a dark wiki-themed discovery guide with local player notes.
+Players recover private archive codes inside the game, then enter those codes on this website to restore grouped lore memories. The site is split into top tabs for the **Archive Terminal**, **Wiki Main Page**, and **Progression Guide** with local player notes.
 
 ## What it is for
 
@@ -31,23 +31,20 @@ This version adds several discovery features:
 - **False-code responses**: certain wrong guesses get custom lore-flavored rejection messages instead of only a generic error.
 - **Associated Records**: restored entries show related items, bosses, mechanics, or structures connected to that memory group.
 - **Archive voice**: the site changes its message as more memories are restored, so the Archive feels more awake over time.
-- **Tabbed layout**: Archive Terminal and Progression Guide are separated into top navigation tabs.
+- **Tabbed layout**: Archive Terminal, Wiki Main Page, and Progression Guide are separated into top navigation tabs.
+- **Wiki Main Page**: a dark wiki homepage with portal cards, archive status, restored count, integrity, and final protocol state.
 - **Wiki-themed Progression Guide**: a dark field-wiki layout with an index, contents list, infobox, overview note, and memory pages for spoiler-light discovery hints.
-- **Player Notes**: a local notes box lets players track code fragments, structure coordinates, drops, theories, or to-do items while they play. Notes are saved in this browser with `localStorage`.
+- **Player Notes**: a local notes box lets players track code fragments, structure coordinates, drops, theories, or to-do items while they play. Notes are saved in this browser with `localStorage`, and can be copied, exported, imported, or cleared.
+- **Terminal commands**: the Archive Terminal recognizes flavor commands like `help`, `status`, `memories`, `integrity`, `whoami`, and `heaven`.
+- **Final protocol**: restoring every current memory unlocks a final completion panel.
 - **Archive integrity meter**: the restored-memory percentage updates as codes are entered.
+- **Hashed restoration codes**: the site stores SHA-256 hashes for valid restoration codes instead of plaintext codes, so players cannot simply open `app.js` and read the code list.
 
 ## Code behavior
 
-The code gate is forgiving about formatting. It ignores lowercase, spaces, and hyphens.
+The code gate is forgiving about formatting. It ignores lowercase, spaces, and hyphens, so a recovered sequence still works if the player types it loosely.
 
-These all work as the same code:
-
-```text
-SKY-A7F4
-skya7f4
-sky a7f4
-sky-a7f4
-```
+Valid restoration sequences are not stored as plaintext in the website files. The site normalizes the typed sequence, hashes it in the browser, and compares it to stored SHA-256 hashes. This prevents casual source-code reading from revealing the real codes.
 
 Wrong codes still begin with:
 
@@ -75,7 +72,7 @@ The Progression Guide tab includes a **Player Notes** panel. It is meant for tra
 - theories about sealed memories
 - items or armor sets still missing
 
-Notes are private to the browser. They are not uploaded anywhere and can be cleared from the notes panel.
+Notes are private to the browser. They are not uploaded anywhere and can be copied, exported as a text file, imported from a text file, or cleared from the notes panel.
 
 ## Minecraft formatting support
 
@@ -103,6 +100,10 @@ It also supports Java-style hex formatting like:
 - CSS
 - JavaScript
 - Anime.js
+
+## Security note
+
+Because this is still a static GitHub Pages site, hashed codes are a strong anti-spoiler improvement, not perfect server-side secrecy. A determined person could still brute-force weak codes offline. For stronger protection later, use longer random codes or a small backend/serverless validation endpoint.
 
 ## GitHub Pages
 
