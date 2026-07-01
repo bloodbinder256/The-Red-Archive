@@ -145,3 +145,17 @@ The Purifier section now explains the actual machine loop: an input item is proc
 
 Use in-game JEI/tooltips as the final source of truth if a patch changes a recipe. The website is meant to be the spoiler-light public wiki layer, not a replacement for in-game recipe registration.
 
+## Wiki accuracy notes
+
+The Progression Guide includes a wiki-style reference for verified DemonTime: Season Two systems:
+
+- Purifier: input item + purifier core + water + fuel
+- Heavenly Forge: three ordered input slots + fuel + output
+- Fallen Worlds armor forge recipes
+- Upgrade Table stat-upgrade behavior
+- Choir Bow resonance and Choir Wail behavior
+- Heaven Book quests, contracts, and favor
+- Heavenly Altar ritual readiness, offerings, favor costs, and stabilizer failure behavior
+- Structure-only seal block clarification
+
+Private Red Archive restoration codes are still not displayed in the wiki.

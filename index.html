@@ -184,8 +184,8 @@
             <button type="button" class="ghost-button portal-jump" data-tab-jump="guide-panel">Open notes</button>
           </article>
           <article>
-            <h3>Crafting Wiki</h3>
-            <p>Review stations, accurate Purifier core recipes, forge tool chains, armor recipes, and system explanations.</p>
+            <h3>Recipes & Systems Wiki</h3>
+            <p>Review verified station behavior, Purifier loops, Heavenly Forge recipes, armor set effects, altar rituals, Heaven Book quests, and structure notes.</p>
             <button type="button" class="ghost-button portal-jump" data-tab-jump="guide-panel">Open recipe index</button>
           </article>
           <article>
@@ -314,53 +314,53 @@
               <div class="wiki-note"><strong>Seal clarification:</strong> If the guide mentions seals, investigate the structure, room, altar, or ruin that uses them. Do not expect seal blocks to appear as a standard survival item path.</div>
             </section>
 
-
             <section class="wiki-section" id="guide-crafting-recipes">
               <h3>Crafting Recipe Index</h3>
               <p>
-                This section is a wiki-style recipe reference for the main DemonTime: Season Two progression chain. Use in-game JEI/tooltips as the final authority if a recipe changes during a patch.
+                This section is the practical recipe and machine reference for DemonTime: Season Two. It favors verified behavior from the current source files over old planning notes.
+                Use in-game JEI/tooltips as the final authority if a patch changes an ingredient or station.
               </p>
-              <div class="wiki-note"><strong>Recipe policy:</strong> The Red Archive lists the intended progression route and important ingredient chains. Private archive codes still must be found in-game.</div>
+              <div class="wiki-note"><strong>Accuracy pass:</strong> the Purifier is a four-part machine loop: input item, purifier core, water, and fuel. The Heavenly Forge uses three input slots, a fuel slot, and an output slot.</div>
 
-              <h4 class="recipe-subheading">Crafting and processing stations</h4>
+              <h4 class="recipe-subheading">Verified stations and interfaces</h4>
               <table class="wiki-table recipe-table">
                 <thead>
                   <tr>
-                    <th scope="col">Station</th>
-                    <th scope="col">Used for</th>
-                    <th scope="col">Player note</th>
+                    <th scope="col">Station / interface</th>
+                    <th scope="col">What it does</th>
+                    <th scope="col">How to think about it</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Angelic Anvil</td>
-                    <td>Divine items, Heavenly Staff refinement, and Gilded Armor routes.</td>
-                    <td>Look for it as a Heaven progression station rather than a normal overworld anvil replacement.</td>
-                  </tr>
-                  <tr>
                     <td>Heavenly Forge</td>
-                    <td>Aerolite tools, Astrelium tools, Black Hole Staff, and stronger weapon progression.</td>
-                    <td>This is the main anti-bypass station for divine tools and weapons.</td>
+                    <td>Three input slots + fuel + output. Makes forge-only materials, tools, weapons, and Fallen Worlds armor pieces.</td>
+                    <td>The forge is the anti-bypass station: if an item is too divine, too ruined, or too dangerous for a normal table, check here.</td>
                   </tr>
                   <tr>
                     <td>Purifier</td>
-                    <td>Core + water + fuel + input item transformations: remnant control, grace, void concealment, fire-cleansing, nature restoration, and echo relic work.</td>
-                    <td>Think of it as moral machinery: the inserted core changes what “clean” means.</td>
-                  </tr>
-                  <tr>
-                    <td>Angelic Smelter</td>
-                    <td>Angelic Armor made from Angelic Feathers and Aerolite.</td>
-                    <td>Used for lower-angel armor progression; check JEI if the processing format changes.</td>
-                  </tr>
-                  <tr>
-                    <td>Heavenly Furnace</td>
-                    <td>Star and Heaven ore processing, especially Astrelium-related smelting routes.</td>
-                    <td>Use it when the material feels too divine for a normal furnace.</td>
+                    <td>Input item + purifier core + water + fuel. Converts remnants, grace items, void fragments, echo relics, and cleansing materials.</td>
+                    <td>The inserted core decides what “purified” means. Angelic, Abyssal, Celestial, Blood, Verdant, Infernal, and Echo cores all push different recipes.</td>
                   </tr>
                   <tr>
                     <td>Heavenly Altar</td>
-                    <td>Offerings, blessings, contracts, upgrades, transmutation, world events, cache-key progression, boss/portal rites, and ritual failures.</td>
-                    <td>Prepare the altar with its ritual tools, then watch both success and backlash messages.</td>
+                    <td>Prepared ritual block with candles, goblet, athame, offerings, favor costs, cooldowns, and possible backlash.</td>
+                    <td>The altar is a negotiation. Stabilizers reduce risk, but failed rites still matter.</td>
+                  </tr>
+                  <tr>
+                    <td>Upgrade Table</td>
+                    <td>Base item + upgrade material + upgrade catalyst → upgraded item with saved stat bonuses.</td>
+                    <td>Use this after you have gear worth investing in. Catalysts decide how hard the table pushes the item.</td>
+                  </tr>
+                  <tr>
+                    <td>Heavenly Cache Box</td>
+                    <td>Cloud-sealed reward container. Locked caches require a Heavenly Cache Key to open.</td>
+                    <td>A cache is not just a chest. It is a reward gate for Heaven-style loot and structure rewards.</td>
+                  </tr>
+                  <tr>
+                    <td>Heaven Book / Contracts</td>
+                    <td>Quest, favor, and contract interface. Supports bring-item objectives, favor checks, rewards, and per-player contract state.</td>
+                    <td>Use it as the player-facing progression ledger for Heaven work.</td>
                   </tr>
                 </tbody>
               </table>
@@ -402,7 +402,7 @@
               <h4 class="recipe-subheading">How the Purifier works</h4>
               <p>
                 The Purifier is not a normal crafting table. It processes one input item using four requirements: an input item, a purifier core,
-                stored water, and fuel. The core decides the recipe family and changes the meaning of purification.
+                stored water, and fuel. It can run with no core or a Basic Purifier Core for basic cleansing, but advanced outputs depend on the inserted core.
               </p>
               <table class="wiki-table recipe-table">
                 <thead>
@@ -483,58 +483,81 @@
                 </tbody>
               </table>
 
+              <h4 class="recipe-subheading">Heavenly Forge rules</h4>
+              <p>
+                The Heavenly Forge consumes three input slots in order, one fuel item, and outputs the result after 100 cook ticks. Fuel accepts the DemonTime fuel tag,
+                Coal, Charcoal, and planks. Tool recipes are ordered: slot order matters when two recipes share the same material count.
+              </p>
+              <table class="wiki-table recipe-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Output</th>
+                    <th scope="col">Slot 0</th>
+                    <th scope="col">Slot 1</th>
+                    <th scope="col">Slot 2</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Forging Symbol</td><td>Gold Ingot</td><td>Lapis Lazuli</td><td>Quartz</td></tr>
+                  <tr><td>Grass Block</td><td>Dirt</td><td>Wheat Seeds</td><td>Wheat Seeds</td></tr>
+                  <tr><td>Infusion Smithing Template</td><td>Netherite Upgrade Smithing Template</td><td>Infusion Book</td><td>Empty / unused</td></tr>
+                  <tr><td>Blackhole Staff</td><td>Astrelium Ingot</td><td>Blackhole Core Item</td><td>Enchanted Heavenly Stick</td></tr>
+                </tbody>
+              </table>
+
               <h4 class="recipe-subheading">Heavenly Forge tool chains</h4>
               <table class="wiki-table recipe-table">
                 <thead>
                   <tr>
                     <th scope="col">Tool</th>
                     <th scope="col">Forge ingredients</th>
-                    <th scope="col">Progression note</th>
+                    <th scope="col">Order note</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>Aerolite Sword</td><td>2 Aerolite Ingots + 1 Enchanted Heavenly Stick + 1 Controlled Titan Remanent</td><td>First divine combat tier.</td></tr>
-                  <tr><td>Aerolite Pickaxe</td><td>3 Aerolite Ingots + 1 Enchanted Heavenly Stick + 1 Controlled Titan Remanent</td><td>Mining bridge toward stronger Heaven materials.</td></tr>
-                  <tr><td>Aerolite Axe</td><td>3 Aerolite Ingots + 1 Enchanted Heavenly Stick + 1 Controlled Titan Remanent</td><td>Heavy utility/combat feel.</td></tr>
-                  <tr><td>Aerolite Shovel</td><td>1 Aerolite Ingot + 1 Enchanted Heavenly Stick + 1 Controlled Titan Remanent</td><td>Low-cost utility piece.</td></tr>
-                  <tr><td>Aerolite Hoe</td><td>2 Aerolite Ingots + 1 Enchanted Heavenly Stick + 1 Controlled Titan Remanent</td><td>Completes the Aerolite tool family.</td></tr>
-                  <tr><td>Astrelium Sword</td><td>2 Astrelium Ingots + 4 Enchanted Heavenly Sticks + 1 Permanently Concealed Titan Remanent</td><td>Major damage jump and late Heaven tier.</td></tr>
-                  <tr><td>Astrelium Pickaxe</td><td>3 Astrelium Ingots + 4 Enchanted Heavenly Sticks + 1 Permanently Concealed Titan Remanent</td><td>Late mining tool; intended to feel stronger than Aerolite.</td></tr>
-                  <tr><td>Astrelium Axe</td><td>3 Astrelium Ingots + 4 Enchanted Heavenly Sticks + 1 Permanently Concealed Titan Remanent</td><td>Heavy late tool path.</td></tr>
-                  <tr><td>Astrelium Shovel</td><td>1 Astrelium Ingot + 4 Enchanted Heavenly Sticks + 1 Permanently Concealed Titan Remanent</td><td>Late utility piece.</td></tr>
-                  <tr><td>Astrelium Hoe</td><td>2 Astrelium Ingots + 4 Enchanted Heavenly Sticks + 1 Permanently Concealed Titan Remanent</td><td>Completes the Astrelium tool family.</td></tr>
-                  <tr><td>Black Hole Staff</td><td>Black Hole Core + Enchanted Heavenly Stick</td><td>Boss-drop gravity route through the Heavenly Forge.</td></tr>
+                  <tr><td>Aerolite Shovel</td><td>1 Aerolite Ingot + 1 Enchanted Heavenly Stick + 1 Controlled Titan Remanent</td><td>Material, Stick, Remnant.</td></tr>
+                  <tr><td>Aerolite Sword</td><td>2 Aerolite Ingots + 1 Enchanted Heavenly Stick + 1 Controlled Titan Remanent</td><td>Material, Stick, Remnant.</td></tr>
+                  <tr><td>Aerolite Hoe</td><td>2 Aerolite Ingots + 1 Controlled Titan Remanent + 1 Enchanted Heavenly Stick</td><td>Material, Remnant, Stick.</td></tr>
+                  <tr><td>Aerolite Pickaxe</td><td>3 Aerolite Ingots + 1 Enchanted Heavenly Stick + 1 Controlled Titan Remanent</td><td>Material, Stick, Remnant.</td></tr>
+                  <tr><td>Aerolite Axe</td><td>3 Aerolite Ingots + 1 Controlled Titan Remanent + 1 Enchanted Heavenly Stick</td><td>Material, Remnant, Stick.</td></tr>
+                  <tr><td>Astrelium Shovel</td><td>1 Astrelium Ingot + 4 Enchanted Heavenly Sticks + 1 Permanently Concealed Titan Remanent</td><td>Material, Sticks, Remnant.</td></tr>
+                  <tr><td>Astrelium Sword</td><td>2 Astrelium Ingots + 4 Enchanted Heavenly Sticks + 1 Permanently Concealed Titan Remanent</td><td>Material, Sticks, Remnant.</td></tr>
+                  <tr><td>Astrelium Hoe</td><td>2 Astrelium Ingots + 1 Permanently Concealed Titan Remanent + 4 Enchanted Heavenly Sticks</td><td>Material, Remnant, Sticks.</td></tr>
+                  <tr><td>Astrelium Pickaxe</td><td>3 Astrelium Ingots + 4 Enchanted Heavenly Sticks + 1 Permanently Concealed Titan Remanent</td><td>Material, Sticks, Remnant.</td></tr>
+                  <tr><td>Astrelium Axe</td><td>3 Astrelium Ingots + 1 Permanently Concealed Titan Remanent + 4 Enchanted Heavenly Sticks</td><td>Material, Remnant, Sticks.</td></tr>
                 </tbody>
               </table>
 
-              <h4 class="recipe-subheading">Armor recipe reference</h4>
+              <h4 class="recipe-subheading">Fallen Worlds armor forge recipes</h4>
+              <p>
+                These recipes upgrade vanilla Netherite armor in the Heavenly Forge. Slot 0 is the matching Netherite armor piece, slot 1 is the set material stack,
+                and slot 2 is the catalyst stack.
+              </p>
               <table class="wiki-table recipe-table">
                 <thead>
                   <tr>
-                    <th scope="col">Armor</th>
-                    <th scope="col">Ingredients</th>
-                    <th scope="col">Station / note</th>
+                    <th scope="col">Set</th>
+                    <th scope="col">Slot 1 material</th>
+                    <th scope="col">Slot 2 catalyst</th>
+                    <th scope="col">Piece costs</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>Divine Halo</td><td>Titan Remanent milestone / Heaven proof route</td><td>Helmet-slot identity piece for divine armor progression.</td></tr>
-                  <tr><td>Angelic Chestplate</td><td>80 Angelic Feathers + 8 Aerolite Ingots</td><td>Angelic Smelter route.</td></tr>
-                  <tr><td>Angelic Leggings</td><td>70 Angelic Feathers + 7 Aerolite Ingots</td><td>Angelic Smelter route.</td></tr>
-                  <tr><td>Angelic Boots</td><td>40 Angelic Feathers + 4 Aerolite Ingots</td><td>Angelic Smelter route.</td></tr>
-                  <tr><td>Gilded Chestplate</td><td>24 Gilded Feathers + 8 Astrelium Ingots</td><td>Angelic Anvil route.</td></tr>
-                  <tr><td>Gilded Leggings</td><td>21 Gilded Feathers + 7 Astrelium Ingots</td><td>Angelic Anvil route.</td></tr>
-                  <tr><td>Gilded Boots</td><td>12 Gilded Feathers + 4 Astrelium Ingots</td><td>Angelic Anvil route.</td></tr>
+                  <tr><td>Drowned Warrior</td><td>Prismarine Crystals</td><td>Heart of the Sea</td><td>Helmet 16+1, Chestplate 32+2, Leggings 28+2, Boots 16+1.</td></tr>
+                  <tr><td>Burned Warrior</td><td>Blaze Rod</td><td>Netherite Scrap</td><td>Helmet 16+1, Chestplate 32+2, Leggings 28+2, Boots 16+1.</td></tr>
+                  <tr><td>Stonecrest Warrior</td><td>Deepslate Bricks</td><td>Ancient Debris</td><td>Helmet 16+1, Chestplate 32+2, Leggings 28+2, Boots 16+1.</td></tr>
+                  <tr><td>Warrior of Silence</td><td>Amethyst Shard</td><td>Echo Shard</td><td>Helmet 16+1, Chestplate 32+2, Leggings 28+2, Boots 16+1.</td></tr>
                 </tbody>
               </table>
 
               <h4 class="recipe-subheading">High-tier relic and equipment notes</h4>
               <table class="wiki-table recipe-table">
                 <tbody>
-                  <tr><th scope="row">Event Horizon Staff</th><td>Uses Stabilized Blackhole Fragments as the gravity upgrade gate.</td></tr>
-                  <tr><th scope="row">Black Hole Ring</th><td>Uses a Stabilized Blackhole Fragment instead of a raw Black Hole Core.</td></tr>
-                  <tr><th scope="row">True Heaven’s Wrath</th><td>Centers Heaven’s Wrath and surrounds it with celestial progression components and Star Metal Ingots.</td></tr>
-                  <tr><th scope="row">Singularity Staff</th><td>Centers Event Horizon Staff and surrounds it with celestial progression components and Star Metal Ingots.</td></tr>
-                  <tr><th scope="row">Heavenly Cache Key</th><td>Repair/craft the key from key fragments, then use the cache system for locked Heaven rewards.</td></tr>
+                  <tr><th scope="row">Blackhole Staff</th><td>Heavenly Forge recipe: Astrelium Ingot + Blackhole Core Item + Enchanted Heavenly Stick.</td></tr>
+                  <tr><th scope="row">Black Hole Ring</th><td>Progresses through stabilized black-hole material, not just raw gravity.</td></tr>
+                  <tr><th scope="row">True Heaven’s Wrath</th><td>Represents the Heaven authority route: judgment turned into an item line.</td></tr>
+                  <tr><th scope="row">Heavenly Cache Key</th><td>Used to unlock cloud-sealed Heavenly Cache Boxes. The key dissolves into mist when consumed.</td></tr>
+                  <tr><th scope="row">Red Archive Cipher</th><td>Player-facing bridge item for the code loop. It points players from in-game discoveries back to this website.</td></tr>
                 </tbody>
               </table>
             </section>
@@ -542,27 +565,28 @@
             <section class="wiki-section" id="guide-items-blocks-systems">
               <h3>Items, Blocks, and Systems Explained</h3>
               <p>
-                DemonTime: Season Two progression is easier to understand if you sort everything into three categories: items you carry, blocks you interact with, and systems that change what the world does.
+                DemonTime: Season Two progression is easier to understand if you sort everything into four categories: items you carry, blocks you interact with,
+                systems that change the rules, and structure-only storytelling pieces.
               </p>
 
               <div class="wiki-reference-grid">
                 <article class="wiki-reference-card">
                   <h4>Items</h4>
-                  <p>Items are the portable proof of progression: feathers, remnants, cores, weapons, armor, relics, and Red Archive fragments.</p>
+                  <p>Items are portable proof of progression: feathers, remnants, cores, weapons, armor, relics, and Red Archive ciphers.</p>
                   <ul>
-                    <li><strong>Materials:</strong> Angelic Feathers, Gilded Feathers, Aerolite, Astrelium, Star Metal, Grace, and Titan Remanents.</li>
-                    <li><strong>Weapons:</strong> Heaven’s Wrath, Choir Bow, Black Hole Staff line, Aerolite tools, and Astrelium tools.</li>
-                    <li><strong>Relics:</strong> halos, charms, rings, pendants, cache keys, remnant variants, purifier cores, and ritual tools.</li>
-                    <li><strong>Archive fragments:</strong> in-game clues that point back to this site without revealing lore for free.</li>
+                    <li><strong>Materials:</strong> Angelic Feathers, Gilded Feathers, Aerolite, Astrelium, Star Metal, Grace, and Titan Remnants.</li>
+                    <li><strong>Weapons:</strong> Heaven’s Wrath, Choir Bow, Blackhole Staff line, Aerolite tools, and Astrelium tools.</li>
+                    <li><strong>Relics:</strong> halos, charms, rings, pendants, belts, cache keys, remnant variants, purifier cores, goblet, and athame.</li>
+                    <li><strong>Archive ciphers:</strong> in-game clues that point back to this site without revealing lore for free.</li>
                   </ul>
                 </article>
                 <article class="wiki-reference-card">
                   <h4>Blocks</h4>
-                  <p>Blocks are either survival progression stations, building materials, or structure-only storytelling pieces.</p>
+                  <p>Blocks are either survival progression stations, building materials, reward containers, or structure-only storytelling pieces.</p>
                   <ul>
-                    <li><strong>Stations:</strong> Heavenly Forge, Purifier, Heavenly Altar, Angelic Anvil, Angelic Smelter, and Heavenly Furnace.</li>
+                    <li><strong>Stations:</strong> Heavenly Forge, Purifier, Heavenly Altar, Upgrade Table, and cache-related blocks.</li>
                     <li><strong>World blocks:</strong> cloud matter, Heaven wood, charred wood, ash-covered ground, marble/slate ruin materials.</li>
-                    <li><strong>Cache blocks:</strong> locked Heaven reward containers tied to key progression.</li>
+                    <li><strong>Cache blocks:</strong> locked Heaven reward containers tied to Heavenly Cache Key progression.</li>
                     <li><strong>Seal blocks:</strong> creative-only structure blocks used for special ruins and containment scenes, not normal crafting.</li>
                   </ul>
                 </article>
@@ -572,12 +596,121 @@
                   <ul>
                     <li><strong>Red Archive loop:</strong> find code in-game, enter it here, restore memory, keep investigating.</li>
                     <li><strong>Heaven progression:</strong> sky threshold, Heaven biome, angelic drops, divine stations, stronger gear.</li>
-                    <li><strong>Ritual progression:</strong> altar preparation, offerings, candles, goblet, athame, success, backlash, purifier transformations, and cache clues.</li>
+                    <li><strong>Ritual progression:</strong> altar preparation, favor, offerings, candles, goblet, athame, success, backlash, stabilizers, and cache clues.</li>
                     <li><strong>Combat escalation:</strong> Choir Bow resonance, seraphic enemies, Fallen Heaven scars, Cosmic Demon gravity pressure.</li>
                     <li><strong>Structure investigation:</strong> ruins, broken churches, small altars, sealed rooms, and containment marks.</li>
                   </ul>
                 </article>
               </div>
+
+              <h4 class="recipe-subheading">Choir Bow system</h4>
+              <table class="wiki-table recipe-table">
+                <thead>
+                  <tr><th scope="col">Mechanic</th><th scope="col">How it works</th><th scope="col">Player note</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Full draw requirement</td><td>The Choir Bow only fires its special behavior after a full pull.</td><td>Short releases cancel instead of giving free damage.</td></tr>
+                  <tr><td>Hymn / resonance shot</td><td>Normal full release fires a luminous beam up to 34 blocks and can mark multiple targets.</td><td>Hits build Bow Resonance and target resonance.</td></tr>
+                  <tr><td>Choir Wail</td><td>Sneak-release spends full 3/3 Bow Resonance in an 11-block cone blast.</td><td>It slows, weakens, glows, damages, and knocks enemies back.</td></tr>
+                  <tr><td>Enchant support</td><td>Power increases damage, Punch increases knockback, Flame ignites, and Infinity changes arrow consumption.</td><td>Normal bow enchant logic still matters.</td></tr>
+                  <tr><td>Resonance timer</td><td>Target resonance lasts for a short window and can echo-burst when stacked.</td><td>Use deliberate shots instead of random spam.</td></tr>
+                </tbody>
+              </table>
+
+              <h4 class="recipe-subheading">Armor set effects</h4>
+              <table class="wiki-table recipe-table">
+                <thead>
+                  <tr><th scope="col">Set</th><th scope="col">Full-set effect</th><th scope="col">Theme</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Angelic Protector</td><td>High-tier animated armor with wing idle/fly animation and divine flight identity when the full flight set is active.</td><td>Oathbound protector / ascent and descent.</td></tr>
+                  <tr><td>Drowned Warrior</td><td>Restores air, improves underwater movement, heals in water, spawns bubble VFX, and slows hostile mobs with undertow pulses.</td><td>Survival under pressure.</td></tr>
+                  <tr><td>Burned Warrior</td><td>Clears fire, grants Fire Resistance and Strength, spawns ember/smoke VFX, and weakens hostile mobs with heat pulses.</td><td>Walking through flame.</td></tr>
+                  <tr><td>Stonecrest Warrior</td><td>Grants Resistance, reduces harsh fall distance, gives timed Absorption, stone-dust VFX, and a grounded slow pulse.</td><td>Fortress stance.</td></tr>
+                  <tr><td>Warrior of Silence</td><td>Grants Night Vision, crouch invisibility/speed, reverse-portal VFX, and silence pulses that slow and weaken hostiles.</td><td>Quiet ambush / void discipline.</td></tr>
+                </tbody>
+              </table>
+
+              <h4 class="recipe-subheading">Upgrade Table system</h4>
+              <p>
+                The Upgrade Table is a stat-upgrade station, not a recipe output table. Put one supported item in Base, upgrade material in Material, and an Upgrade Catalyst in Catalyst.
+                The result preserves a level, power, material family, catalyst type, and stat line on the item.
+              </p>
+              <table class="wiki-table recipe-table">
+                <thead>
+                  <tr><th scope="col">Part</th><th scope="col">Behavior</th><th scope="col">Examples</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Supported bases</td><td>Damageable gear, armor, tools, weapons, bows, rings, charms, sigils, amulets, pendants, belts, and relics.</td><td>Choir Bow, Heaven’s Wrath, armor, belts, charms, staffs.</td></tr>
+                  <tr><td>Upgrade materials</td><td>Material family and tier decide the stat direction and cost. Cost rises with upgrade level and caps at 12 materials.</td><td>Aerolite = speed/utility, Astrelium = star power, Titan/Netherite = defense, Celestial = health/refinement.</td></tr>
+                  <tr><td>Catalysts</td><td>Catalyst profile changes strength, cost, max level, and stat bias.</td><td>Lesser, Standard, Focused, Aerolite, Celestial, Titan, Volatile, Empowered.</td></tr>
+                  <tr><td>Level cap</td><td>The global max is +8, but weaker catalysts may stop earlier.</td><td>Lesser stops around +4; standard reaches +6; stronger catalysts can reach +8.</td></tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section class="wiki-section" id="guide-heaven-book-systems">
+              <h3>Heaven Book, Quests, Contracts, and Favor</h3>
+              <p>
+                The Heaven Book is the player-facing progression ledger. It tracks favor, quests, contracts, admin/editor data, and objective completion.
+                The normal commands are <code>/heavenbook</code>, <code>/heavenquests</code>, <code>/hq</code>, <code>/heaven quests</code>, <code>/heaven favor</code>, and <code>/heaven contracts</code>.
+              </p>
+              <table class="wiki-table recipe-table">
+                <thead>
+                  <tr><th scope="col">Default quest</th><th scope="col">Objective</th><th scope="col">Reward</th><th scope="col">Favor</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Echoes of the Titans</td><td>Bring 1 Titan Remnant.</td><td>Basic Purifier Core + 16 Lapis Lazuli.</td><td>+15</td></tr>
+                  <tr><td>Control the Remnant</td><td>Bring 1 Controlled Titan Remanent.</td><td>Angelic Core + 8 Gold Ingots.</td><td>+25</td></tr>
+                  <tr><td>Stabilize the Black Hole</td><td>Bring 1 Blackhole Core Item.</td><td>Echo Core + Echo Fragment + Echo Shard.</td><td>+35</td></tr>
+                  <tr><td>Conceal the Titan Soul</td><td>Bring 1 Permanently Concealed Titan Remanent.</td><td>Celestial Core + Forging Symbol + 4 Diamonds.</td><td>+50</td></tr>
+                  <tr><td>Trial of Favor</td><td>Reach 50 Heaven Favor.</td><td>Gilded Feather + 8 Emeralds.</td><td>+20</td></tr>
+                </tbody>
+              </table>
+              <div class="wiki-note"><strong>Contract note:</strong> contracts are per-player and can require favor before acceptance. Claiming a completed contract grants favor and item rewards.</div>
+            </section>
+
+            <section class="wiki-section" id="guide-altar-system">
+              <h3>Heavenly Altar Ritual Reference</h3>
+              <p>
+                A Heavenly Altar rite requires the altar to be ritual-ready: both candles placed, goblet and athame present, and both candles lit.
+                Offerings are consumed from the altar inventory first, then from a container beneath the altar, then from the player inventory.
+              </p>
+              <table class="wiki-table recipe-table">
+                <thead>
+                  <tr><th scope="col">Ritual</th><th scope="col">Cost / offering</th><th scope="col">Effect</th><th scope="col">Failure risk</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>First Light</td><td>Daily rite</td><td>First time +3 favor; repeat daily +1 favor.</td><td>Low</td></tr>
+                  <tr><td>Gentle Wings</td><td>No favor cost</td><td>Slow Falling and short Regeneration.</td><td>Moderate</td></tr>
+                  <tr><td>Pilgrim Blessing</td><td>No favor cost</td><td>Speed and Resistance.</td><td>Moderate</td></tr>
+                  <tr><td>Cup of Devotion</td><td>Gold Ingot</td><td>+4 Heaven Favor.</td><td>Medium</td></tr>
+                  <tr><td>Offering of Amethyst</td><td>Amethyst Shard</td><td>+2 Heaven Favor.</td><td>Medium</td></tr>
+                  <tr><td>Offering of Radiance</td><td>Glowstone Dust</td><td>+3 Heaven Favor and Night Vision.</td><td>Medium</td></tr>
+                  <tr><td>Offering of Emerald</td><td>Emerald</td><td>+4 Heaven Favor and Luck.</td><td>Medium-high</td></tr>
+                  <tr><td>Offering of Diamond</td><td>Diamond</td><td>+8 Heaven Favor.</td><td>High</td></tr>
+                  <tr><td>Sanctuary / Guardian / Chains / Mark</td><td>2–6 favor</td><td>Defensive or hostile-control rites.</td><td>High</td></tr>
+                  <tr><td>Judgment / White Fire / Banishment</td><td>5–10 favor</td><td>Damage, control, weakness, and banishment-style combat rites.</td><td>Very high</td></tr>
+                </tbody>
+              </table>
+              <div class="wiki-note"><strong>Stabilizer note:</strong> stabilizer circles reduce failure chance. Advanced circles and Celestial/Titan stabilizers add protection; Volatile stabilizers add power but can still fail loudly.</div>
+            </section>
+
+            <section class="wiki-section" id="guide-worldgen-structures">
+              <h3>Worldgen, Structures, and Special Blocks</h3>
+              <p>
+                The source pack confirms the wiki should separate survival progression from structure language. Fallen Heavens ruins, broken churches, charred houses,
+                fountains, path remnants, small altars, forge structures, star clusters, and the Cosmic Demon arena are exploration targets. Seal blocks and markers are not normal survival recipes.
+              </p>
+              <table class="wiki-table recipe-table">
+                <tbody>
+                  <tr><th scope="row">Fallen Heavens</th><td>Scar biome with ash, charred wood, ruin networks, and containment-style storytelling.</td></tr>
+                  <tr><th scope="row">Heaven Biome</th><td>Pale Heaven environment connected to the sky-threshold route and angelic progression.</td></tr>
+                  <tr><th scope="row">Cosmic Demon Arena</th><td>Boss structure tied to gravity relics, black-hole pressure, and major escalation.</td></tr>
+                  <tr><th scope="row">Sealed structures</th><td>Handcrafted/special builds that use seal markers and containment blocks as visual/mechanical language.</td></tr>
+                  <tr><th scope="row">Heavenly Cache Box</th><td>Locked reward container. A Heavenly Cache Key is required, then dissolves when used.</td></tr>
+                </tbody>
+              </table>
             </section>
 
             <section class="wiki-section" id="guide-route">
