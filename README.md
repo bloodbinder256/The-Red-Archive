@@ -19,7 +19,7 @@ The current site restores eight grouped memories:
 - Choir Bow / Choir Wail / Hymn Shot / Resonance
 - Seraphic enemies / angelic life / feathers / divine halo
 - Heaven authority / Heaven's Wrath / Fallen Heaven / cosmic demon
-- Seal blocks / containment / ruins / sealed structures
+- Creative-only seal blocks / containment marks / ruins / sealed structures
 - Divine armor / divine equipment / newest Heaven gear
 - Ritual tools / goblet / athame / relic memory
 
@@ -33,7 +33,7 @@ This version adds several discovery features:
 - **Archive voice**: the site changes its message as more memories are restored, so the Archive feels more awake over time.
 - **Tabbed layout**: Archive Terminal, Wiki Main Page, and Progression Guide are separated into top navigation tabs.
 - **Wiki Main Page**: a dark wiki homepage with portal cards, archive status, restored count, integrity, and final protocol state.
-- **Wiki-themed Progression Guide**: a dark field-wiki layout with an index, contents list, infobox, overview note, and memory pages for spoiler-light discovery hints.
+- **Wiki-themed Progression Guide**: a dark field-wiki layout with an index, contents list, infobox, overview note, survival notes, suggested restoration route, and memory pages for spoiler-light discovery hints.
 - **Player Notes**: a local notes box lets players track code fragments, structure coordinates, drops, theories, or to-do items while they play. Notes are saved in this browser with `localStorage`, and can be copied, exported, imported, or cleared.
 - **Style selector**: a top-right style button lets players switch between Red Dark, Archive Light, Celestial Blue, Void Purple, Fallen Gold, and Ashen Slate. The chosen style is saved locally with `localStorage`.
 - **Terminal commands**: the Archive Terminal recognizes flavor commands like `help`, `status`, `memories`, `integrity`, `whoami`, and `heaven`.
@@ -83,7 +83,7 @@ The Progression Guide tab includes a **Player Notes** panel. It is meant for tra
 - coordinates where a fragment was found
 - which boss or structure revealed a clue
 - partial code fragments
-- theories about sealed memories
+- theories about sealed structures and restored memories
 - items or armor sets still missing
 
 Notes are private to the browser. They are not uploaded anywhere and can be copied, exported as a text file, imported from a text file, or cleared from the notes panel.

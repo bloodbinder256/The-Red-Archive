@@ -23,6 +23,7 @@ const RED_ARCHIVE_RECORDS = [
     effect: "sky",
     guideTitle: "Follow the sky breach",
     guideHint: "Search high places, Heaven travel clues, and anything that makes the world feel too thin.",
+    guideDetail: "Recommended hunt: treat this as an early exploration memory. Watch for sky-breach behavior, pale terrain changes, cloud materials, and any transition that feels like the Overworld stops being the whole map.",
     associatedRecords: ["Sky Threshold", "Heaven Dimension", "Heaven Biome", "Cloud Matter", "Heaven Transport Route"],
     body: "Heaven does not open like a door. It thins. The higher the player climbs, the less the world remembers how to keep them, until the sky becomes a threshold and the threshold becomes a verdict. Beyond it waits the Heaven Dimension: pale grass, quiet trees, cloud matter, and air too clean to trust. The biome is beautiful in the way a courtroom is beautiful before the sentence is read. §8Recovered note:§r the sky was never empty. It was watching."
   },
@@ -38,6 +39,7 @@ const RED_ARCHIVE_RECORDS = [
     effect: "altar",
     guideTitle: "Listen to the altar",
     guideHint: "Work with ritual tools, cache keys, offerings, and failed rites. The altar remembers both success and backlash.",
+    guideDetail: "Recommended hunt: test altar-related progression after you have basic Heaven materials. Successful rites, failed rites, cache fragments, and ritual tool usage all belong to this clue family.",
     associatedRecords: ["Heavenly Altar", "Ritual Failure", "Heavenly Cache", "Cache Key", "Offering Logic", "Stabilized Failure"],
     body: "The Heavenly Altar listens before it answers. A Goblet receives. An Athame divides. A feather asks gently. A cache key asks with proof. The cache is not a chest so much as a promise that Heaven locked away something it still wanted found by the correct hands. Failed rites are not empty mistakes; they are failed negotiations. Without containment, the altar may fizzle, bite, drain, or wake things buried under the ritual geometry. §cThe altar does not forgive sloppy names.§r"
   },
@@ -53,6 +55,7 @@ const RED_ARCHIVE_RECORDS = [
     effect: "choir",
     guideTitle: "Tune the bow",
     guideHint: "Experiment with the Choir Bow, full charge, shifting, resonance, Hymn Shot, and Choir Wail.",
+    guideDetail: "Recommended hunt: use the bow deliberately instead of spamming shots. Try full draw, shifting, non-shifting, repeated combat, and anything that builds or spends resonance.",
     associatedRecords: ["Choir Bow", "Hymn Shot", "Choir Wail", "Resonance", "Full Draw", "Song Pressure"],
     body: "The Choir Bow is not a bow that learned music. It is music forced into the shape of a weapon. Hymn Shot is the first clean note: focused, obedient, almost merciful. Choir Wail is the note after obedience breaks, when sound stops blessing the target and starts accusing it. Resonance is the memory between shots, the gathered pressure of every note that has not yet been allowed to scream. When the string is drawn, distance gains a voice. When the shot lands, the target learns what it sounds like to be named."
   },
@@ -68,6 +71,7 @@ const RED_ARCHIVE_RECORDS = [
     effect: "seraph",
     guideTitle: "Study what Heaven sheds",
     guideHint: "Look for angelic enemies, feathers, halos, wisps, and anything beautiful enough to be suspicious.",
+    guideDetail: "Recommended hunt: follow angelic drops and Heaven-touched creatures. Feathers, halos, wisps, and seraphic enemies are signs that the divine ecosystem is leaving evidence behind.",
     associatedRecords: ["Angelic Enemies", "Angelic Feather", "Gilded Feather", "Divine Halo", "Choir Wisp", "Seraphic Remains"],
     body: "Not every angelic thing arrives as a boss. Some arrive as feathers, halos, wisps, and soft creatures that make Heaven look harmless. Angelic feathers are the first touchable proof that divine life bleeds materials into the world. Gilded feathers remember rank. Halos remember command. Seraphic enemies remember Heaven before the fall and hate the ground for surviving them. The prettiest pieces are often the most dangerous, because they teach the player to smile before showing them what judgment weighs."
   },
@@ -83,6 +87,7 @@ const RED_ARCHIVE_RECORDS = [
     effect: "throne",
     guideTitle: "Challenge authority",
     guideHint: "Follow Heaven's Wrath, Fallen Heaven scars, black-hole relics, and the Cosmic Demon encounter.",
+    guideDetail: "Recommended hunt: this is a later-game authority memory. Look for the point where divine weapons, Fallen Heaven biomes, black-hole materials, and boss escalation start pointing at the same conflict.",
     associatedRecords: ["Heaven's Wrath", "True Heaven's Wrath", "Fallen Heaven", "Cosmic Demon", "Blackhole Core", "Authority Scar"],
     body: "Heaven calls its violence authority because authority sounds cleaner than fear. Heaven's Wrath is not merely a weapon path; it is a verdict sharpened until mercy falls away from the edge. Fallen Heaven is what happens when that authority crashes into the world and leaves a scar that still smells like ash. The Cosmic Demon is the counterargument: collapse wearing hunger, gravity with malice, a throne made from everything that falls. Between Wrath and Collapse, DemonTime asks one question: who gets to decide what deserves to remain standing?"
   },
@@ -97,9 +102,10 @@ const RED_ARCHIVE_RECORDS = [
     threat: "Memory Group // Seals and Ruins",
     effect: "seal",
     guideTitle: "Read the containment marks",
-    guideHint: "Investigate seal blocks, sealed structures, broken churches, small altars, and ruin paths.",
-    associatedRecords: ["Seal Blocks", "Containment", "Broken Church", "Small Altar", "Sealed Structures", "Fallen Ruins"],
-    body: "A seal is not a wall. A wall says no. A seal says not yet. The ruins of Fallen Heaven are full of that difference: broken churches, burned houses, small altars, sealed structures, and paths arranged like a village trying to point at its own murderer. Containment does not mean victory. It means the thing inside still matters enough to be feared. §8Recovered warning:§r if a seal fades too quickly, it was never meant to hold. If it remains, ask what it is protecting you from."
+    guideHint: "Do not look for craftable seal blocks in normal progression. Seal blocks are creative-only structure markers used inside special ruins, sealed rooms, and containment builds.",
+    guideDetail: "Recommended hunt: investigate the structures that use seals, not the seal block as an item. Check broken churches, small altars, sealed rooms, ruin paths, and containment-looking builds for clues or fragments.",
+    associatedRecords: ["Creative-only Seal Blocks", "Containment Marks", "Broken Church", "Small Altar", "Sealed Structures", "Fallen Ruins"],
+    body: "A seal is not a wall. A wall says no. A seal says not yet. These marks are not ordinary survival blocks or player progression pieces; they are creative-only structure language, placed where the world itself needs to look restrained. The ruins of Fallen Heaven are full of that difference: broken churches, burned houses, small altars, sealed rooms, and paths arranged like a village trying to point at its own murderer. Containment does not mean victory. It means the thing inside still matters enough to be feared. §8Recovered warning:§r when a seal appears in a structure, read the room around it. The block is not the reward. The thing it is holding back is the clue."
   },
   {
     codeHash: "83edc10a94bb2ba2259bc85688ea8c7554ef39ecc9cf5b35d956c42a5668d888",
@@ -113,6 +119,7 @@ const RED_ARCHIVE_RECORDS = [
     effect: "armor",
     guideTitle: "Wear the story",
     guideHint: "Craft, wear, or complete the newest Heaven gear and warrior sets. Some armor only speaks as a full set.",
+    guideDetail: "Recommended hunt: armor memories should feel earned through equipment milestones. Inspect tooltips, complete sets, and compare the newest warrior themes: drowned, burned, stone, silence, fallen worlds, and angelic protection.",
     associatedRecords: ["Divine Armor", "Angelic Protector", "Set of the Fallen Worlds", "Drowned Warrior", "Burned Warrior", "Stonecrest Warrior", "Warrior of Silence"],
     body: "Divine armor is not just protection. It is a story the body is forced to wear. Angelic gear teaches survival to look beautiful. Protector armor turns duty into wings. The Set of the Fallen Worlds carries drowned pressure, burned endurance, stone patience, and silence sharp enough to cut sound from the air. New Heaven gear does not ask whether the player is worthy. It asks whether the player can keep moving while every plate remembers a different apocalypse."
   },
@@ -128,6 +135,7 @@ const RED_ARCHIVE_RECORDS = [
     effect: "relic",
     guideTitle: "Carry the tools that remember",
     guideHint: "Look for goblets, athames, remnants, gravity cores, grace objects, and ritual relic fragments.",
+    guideDetail: "Recommended hunt: relic clues sit between crafting, ritual use, and boss rewards. If an object feels ceremonial instead of practical, write it down in Player Notes and test it near ritual systems.",
     associatedRecords: ["Goblet", "Athame", "Titan Remnant", "Blackhole Core", "Grace Locket", "Ritual Relics"],
     body: "Relics are objects that survived long enough to become arguments. The Goblet receives what the player is willing to offer. The Athame divides what can be spared from what must be taken. Titan remnants remember size, blood, and stubbornness. Gravity relics remember collapse. Grace relics remember the strange mercy of not dying yet. None of them are neutral. Every relic is a tool, a witness, and a small locked mouth waiting for the correct rite to make it speak."
   }
@@ -797,6 +805,10 @@ function renderProgressionGuide() {
             <tr>
               <th scope="row">Where to investigate</th>
               <td>${escapeHtml(record.guideHint || "Recover this memory inside DemonTime: Season Two.")}</td>
+            </tr>
+            <tr>
+              <th scope="row">Field note</th>
+              <td>${escapeHtml(record.guideDetail || "Use the in-game clue, then return to the Archive Terminal when you recover a complete sequence.")}</td>
             </tr>
             <tr>
               <th scope="row">Archive behavior</th>
