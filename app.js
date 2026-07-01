@@ -163,7 +163,18 @@ const TERMINAL_COMMANDS = {
 
 const STORAGE_KEY = "demontime.redArchive.unlocked";
 const NOTES_KEY = "demontime.redArchive.playerNotes";
+const THEME_KEY = "demontime.redArchive.theme";
 const LEGACY_STORAGE_KEY = "demontime.redArchive.unlocked";
+
+const STYLE_THEMES = {
+  "red-dark": "Red Dark",
+  "archive-light": "Archive Light",
+  "celestial-blue": "Celestial Blue",
+  "void-purple": "Void Purple",
+  "fallen-gold": "Fallen Gold",
+  "ashen-slate": "Ashen Slate"
+};
+const DEFAULT_THEME = "red-dark";
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => Array.from(document.querySelectorAll(selector));
 const animeApi = window.anime || null;
@@ -234,6 +245,10 @@ const els = {
   importNotes: $("#import-notes"),
   clearNotes: $("#clear-notes"),
   notesStatus: $("#notes-status"),
+  styleToggle: $("#style-toggle"),
+  styleMenu: $("#style-menu"),
+  styleName: $("#style-name"),
+  styleOptions: $$(".style-option"),
   tabButtons: $$(".tab-button"),
   tabPanels: $$(".tab-panel")
 };
@@ -247,6 +262,7 @@ boot();
 
 function boot() {
   els.totalCount.textContent = RED_ARCHIVE_RECORDS.length;
+  initializeStylePicker();
   renderAll();
   bindEvents();
   initializeNotes();
@@ -308,6 +324,29 @@ function bindEvents() {
     button.addEventListener("click", () => switchTab(button.dataset.tabJump, true));
   });
 
+  if (els.styleToggle && els.styleMenu) {
+    els.styleToggle.addEventListener("click", (event) => {
+      event.stopPropagation();
+      toggleStyleMenu();
+    });
+
+    els.styleOptions.forEach((button) => {
+      button.addEventListener("click", () => {
+        applyTheme(button.dataset.theme, true);
+        closeStyleMenu();
+        pulseElement(els.styleToggle);
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".style-switcher")) closeStyleMenu();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeStyleMenu();
+    });
+  }
+
   if (els.saveNotes) {
     els.saveNotes.addEventListener("click", savePlayerNotes);
   }
@@ -342,6 +381,38 @@ function bindEvents() {
       notesTimer = setTimeout(savePlayerNotes, 800);
     });
   }
+}
+
+function initializeStylePicker() {
+  const savedTheme = localStorage.getItem(THEME_KEY) || DEFAULT_THEME;
+  applyTheme(savedTheme, false);
+}
+
+function applyTheme(themeId, save = true) {
+  const theme = STYLE_THEMES[themeId] ? themeId : DEFAULT_THEME;
+  document.body.dataset.theme = theme;
+
+  if (els.styleName) els.styleName.textContent = STYLE_THEMES[theme];
+  els.styleOptions.forEach((button) => {
+    const isActive = button.dataset.theme === theme;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-current", String(isActive));
+  });
+
+  if (save) localStorage.setItem(THEME_KEY, theme);
+}
+
+function toggleStyleMenu() {
+  if (!els.styleMenu || !els.styleToggle) return;
+  const isOpen = !els.styleMenu.hidden;
+  els.styleMenu.hidden = isOpen;
+  els.styleToggle.setAttribute("aria-expanded", String(!isOpen));
+}
+
+function closeStyleMenu() {
+  if (!els.styleMenu || !els.styleToggle) return;
+  els.styleMenu.hidden = true;
+  els.styleToggle.setAttribute("aria-expanded", "false");
 }
 
 function initializeNotes() {

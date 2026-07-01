@@ -35,6 +35,7 @@ This version adds several discovery features:
 - **Wiki Main Page**: a dark wiki homepage with portal cards, archive status, restored count, integrity, and final protocol state.
 - **Wiki-themed Progression Guide**: a dark field-wiki layout with an index, contents list, infobox, overview note, and memory pages for spoiler-light discovery hints.
 - **Player Notes**: a local notes box lets players track code fragments, structure coordinates, drops, theories, or to-do items while they play. Notes are saved in this browser with `localStorage`, and can be copied, exported, imported, or cleared.
+- **Style selector**: a top-right style button lets players switch between Red Dark, Archive Light, Celestial Blue, Void Purple, Fallen Gold, and Ashen Slate. The chosen style is saved locally with `localStorage`.
 - **Terminal commands**: the Archive Terminal recognizes flavor commands like `help`, `status`, `memories`, `integrity`, `whoami`, and `heaven`.
 - **Final protocol**: restoring every current memory unlocks a final completion panel.
 - **Archive integrity meter**: the restored-memory percentage updates as codes are entered.
@@ -61,6 +62,19 @@ This memory has already been restored.
 ```
 
 Unlocked memories are saved locally in the player's browser with `localStorage`.
+
+## Display styles
+
+The top-right **Style** button changes the look of the site without changing any unlocked memories or notes. Current styles include:
+
+- Red Dark
+- Archive Light
+- Celestial Blue
+- Void Purple
+- Fallen Gold
+- Ashen Slate
+
+The selected style is saved in the player's browser with `localStorage`.
 
 ## Player notes
 
